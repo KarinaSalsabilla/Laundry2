@@ -274,7 +274,7 @@
         <ImageView
             android:layout_width="80dp"
             android:layout_height="70dp"
-            android:background="@drawable/pelang"
+            android:background="@drawable/pe"
             android:layout_marginTop="10dp"
             android:layout_marginStart="15dp" />
 
