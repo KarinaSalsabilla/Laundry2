@@ -5,7 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background"
+    android:background="@drawable/gradient_background"
     tools:context=".MainActivity">
 
     <TextView
@@ -13,11 +13,12 @@
         android:layout_height="wrap_content"
         android:id="@+id/halo"
         android:text="Hallo,-!"
-        android:textColor="@color/black"
+        android:fontFamily="@font/playfair_display"
+        android:textColor="@color/white"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         android:layout_marginTop="55dp"
-        android:layout_marginStart="50dp"
+        android:layout_marginStart="30dp"
         android:textStyle="bold"
         android:textSize="25sp"/>
 
@@ -26,10 +27,11 @@
         android:layout_height="wrap_content"
         android:id="@+id/tanggal"
         android:text="08 Januari 2025"
-        android:textColor="@color/black"
-        app:layout_constraintTop_toTopOf="parent"
+        android:textSize="15sp"
+        android:textColor="@color/white"
+        app:layout_constraintTop_toBottomOf="@+id/halo"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="80dp"
+        android:layout_marginTop="30dp"
         android:layout_marginEnd="35dp"
         />
 
@@ -42,7 +44,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toTopOf="@+id/hati"
-        app:cardBackgroundColor="#134771"
+        app:cardBackgroundColor="#FAE81D"
         android:layout_marginTop="65dp"
         android:elevation="10dp"
         android:translationZ="10dp"
@@ -53,8 +55,10 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="@color/white"
+            android:textColor="@color/black"
             android:text="Estimasi Hari Ini"
+            android:fontFamily="@font/parkinsans"
+            android:textStyle="bold"
             android:layout_marginTop="5dp"
             android:layout_marginStart="10dp"
             />
@@ -62,7 +66,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="@color/white"
+            android:textColor="@color/black"
             android:text="Rp."
             android:textSize="10sp"
             android:layout_marginTop="2dp"
@@ -72,7 +76,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="@color/white"
+            android:textColor="@color/black"
             android:text="40.000,-"
             android:textSize="15sp"
             android:layout_marginTop="5dp"
@@ -82,7 +86,7 @@
         <View
             android:layout_width="match_parent"
             android:layout_height="2dp"
-            android:background="#FFC107"
+            android:background="#7D7DC3"
             android:layout_marginTop="35dp"
             />
 
@@ -100,7 +104,7 @@
             android:layout_height="wrap_content"
             android:text="Transaksi"
             android:textSize="16sp"
-            android:textColor="@color/white"
+            android:textColor="@color/black"
             android:layout_marginTop="120dp"
             android:layout_marginStart="20dp"
             android:layout_marginEnd="20dp"/>
@@ -118,7 +122,7 @@
             android:layout_height="wrap_content"
             android:text="Pelanggan"
             android:textSize="16sp"
-            android:textColor="@color/white"
+            android:textColor="@color/black"
             android:layout_marginTop="120dp"
             android:layout_marginStart="135dp"
             android:layout_marginEnd="20dp"/>
@@ -136,7 +140,7 @@
             android:layout_height="wrap_content"
             android:text="Laporan"
             android:textSize="16sp"
-            android:textColor="@color/white"
+            android:textColor="@color/black"
             android:layout_marginTop="120dp"
             android:layout_marginStart="260dp"
             android:layout_marginEnd="20dp"/>
@@ -163,7 +167,7 @@
         android:id="@+id/pelanggan"
         android:text="Jangan Kecewakan Pelanggan"
         android:textSize="14sp"
-        android:textColor="@color/black"
+        android:textColor="@color/white"
         app:layout_constraintTop_toTopOf="@+id/hati"
         app:layout_constraintStart_toStartOf="parent"
         android:layout_marginStart="20dp"
@@ -174,13 +178,12 @@
             android:layout_width="110dp"
             android:layout_height="110dp"
             android:id="@+id/akun"
-            app:cardBackgroundColor="#1A3E89"
+            app:cardBackgroundColor="#FF9800"
             app:layout_constraintTop_toBottomOf="@+id/pelanggan"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/layanan"
             app:layout_constraintBottom_toTopOf="@+id/pegawai"
             android:layout_marginStart="20dp"
-            android:layout_marginEnd="5dp"
             android:layout_marginTop="20dp"
             app:cardCornerRadius="10dp">
 
@@ -195,7 +198,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Akun"
-                android:textColor="@color/white"
+                android:textColor="@color/black"
                 android:layout_marginTop="85dp"
                 android:layout_marginStart="40dp"/>
         </androidx.cardview.widget.CardView>
@@ -206,13 +209,12 @@
         android:layout_width="110dp"
         android:layout_height="110dp"
         android:id="@+id/layanan"
-        app:cardBackgroundColor="#1A3E89"
+        app:cardBackgroundColor="#FF9800"
         app:layout_constraintTop_toBottomOf="@+id/pelanggan"
         app:layout_constraintStart_toEndOf="@+id/akun"
         app:layout_constraintEnd_toStartOf="@+id/tambahan"
         app:layout_constraintBottom_toTopOf="@+id/cabang"
         android:layout_marginStart="5dp"
-        android:layout_marginEnd="5dp"
         android:layout_marginTop="20dp"
         app:cardCornerRadius="10dp">
 
@@ -227,7 +229,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Layanan"
-            android:textColor="@color/white"
+            android:textColor="@color/black"
             android:layout_marginTop="85dp"
             android:layout_marginStart="35dp"/>
     </androidx.cardview.widget.CardView>
@@ -237,7 +239,7 @@
     <androidx.cardview.widget.CardView
         android:layout_width="110dp"
         android:layout_height="110dp"
-        app:cardBackgroundColor="#1A3E89"
+        app:cardBackgroundColor="#FF9800"
         android:id="@+id/tambahan"
         app:layout_constraintTop_toBottomOf="@+id/pelanggan"
         app:layout_constraintBottom_toTopOf="@+id/print"
@@ -259,7 +261,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Tambahan"
-            android:textColor="@color/white"
+            android:textColor="@color/black"
             android:layout_marginTop="80dp"
             android:layout_marginStart="30dp"/>
 
@@ -269,13 +271,12 @@
     <androidx.cardview.widget.CardView
         android:layout_width="110dp"
         android:layout_height="110dp"
-        app:cardBackgroundColor="#1A3E89"
+        app:cardBackgroundColor="#FF9800"
         android:id="@+id/pegawai"
         app:layout_constraintTop_toBottomOf="@+id/akun"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/cabang"
         android:layout_marginStart="20dp"
-        android:layout_marginEnd="5dp"
         android:layout_marginTop="20dp"
         app:cardCornerRadius="10dp">
 
@@ -290,7 +291,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Pegawai"
-            android:textColor="@color/white"
+            android:textColor="@color/black"
             android:layout_marginTop="80dp"
             android:layout_marginStart="35dp"/>
     </androidx.cardview.widget.CardView>
@@ -298,13 +299,12 @@
     <androidx.cardview.widget.CardView
         android:layout_width="110dp"
         android:layout_height="110dp"
-        app:cardBackgroundColor="#1A3E89"
+        app:cardBackgroundColor="#FF9800"
         android:id="@+id/cabang"
         app:layout_constraintTop_toBottomOf="@+id/layanan"
         app:layout_constraintStart_toEndOf="@+id/pegawai"
         app:layout_constraintEnd_toStartOf="@+id/print"
         android:layout_marginStart="5dp"
-        android:layout_marginEnd="5dp"
         android:layout_marginTop="20dp"
         app:cardCornerRadius="10dp">
 
@@ -319,7 +319,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Cabang"
-            android:textColor="@color/white"
+            android:textColor="@color/black"
             android:layout_marginTop="80dp"
             android:layout_marginStart="35dp"/>
     </androidx.cardview.widget.CardView>
@@ -327,7 +327,7 @@
     <androidx.cardview.widget.CardView
         android:layout_width="110dp"
         android:layout_height="110dp"
-        app:cardBackgroundColor="#1A3E89"
+        app:cardBackgroundColor="#FF9800"
         android:id="@+id/print"
         app:layout_constraintTop_toBottomOf="@+id/tambahan"
         app:layout_constraintStart_toEndOf="@+id/cabang"
@@ -348,7 +348,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Printer"
-            android:textColor="@color/white"
+            android:textColor="@color/black"
             android:layout_marginTop="80dp"
             android:layout_marginStart="38dp"/>
     </androidx.cardview.widget.CardView>
