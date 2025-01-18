@@ -1,30 +1,43 @@
 package com.huurisha.laundry
 
 import android.os.Bundle
-import android.widget.TextView
-import androidx.activity.enableEdgeToEdge
+import android.view.View
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
+import androidx.core.view.WindowCompat
 import androidx.core.view.WindowInsetsCompat
+import androidx.core.view.WindowInsetsControllerCompat
 import java.text.SimpleDateFormat
+import android.widget.TextView
+
 import java.util.*
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
+
+        // Mengatur layar penuh langsung di Kotlin
+        WindowCompat.setDecorFitsSystemWindows(window, false)
+        val windowInsetsController = WindowInsetsControllerCompat(window, window.decorView)
+        windowInsetsController.hide(WindowInsetsCompat.Type.systemBars())
+        windowInsetsController.systemBarsBehavior =
+            WindowInsetsControllerCompat.BEHAVIOR_SHOW_TRANSIENT_BARS_BY_SWIPE
+
+        // Tambahkan juga sistem UI yang imersif agar lebih fleksibel
+        window.decorView.systemUiVisibility = (
+                View.SYSTEM_UI_FLAG_FULLSCREEN
+                        or View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
+                        or View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY
+                        or View.SYSTEM_UI_FLAG_LAYOUT_STABLE
+                        or View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
+                        or View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
+                )
+
+        // Set layout
         setContentView(R.layout.activity_main)
 
-        // Menyesuaikan padding untuk sistem bar
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
-            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
-            insets
-        }
-
         // Referensi TextView
-        val helloTextView: TextView = findViewById(R.id.halo)
-        val dateTextView: TextView = findViewById(R.id.tanggal)
+        val helloTextView = findViewById<View>(R.id.halo) as TextView
+        val dateTextView = findViewById<View>(R.id.tanggal) as TextView
 
         // Mengatur tanggal hari ini
         val calendar = Calendar.getInstance()
