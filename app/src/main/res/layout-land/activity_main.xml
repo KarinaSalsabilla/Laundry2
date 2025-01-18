@@ -5,7 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white"
+    android:background="@drawable/walpaper1"
     tools:context=".MainActivity">
 
     <TextView
@@ -13,11 +13,11 @@
         android:layout_height="wrap_content"
         android:id="@+id/halo"
         android:text="Hallo,-!"
+        android:textColor="@color/black"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toTopOf="@+id/card1"
-        android:layout_marginBottom="10dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="50dp"
         android:layout_marginStart="40dp"
         android:textStyle="bold"
         android:textSize="25dp"/>
@@ -28,10 +28,11 @@
         android:id="@+id/tanggal"
         android:text="08 Januari 2025"
         android:textSize="16sp"
+        android:textColor="@color/black"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="15dp"
-        android:layout_marginEnd="40dp"
+        android:layout_marginTop="25dp"
+        android:layout_marginEnd="45dp"
         />
 
     <androidx.cardview.widget.CardView
@@ -42,8 +43,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         android:layout_marginBottom="50dp"
-        app:cardBackgroundColor="#590303"
-        android:layout_marginTop="20dp"
+        app:cardBackgroundColor="#3E92D7"
+        android:layout_marginTop="5dp"
         android:layout_marginStart="30dp"
         android:layout_marginEnd="5dp"
         app:cardCornerRadius="10dp">
@@ -105,7 +106,7 @@
             app:layout_constraintTop_toBottomOf="@+id/garis"
             app:layout_constraintStart_toStartOf="parent"
             android:background="@drawable/akun"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="10dp"
             android:layout_marginStart="10dp"
             android:id="@+id/akun"
             android:layout_marginEnd="20dp"/>
@@ -119,7 +120,7 @@
             android:textColor="@color/white"
             app:layout_constraintTop_toBottomOf="@+id/garis"
             app:layout_constraintStart_toEndOf="@+id/akun"
-            android:layout_marginTop="40dp"
+            android:layout_marginTop="35dp"
             android:layout_marginStart="20dp"
             android:layout_marginEnd="20dp"/>
 
@@ -184,7 +185,7 @@
         android:layout_marginEnd="5dp"
         app:layout_constraintEnd_toStartOf="@+id/layanan"
         app:layout_constraintBottom_toTopOf="@+id/pelanggan"
-        app:cardBackgroundColor="@color/black"
+        app:cardBackgroundColor="#3E92D7"
         app:cardCornerRadius="10dp"
         app:layout_constraintStart_toEndOf="@+id/card1"
         app:layout_constraintTop_toTopOf="parent">
@@ -211,7 +212,7 @@
         android:layout_width="135dp"
         android:layout_height="100dp"
         android:id="@+id/layanan"
-        app:cardBackgroundColor="@color/black"
+        app:cardBackgroundColor="#3E92D7"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toEndOf="@+id/transaksi"
         app:layout_constraintEnd_toStartOf="@+id/tambahan"
@@ -242,7 +243,7 @@
     <androidx.cardview.widget.CardView
         android:layout_width="135dp"
         android:layout_height="100dp"
-        app:cardBackgroundColor="@color/black"
+        app:cardBackgroundColor="#3E92D7"
         android:id="@+id/tambahan"
        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toEndOf="@+id/layanan"
@@ -258,7 +259,7 @@
             android:layout_height="60dp"
             android:background="@drawable/plus"
             android:layout_marginTop="10dp"
-            android:layout_marginStart="35dp" />
+            android:layout_marginStart="40dp" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -266,7 +267,7 @@
             android:text="Tambahan"
             android:textColor="@color/white"
             android:layout_marginTop="70dp"
-            android:layout_marginStart="35dp"/>
+            android:layout_marginStart="40dp"/>
 
     </androidx.cardview.widget.CardView>
 
@@ -275,7 +276,7 @@
         android:id="@+id/pelanggan"
         android:layout_width="135dp"
         android:layout_height="100dp"
-        app:cardBackgroundColor="@color/black"
+        app:cardBackgroundColor="#3E92D7"
         app:layout_constraintEnd_toStartOf="@+id/laporan"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/transaksi"
@@ -307,7 +308,7 @@
     <androidx.cardview.widget.CardView
         android:layout_width="135dp"
         android:layout_height="100dp"
-        app:cardBackgroundColor="@color/black"
+        app:cardBackgroundColor="#3E92D7"
         android:id="@+id/laporan"
         app:layout_constraintTop_toBottomOf="@+id/layanan"
         app:layout_constraintStart_toEndOf="@+id/pelanggan"
@@ -324,7 +325,7 @@
             android:layout_height="70dp"
             android:background="@drawable/laporan"
             android:layout_marginTop="10dp"
-            android:layout_marginStart="25dp" />
+            android:layout_marginStart="35dp" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -332,7 +333,7 @@
             android:text="Laporan"
             android:textColor="@color/white"
             android:layout_marginTop="70dp"
-            android:layout_marginStart="35dp"/>
+            android:layout_marginStart="45dp"/>
     </androidx.cardview.widget.CardView>
 
 
@@ -341,7 +342,7 @@
     <androidx.cardview.widget.CardView
         android:layout_width="135dp"
         android:layout_height="100dp"
-        app:cardBackgroundColor="@color/black"
+        app:cardBackgroundColor="#3E92D7"
         android:id="@+id/print"
         app:layout_constraintTop_toBottomOf="@+id/tambahan"
         app:layout_constraintStart_toEndOf="@+id/laporan"
