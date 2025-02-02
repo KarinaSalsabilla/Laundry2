@@ -123,7 +123,7 @@
             android:id="@+id/pelanggan1"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toEndOf="@+id/transaksi"
-            android:layout_marginStart="60dp"
+            android:layout_marginStart="55dp"
             android:layout_marginTop="45dp"
             android:layout_marginEnd="20dp"
             android:background="@drawable/pe" />
@@ -138,7 +138,7 @@
             android:textSize="14sp"
             android:textColor="@color/white"
             android:layout_marginTop="1dp"
-            android:layout_marginStart="60dp"
+            android:layout_marginStart="55dp"
             android:layout_marginEnd="20dp"/>
 
         <ImageButton

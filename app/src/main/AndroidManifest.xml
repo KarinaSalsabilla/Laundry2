@@ -13,6 +13,18 @@
         android:theme="@style/Theme.Laundry"
         tools:targetApi="31">
         <activity
+            android:name=".pelanggan.layanan"
+            android:exported="false" />
+        <activity
+            android:name=".pelanggan.tambahan"
+            android:exported="false" />
+        <activity
+            android:name=".pelanggan.tambahPelanggan"
+            android:exported="false" />
+        <activity
+            android:name=".pelanggan.dataPelanggan"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
