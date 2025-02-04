@@ -1,4 +1,4 @@
-package com.huurisha.laundry.pelanggan
+package com.huurisha.laundry.layanan
 
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
