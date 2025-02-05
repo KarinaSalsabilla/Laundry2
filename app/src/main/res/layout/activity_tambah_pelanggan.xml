@@ -87,11 +87,34 @@
         android:layout_marginTop="15dp"
         />
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/cabang"
+        android:text="Nama Cabang"
+        app:layout_constraintTop_toBottomOf="@+id/inputnohp"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="30dp"
+        android:layout_marginStart="20dp"
+        android:textSize="20sp"/>
+
+    <EditText
+        android:layout_width="350dp"
+        android:layout_height="40dp"
+        android:id="@+id/inputcabang"
+        android:hint="Nama Cabang"
+        android:background="@drawable/edit_text_background"
+        app:layout_constraintTop_toBottomOf="@+id/cabang"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="15dp"
+        />
+
     <Button
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:id="@+id/simpan"
-        app:layout_constraintTop_toBottomOf="@+id/inputnohp"
+        app:layout_constraintTop_toBottomOf="@+id/inputcabang"
         android:layout_marginStart="20dp"
         android:layout_marginEnd="20dp"
         android:layout_marginTop="50dp"

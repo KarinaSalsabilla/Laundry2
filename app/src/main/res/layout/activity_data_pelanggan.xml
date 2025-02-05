@@ -11,7 +11,7 @@
         android:id="@+id/rvDataPelanggan"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:listitem="@layout/cardatapelanggan">
+       tools:listitem="@layout/carddatapelanggan">
 
 
     </androidx.recyclerview.widget.RecyclerView>

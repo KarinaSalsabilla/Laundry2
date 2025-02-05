@@ -1,3 +1,6 @@
 <resources>
     <string name="app_name">Laundry</string>
+    <string name="idpelanggan">idpelanggan</string>
+    <string name="lihat">lihat</string>
+    <string name="hubungi">hubungi</string>
 </resources>
