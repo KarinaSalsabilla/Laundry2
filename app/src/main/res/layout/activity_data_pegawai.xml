@@ -8,7 +8,7 @@
     tools:context=".pegawai.dataPegawai">
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rvDataPelanggan"
+        android:id="@+id/rvDataPegawai"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:listitem="@layout/carddatapegawai">
@@ -22,17 +22,17 @@
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/fabDATA_PENGGUNA_Tambah"
+            android:id="@+id/fabDATA_PEGAWAI_Tambah"
             android:src="@drawable/baseline_add_24"
             android:layout_alignParentEnd="true"
             android:layout_alignParentBottom="true"
             android:layout_marginEnd="16dp"
-            android:layout_marginBottom="16dp">
+            android:layout_marginBottom="16dp"/>
 
 
 
 
-        </com.google.android.material.floatingactionbutton.FloatingActionButton>
+
     </RelativeLayout>
 
 

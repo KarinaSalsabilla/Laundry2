@@ -1,39 +1,57 @@
 package com.huurisha.laundry
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
+import android.widget.ImageButton
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.WindowCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.WindowInsetsControllerCompat
 import java.text.SimpleDateFormat
 import android.widget.TextView
+import androidx.activity.enableEdgeToEdge
+import androidx.cardview.widget.CardView
+import androidx.core.view.ViewCompat
+import com.google.android.material.floatingactionbutton.FloatingActionButton
+import com.huurisha.laundry.pegawai.dataPegawai
+import com.huurisha.laundry.pegawai.tambah_pegawai
+import com.huurisha.laundry.pelanggan.dataPelanggan
+import com.huurisha.laundry.pelanggan.tambahPelanggan
 
 import java.util.*
 
 class MainActivity : AppCompatActivity() {
+    lateinit var pelanggan1: ImageButton
+    lateinit var pegawai1: CardView
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
-        // Mengatur layar penuh langsung di Kotlin
-        WindowCompat.setDecorFitsSystemWindows(window, false)
-        val windowInsetsController = WindowInsetsControllerCompat(window, window.decorView)
-        windowInsetsController.hide(WindowInsetsCompat.Type.systemBars())
-        windowInsetsController.systemBarsBehavior =
-            WindowInsetsControllerCompat.BEHAVIOR_SHOW_TRANSIENT_BARS_BY_SWIPE
-
-        // Tambahkan juga sistem UI yang imersif agar lebih fleksibel
-        window.decorView.systemUiVisibility = (
-                View.SYSTEM_UI_FLAG_FULLSCREEN
-                        or View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
-                        or View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY
-                        or View.SYSTEM_UI_FLAG_LAYOUT_STABLE
-                        or View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
-                        or View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
-                )
-
-        // Set layout
+        enableEdgeToEdge()
         setContentView(R.layout.activity_main)
+        init()
+        tekan()
+        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
+            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
+            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
+            insets
+        }
+    }
+
+    fun init() {
+        pelanggan1 = findViewById(R.id.pelanggan1)
+        pegawai1 = findViewById(R.id.pegawai)
+    }
+
+    fun tekan() {
+        pelanggan1.setOnClickListener {
+            val intent = Intent(this, dataPelanggan::class.java)
+            startActivity(intent)
+        }
+        pegawai1.setOnClickListener {
+            val intent = Intent(this, dataPegawai::class.java)
+            startActivity(intent)
+        }
 
         // Referensi TextView
         val helloTextView = findViewById<View>(R.id.halo) as TextView
@@ -56,3 +74,4 @@ class MainActivity : AppCompatActivity() {
         helloTextView.text = greeting
     }
 }
+

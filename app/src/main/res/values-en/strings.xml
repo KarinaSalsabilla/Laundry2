@@ -4,4 +4,25 @@
     <string name="idpelanggan">Customer ID</string>
     <string name="lihat">View</string>
     <string name="hubungi">Contact</string>
+    <string name="tvpelanggan">Add Customer</string>
+    <string name="tvnama">Customer Name</string>
+    <string name="tvalamat">Address</string>
+    <string name="tvnohp">Phone</string>
+    <string name="cabang">Branch Name</string>
+    <string name="simpan">Save</string>
+    <string name="tvpegawai">Add staff</string>
+    <string name="tvnamapegawai">Name Staff</string>
+    <string name="ttl">Registed</string>
+    <string name="kelamin">Gender</string>
+    <string name="laki">Male</string>
+    <string name="perempuan">Woman</string>
+    <string name="layanan">Add Services</string>
+    <string name="namalayanan">Name Services</string>
+    <string name="hargaLayanan">Service Price</string>
+    <string name="validasinama">"Name "</string>
+    <string name="validasialamat">address</string>
+    <string name="validasiHp">hp</string>
+    <string name="validasiCabang">branch</string>
+    <string name="suksespelanggan">succesfull</string>
+    <string name="gagalpelanggan">Failed</string>
 </resources>
