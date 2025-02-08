@@ -14,9 +14,9 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:cardCornerRadius="10dp"
         app:cardBackgroundColor="#FF9800"
-        android:layout_marginStart="10dp"
+        android:layout_marginStart="12dp"
         android:layout_marginEnd="10dp"
-        android:layout_marginTop="30dp">
+        android:layout_marginTop="20dp">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -53,7 +53,7 @@
             app:layout_constraintTop_toBottomOf="@+id/pelanggan"
             app:layout_constraintStart_toStartOf="parent"
             android:layout_marginStart="10dp"
-            android:layout_marginTop="15dp" />
+            android:layout_marginTop="10dp" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -98,7 +98,9 @@
             android:id="@+id/hubungipel"
             app:layout_constraintTop_toBottomOf="@+id/cabangpel"
             app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginStart="20dp"
+            app:layout_constraintEnd_toStartOf="@+id/lihatpel"
+            android:layout_marginStart="30dp"
+            android:layout_marginEnd="10dp"
             android:layout_marginTop="10dp"
             android:backgroundTint="#8C0000"/>
 
@@ -109,8 +111,9 @@
             android:id="@+id/lihatpel"
             app:layout_constraintTop_toBottomOf="@+id/cabangpel"
             app:layout_constraintStart_toEndOf="@+id/hubungipel"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginEnd="30dp"
             android:backgroundTint="#077500"
-            android:layout_marginStart="30dp"
             android:layout_marginTop="10dp"/>
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>

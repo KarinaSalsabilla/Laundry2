@@ -15,7 +15,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="30dp"
         android:textStyle="bold"
         android:textSize="30sp"/>
 
@@ -26,18 +26,19 @@
         android:text="@string/tvnama"
         app:layout_constraintTop_toBottomOf="@+id/tvpelanggan1"
         app:layout_constraintStart_toStartOf="parent"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="35dp"
         android:layout_marginStart="20dp"
         android:textSize="20sp"/>
 
     <EditText
-        android:layout_width="350dp"
-        android:layout_height="40dp"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
         android:id="@+id/inputnamapel"
         android:hint="@string/tvnama"
         app:layout_constraintTop_toBottomOf="@+id/tvnama"
         app:layout_constraintStart_toStartOf="parent"
         android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
         android:layout_marginTop="15dp"
         android:background="@drawable/edit_text_background"
         />
@@ -54,14 +55,15 @@
         android:textSize="20sp"/>
 
     <EditText
-        android:layout_width="350dp"
-        android:layout_height="40dp"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
         android:id="@+id/inputalamatpel"
         android:hint="@string/tvalamat"
         android:background="@drawable/edit_text_background"
         app:layout_constraintTop_toBottomOf="@+id/tvalamat"
         app:layout_constraintStart_toStartOf="parent"
         android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
         android:layout_marginTop="15dp" />
 
     <TextView
@@ -76,14 +78,16 @@
         android:textSize="20sp"/>
 
     <EditText
-        android:layout_width="350dp"
-        android:layout_height="40dp"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
         android:id="@+id/inputnohppel"
         android:hint="@string/tvnohp"
+        android:inputType="phone"
         android:background="@drawable/edit_text_background"
         app:layout_constraintTop_toBottomOf="@+id/tvnohp"
         app:layout_constraintStart_toStartOf="parent"
         android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
         android:layout_marginTop="15dp"
         />
 
@@ -99,14 +103,15 @@
         android:textSize="20sp"/>
 
     <EditText
-        android:layout_width="350dp"
-        android:layout_height="40dp"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
         android:id="@+id/inputcabangpel"
         android:hint="@string/cabang"
         android:background="@drawable/edit_text_background"
         app:layout_constraintTop_toBottomOf="@+id/cabang"
         app:layout_constraintStart_toStartOf="parent"
         android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
         android:layout_marginTop="15dp"
         />
 
@@ -115,9 +120,10 @@
         android:layout_height="50dp"
         android:id="@+id/simpanpel"
         app:layout_constraintTop_toBottomOf="@+id/inputcabangpel"
-        android:layout_marginStart="20dp"
-        android:layout_marginEnd="20dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginEnd="40dp"
         android:layout_marginTop="50dp"
+        android:textColor="@color/white"
         android:text="@string/simpan"
         android:textSize="20sp"/>
 

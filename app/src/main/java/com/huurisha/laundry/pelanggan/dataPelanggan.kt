@@ -21,7 +21,6 @@ import com.huurisha.laundry.modeldata.ModelPelanggan
 
 class dataPelanggan : AppCompatActivity() {
 
-
     val database = FirebaseDatabase.getInstance()
     val myRef = database.getReference("pelanggan")
     lateinit var rvdataPelanggan: RecyclerView
