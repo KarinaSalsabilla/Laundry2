@@ -23,7 +23,7 @@
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/pegawai"
+                android:id="@+id/layanan"
                 app:layout_constraintTop_toTopOf="parent"
                 app:cardBackgroundColor="#FFEB3B">
 
@@ -31,7 +31,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/idpegawai"
+                    android:id="@+id/idlayanan"
                     android:text="ID Layanan"
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -49,7 +49,7 @@
                 android:text="Nama Layanan"
                 android:textColor="@color/black"
                 android:textSize="16sp"
-                app:layout_constraintTop_toBottomOf="@+id/pegawai"
+                app:layout_constraintTop_toBottomOf="@+id/layanan"
                 app:layout_constraintStart_toStartOf="parent"
                 android:layout_marginStart="10dp"
                 android:layout_marginTop="15dp" />

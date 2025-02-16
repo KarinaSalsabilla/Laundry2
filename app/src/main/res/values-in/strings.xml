@@ -25,4 +25,5 @@
     <string name="validasiCabang">Cabang Tidak Boleh Kosong</string>
     <string name="suksespelanggan">Sukses Menambahkan Data Pelanggan</string>
     <string name="gagalpelanggan">Gagal Menambahkan Data Pelanggan</string>
+    <string name="validasidaftar">Terdaftar tidak boleh kosong</string>
 </resources>

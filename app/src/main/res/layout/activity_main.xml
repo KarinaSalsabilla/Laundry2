@@ -52,11 +52,13 @@
         android:layout_marginEnd="20dp"
         app:cardCornerRadius="10dp">
 
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="@color/white"
             android:text="Estimasi Hari Ini"
+            android:id="@+id/estimasi"
             android:fontFamily="@font/parkinsans"
             android:textStyle="bold"
             android:layout_marginTop="10dp"
@@ -68,6 +70,7 @@
             android:layout_height="wrap_content"
             android:textColor="@color/white"
             android:text="Rp."
+            android:id="@+id/rp"
             android:textSize="10sp"
             android:layout_marginTop="2dp"
             android:layout_marginStart="245dp"
@@ -78,6 +81,7 @@
             android:layout_height="wrap_content"
             android:textColor="@color/white"
             android:text="40.000,-"
+            android:id="@+id/empat"
             android:textSize="15sp"
             android:layout_marginTop="8dp"
             android:layout_marginStart="260dp"
@@ -86,6 +90,7 @@
         <View
             android:layout_width="match_parent"
             android:layout_height="2dp"
+            android:id="@+id/garis"
             android:layout_marginTop="35dp"
             android:background="#B4B3B3" />
 
@@ -292,10 +297,10 @@
 
 
     <androidx.cardview.widget.CardView
+        android:id="@+id/pegawai1"
         android:layout_width="110dp"
         android:layout_height="110dp"
         app:cardBackgroundColor="#3E92D7"
-        android:id="@+id/pegawai"
         app:layout_constraintTop_toBottomOf="@+id/akun"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/cabang"
@@ -304,6 +309,7 @@
         app:cardCornerRadius="10dp">
 
         <ImageView
+            android:id="@+id/pegawai"
             android:layout_width="60dp"
             android:layout_height="60dp"
             android:background="@drawable/pegawai"
@@ -325,7 +331,7 @@
         app:cardBackgroundColor="#3E92D7"
         android:id="@+id/cabang"
         app:layout_constraintTop_toBottomOf="@+id/layanan"
-        app:layout_constraintStart_toEndOf="@+id/pegawai"
+        app:layout_constraintStart_toEndOf="@+id/pegawai1"
         app:layout_constraintEnd_toStartOf="@+id/print"
         android:layout_marginStart="5dp"
         android:layout_marginTop="20dp"

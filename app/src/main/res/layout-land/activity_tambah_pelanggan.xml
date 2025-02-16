@@ -5,42 +5,41 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".pegawai.tambah_pegawai">
+    tools:context=".pelanggan.tambahPelanggan">
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/tvpegawai"
-        android:text="@string/tvpegawai"
+        android:id="@+id/tvpelanggan1"
+        android:text="@string/tvpelanggan"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="30dp"
         android:textStyle="bold"
         android:textSize="30sp"/>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/tvnamapegawai"
-        android:text="@string/tvnamapegawai"
-        app:layout_constraintTop_toBottomOf="@+id/tvpegawai"
+        android:id="@+id/tvnama"
+        android:text="@string/tvnama"
+        app:layout_constraintTop_toBottomOf="@+id/tvpelanggan1"
         app:layout_constraintStart_toStartOf="parent"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="35dp"
         android:layout_marginStart="20dp"
-        android:textSize="16sp"/>
+        android:textSize="20sp"/>
 
     <EditText
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:id="@+id/inputnamapegawai"
-        android:hint="@string/tvnamapegawai"
-        android:textColor="@color/black"
-        app:layout_constraintTop_toBottomOf="@+id/tvnamapegawai"
+        android:id="@+id/inputnamapel"
+        android:hint="@string/tvnama"
+        app:layout_constraintTop_toBottomOf="@+id/tvnama"
         app:layout_constraintStart_toStartOf="parent"
         android:layout_marginStart="20dp"
         android:layout_marginEnd="20dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="15dp"
         android:background="@drawable/edit_text_background"
         />
 
@@ -49,39 +48,39 @@
         android:layout_height="wrap_content"
         android:id="@+id/tvalamat"
         android:text="@string/tvalamat"
-        app:layout_constraintTop_toBottomOf="@+id/inputnamapegawai"
+        app:layout_constraintTop_toBottomOf="@+id/inputnamapel"
         app:layout_constraintStart_toStartOf="parent"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="30dp"
         android:layout_marginStart="20dp"
-        android:textSize="16sp"/>
+        android:textSize="20sp"/>
 
     <EditText
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:id="@+id/inputalamatpegawai"
+        android:id="@+id/inputalamatpel"
         android:hint="@string/tvalamat"
         android:background="@drawable/edit_text_background"
         app:layout_constraintTop_toBottomOf="@+id/tvalamat"
         app:layout_constraintStart_toStartOf="parent"
         android:layout_marginStart="20dp"
         android:layout_marginEnd="20dp"
-        android:layout_marginTop="10dp" />
+        android:layout_marginTop="15dp" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/tvnohp"
         android:text="@string/tvnohp"
-        app:layout_constraintTop_toBottomOf="@+id/inputalamatpegawai"
+        app:layout_constraintTop_toBottomOf="@+id/inputalamatpel"
         app:layout_constraintStart_toStartOf="parent"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="30dp"
         android:layout_marginStart="20dp"
-        android:textSize="16sp"/>
+        android:textSize="20sp"/>
 
     <EditText
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:id="@+id/inputnohppegawai"
+        android:id="@+id/inputnohppel"
         android:hint="@string/tvnohp"
         android:inputType="phone"
         android:background="@drawable/edit_text_background"
@@ -89,68 +88,44 @@
         app:layout_constraintStart_toStartOf="parent"
         android:layout_marginStart="20dp"
         android:layout_marginEnd="20dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="15dp"
         />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/ttl"
-        android:text="@string/ttl"
-        android:textSize="16sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/inputnohppegawai"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="15dp"/>
-
-
-    <EditText
-        android:id="@+id/edt_pegawai"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginEnd="20dp"
-        android:layout_marginTop="10dp"
-        android:background="@drawable/edit_text_background"
-        android:hint="@string/ttl"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ttl" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/cbg"
+        android:id="@+id/cabang"
         android:text="@string/cabang"
-        android:textSize="16sp"
+        app:layout_constraintTop_toBottomOf="@+id/inputnohppel"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edt_pegawai"
+        android:layout_marginTop="30dp"
         android:layout_marginStart="20dp"
-        android:layout_marginTop="15dp"/>
-
+        android:textSize="20sp"/>
 
     <EditText
-        android:id="@+id/edtcabangpegawai"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="10dp"
-        android:background="@drawable/edit_text_background"
+        android:id="@+id/inputcabangpel"
         android:hint="@string/cabang"
-        android:layout_marginEnd="20dp"
+        android:background="@drawable/edit_text_background"
+        app:layout_constraintTop_toBottomOf="@+id/cabang"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cbg" />
-
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginTop="15dp"
+        />
 
     <Button
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/simpanpegawai"
+        android:layout_height="50dp"
+        android:id="@+id/simpanpel"
+        app:layout_constraintTop_toBottomOf="@+id/inputcabangpel"
+        android:layout_marginStart="40dp"
+        android:layout_marginEnd="40dp"
+        android:layout_marginTop="50dp"
         android:textColor="@color/white"
-        app:layout_constraintTop_toBottomOf="@+id/edtcabangpegawai"
-        android:layout_marginStart="30dp"
-        android:layout_marginEnd="30dp"
-        android:layout_marginTop="16dp"
         android:text="@string/simpan"
         android:textSize="20sp"/>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

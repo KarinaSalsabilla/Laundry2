@@ -2,6 +2,7 @@
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
              android:layout_width="match_parent"
              android:layout_height="wrap_content"
+             android:id="@+id/carddatapegawai"
              xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <androidx.cardview.widget.CardView
@@ -45,7 +46,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/nama"
+                android:id="@+id/namapega"
                 android:text="Nama Lengkap"
                 android:textColor="@color/black"
                 android:textSize="16sp"
@@ -58,10 +59,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Alamat"
-                android:id="@+id/alamat"
+                android:id="@+id/alamatpegawai"
                 android:textColor="@color/black"
                 android:textSize="16sp"
-                app:layout_constraintTop_toBottomOf="@id/nama"
+                app:layout_constraintTop_toBottomOf="@id/namapega"
                 app:layout_constraintStart_toStartOf="parent"
                 android:layout_marginTop="10dp"
                 android:layout_marginStart="10dp"/>
@@ -70,10 +71,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="No Hp"
-                android:id="@+id/hp"
+                android:id="@+id/hppegawai"
                 android:textColor="@color/black"
                 android:textSize="16sp"
-                app:layout_constraintTop_toBottomOf="@id/alamat"
+                app:layout_constraintTop_toBottomOf="@id/alamatpegawai"
                 app:layout_constraintStart_toStartOf="parent"
                 android:layout_marginTop="10dp"
                 android:layout_marginStart="10dp"/>
@@ -86,7 +87,7 @@
                 android:id="@+id/daftar"
                 android:textSize="16sp"
                 android:textColor="@color/black"
-                app:layout_constraintTop_toBottomOf="@+id/hp"
+                app:layout_constraintTop_toBottomOf="@+id/hppegawai"
                 app:layout_constraintStart_toStartOf="parent"
                 android:layout_marginTop="10dp"
                 android:layout_marginStart="10dp" />
@@ -95,7 +96,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Cabang"
-                android:id="@+id/cabang"
+                android:id="@+id/cabangpegawai"
                 android:textSize="16sp"
                 android:textColor="@color/black"
                 app:layout_constraintTop_toBottomOf="@+id/daftar"
@@ -104,22 +105,22 @@
                 android:layout_marginStart="10dp" />
 
             <Button
+                android:id="@+id/hubungi"
                 android:layout_width="150dp"
                 android:layout_height="wrap_content"
-                android:text="Hubungi"
-                android:id="@+id/hubungi"
-                app:layout_constraintTop_toBottomOf="@+id/cabang"
-                app:layout_constraintStart_toStartOf="parent"
                 android:layout_marginStart="20dp"
                 android:layout_marginTop="10dp"
-                android:backgroundTint="#8C0000"/>
+                android:backgroundTint="#8C0000"
+                android:text="Hubungi"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/cabangpegawai" />
 
             <Button
                 android:layout_width="150dp"
                 android:layout_height="wrap_content"
                 android:text="Lihat"
                 android:id="@+id/lihat"
-                app:layout_constraintTop_toBottomOf="@+id/cabang"
+                app:layout_constraintTop_toBottomOf="@+id/cabangpegawai"
                 app:layout_constraintStart_toEndOf="@+id/hubungi"
                 android:backgroundTint="#077500"
                 android:layout_marginStart="30dp"

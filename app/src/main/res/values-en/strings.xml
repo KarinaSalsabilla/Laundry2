@@ -25,4 +25,5 @@
     <string name="validasiCabang">branch</string>
     <string name="suksespelanggan">succesfull</string>
     <string name="gagalpelanggan">Failed</string>
+    <string name="validasidaftar">failed</string>
 </resources>

@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.ImageButton
+import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.WindowCompat
 import androidx.core.view.WindowInsetsCompat
@@ -23,7 +24,7 @@ import java.util.*
 
 class MainActivity : AppCompatActivity() {
     lateinit var pelanggan1: ImageButton
-    lateinit var pegawai1: CardView
+    lateinit var pegawai1: ImageView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -48,6 +49,7 @@ class MainActivity : AppCompatActivity() {
             val intent = Intent(this, dataPelanggan::class.java)
             startActivity(intent)
         }
+
         pegawai1.setOnClickListener {
             val intent = Intent(this, dataPegawai::class.java)
             startActivity(intent)

@@ -33,7 +33,7 @@
     <EditText
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:id="@+id/inputnamapegawai"
+        android:id="@+id/inputnama"
         android:hint="@string/tvnamapegawai"
         android:textColor="@color/black"
         app:layout_constraintTop_toBottomOf="@+id/tvnamapegawai"
@@ -49,7 +49,7 @@
         android:layout_height="wrap_content"
         android:id="@+id/tvalamat"
         android:text="@string/tvalamat"
-        app:layout_constraintTop_toBottomOf="@+id/inputnamapegawai"
+        app:layout_constraintTop_toBottomOf="@+id/inputnama"
         app:layout_constraintStart_toStartOf="parent"
         android:layout_marginTop="15dp"
         android:layout_marginStart="20dp"
@@ -58,7 +58,7 @@
     <EditText
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:id="@+id/inputalamatpegawai"
+        android:id="@+id/inputalamat"
         android:hint="@string/tvalamat"
         android:background="@drawable/edit_text_background"
         app:layout_constraintTop_toBottomOf="@+id/tvalamat"
@@ -72,7 +72,7 @@
         android:layout_height="wrap_content"
         android:id="@+id/tvnohp"
         android:text="@string/tvnohp"
-        app:layout_constraintTop_toBottomOf="@+id/inputalamatpegawai"
+        app:layout_constraintTop_toBottomOf="@+id/inputalamat"
         app:layout_constraintStart_toStartOf="parent"
         android:layout_marginTop="15dp"
         android:layout_marginStart="20dp"
@@ -81,7 +81,7 @@
     <EditText
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:id="@+id/inputnohppegawai"
+        android:id="@+id/inputnohp"
         android:hint="@string/tvnohp"
         android:inputType="phone"
         android:background="@drawable/edit_text_background"
@@ -99,13 +99,13 @@
         android:text="@string/ttl"
         android:textSize="16sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/inputnohppegawai"
+        app:layout_constraintTop_toBottomOf="@+id/inputnohp"
         android:layout_marginStart="20dp"
         android:layout_marginTop="15dp"/>
 
 
     <EditText
-        android:id="@+id/edt_pegawai"
+        android:id="@+id/edt_tanggal"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_marginStart="20dp"
@@ -123,13 +123,13 @@
         android:text="@string/cabang"
         android:textSize="16sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edt_pegawai"
+        app:layout_constraintTop_toBottomOf="@+id/edt_tanggal"
         android:layout_marginStart="20dp"
         android:layout_marginTop="15dp"/>
 
 
     <EditText
-        android:id="@+id/edtcabangpegawai"
+        android:id="@+id/edtcabang"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_marginStart="20dp"
@@ -140,13 +140,47 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/cbg" />
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/kelamin"
+        android:id="@+id/kelamin"
+        android:textSize="16sp"
+        app:layout_constraintTop_toBottomOf="@+id/edtcabang"
+        app:layout_constraintBottom_toTopOf="@+id/pilihan"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="15dp"
+        android:layout_marginStart="20dp"/>
+
+    <RadioGroup
+        android:id="@+id/pilihan"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toBottomOf="@+id/kelamin"
+        app:layout_constraintBottom_toTopOf="@+id/simpan"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="10dp">
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/laki" />
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/perempuan"/>
+    </RadioGroup>
+
 
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/simpanpegawai"
         android:textColor="@color/white"
-        app:layout_constraintTop_toBottomOf="@+id/edtcabangpegawai"
+        app:layout_constraintTop_toBottomOf="@+id/pilihan"
         android:layout_marginStart="30dp"
         android:layout_marginEnd="30dp"
         android:layout_marginTop="16dp"
