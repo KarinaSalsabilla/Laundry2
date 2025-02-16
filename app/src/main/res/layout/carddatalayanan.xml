@@ -2,6 +2,7 @@
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
              android:layout_width="match_parent"
              android:layout_height="wrap_content"
+             android:id="@+id/carddatalayanan"
              xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <androidx.cardview.widget.CardView
@@ -23,22 +24,22 @@
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/layanan"
+                android:id="@+id/layanan1"
                 app:layout_constraintTop_toTopOf="parent"
                 app:cardBackgroundColor="#FFEB3B">
 
 
                 <TextView
+                    android:id="@+id/idlayanan"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/idlayanan"
-                    android:text="ID Layanan"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    android:layout_marginTop="10dp"
                     android:layout_marginStart="10dp"
+                    android:layout_marginTop="10dp"
+                    android:text="ID Layanan"
                     android:textColor="@color/black"
-                    android:textSize="18sp" />
+                    android:textSize="18sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
             </androidx.cardview.widget.CardView>
 
 
@@ -49,7 +50,7 @@
                 android:text="Nama Layanan"
                 android:textColor="@color/black"
                 android:textSize="16sp"
-                app:layout_constraintTop_toBottomOf="@+id/layanan"
+                app:layout_constraintTop_toBottomOf="@+id/layanan1"
                 app:layout_constraintStart_toStartOf="parent"
                 android:layout_marginStart="10dp"
                 android:layout_marginTop="15dp" />
@@ -58,7 +59,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Harga"
-                android:id="@+id/alamat"
+                android:id="@+id/harga"
                 android:textColor="@color/black"
                 android:textSize="16sp"
                 app:layout_constraintTop_toBottomOf="@id/nama"
@@ -70,10 +71,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Cabang"
-                android:id="@+id/hp"
+                android:id="@+id/cabanglayanan"
                 android:textColor="@color/black"
                 android:textSize="16sp"
-                app:layout_constraintTop_toBottomOf="@id/alamat"
+                app:layout_constraintTop_toBottomOf="@id/harga"
                 app:layout_constraintStart_toStartOf="parent"
                 android:layout_marginTop="10dp"
                 android:layout_marginStart="10dp"/>

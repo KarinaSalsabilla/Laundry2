@@ -1,4 +1,8 @@
-package com.huurisha.laundry.modeldata;
+package com.huurisha.laundry.modeldata
 
-public class ModelLayanan {
-}
+class ModelLayanan (
+    val idLayanan: String? =  null,
+    val namaLayanan: String? = null,
+    val hargaLayanan: String? = null,
+    val cabangLayanan: String? = null
+)

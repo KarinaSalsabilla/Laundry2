@@ -55,7 +55,7 @@ class dataPegawai : AppCompatActivity() {
     }
 
     fun getData(){
-        val query = myRef.orderByChild("idPelanggan").limitToLast(100)
+        val query = myRef.orderByChild("idPegawai").limitToLast(100)
         query.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
                 if (snapshot.exists()) {

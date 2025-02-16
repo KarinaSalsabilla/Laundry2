@@ -5,12 +5,12 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".layanan.tambah_Layanan">
+    tools:context=".layanan.tambahLayanan">
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/tvpelanggan"
+        android:id="@+id/tvlayanan"
         android:text="@string/layanan"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -24,20 +24,23 @@
         android:layout_height="wrap_content"
         android:id="@+id/tvnama"
         android:text="@string/namalayanan"
-        app:layout_constraintTop_toBottomOf="@+id/tvpelanggan"
+        app:layout_constraintTop_toBottomOf="@+id/tvlayanan"
         app:layout_constraintStart_toStartOf="parent"
         android:layout_marginTop="30dp"
         android:layout_marginStart="20dp"
         android:textSize="20sp"/>
 
     <EditText
-        android:layout_width="350dp"
+        android:layout_width="match_parent"
         android:layout_height="40dp"
-        android:id="@+id/inputnama"
+        android:id="@+id/inputnamalayanan"
         android:hint="@string/namalayanan"
+        android:textColor="@color/black"
         app:layout_constraintTop_toBottomOf="@+id/tvnama"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
         android:layout_marginTop="15dp"
         android:background="@drawable/edit_text_background"
         />
@@ -47,19 +50,23 @@
         android:layout_height="wrap_content"
         android:id="@+id/tvalamat"
         android:text="@string/hargaLayanan"
-        app:layout_constraintTop_toBottomOf="@+id/inputnama"
+        app:layout_constraintTop_toBottomOf="@+id/inputnamalayanan"
         app:layout_constraintStart_toStartOf="parent"
         android:layout_marginTop="30dp"
         android:layout_marginStart="20dp"
         android:textSize="20sp"/>
 
     <EditText
-        android:layout_width="350dp"
+        android:layout_width="match_parent"
         android:layout_height="40dp"
         android:id="@+id/inputharga"
         android:hint="@string/hargaLayanan"
+        android:inputType="number"
+        android:textColor="@color/black"
         android:background="@drawable/edit_text_background"
         app:layout_constraintTop_toBottomOf="@+id/tvalamat"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginEnd="20dp"
         app:layout_constraintStart_toStartOf="parent"
         android:layout_marginStart="20dp"
         android:layout_marginTop="15dp" />
@@ -76,13 +83,16 @@
         android:textSize="20sp"/>
 
     <EditText
-        android:layout_width="350dp"
+        android:layout_width="match_parent"
         android:layout_height="40dp"
         android:id="@+id/inputcabang"
         android:hint="@string/cabang"
+        android:textColor="@color/black"
         android:background="@drawable/edit_text_background"
         app:layout_constraintTop_toBottomOf="@+id/tvcabang"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginEnd="20dp"
         android:layout_marginStart="20dp"
         android:layout_marginTop="15dp"
         />

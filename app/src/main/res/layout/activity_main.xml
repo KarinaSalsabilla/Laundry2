@@ -210,7 +210,7 @@
             app:layout_constraintTop_toBottomOf="@+id/pelanggan"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/layanan"
-            app:layout_constraintBottom_toTopOf="@+id/pegawai"
+            app:layout_constraintBottom_toTopOf="@+id/pegawai1"
             android:layout_marginStart="20dp"
             android:layout_marginTop="20dp"
             app:cardCornerRadius="10dp">

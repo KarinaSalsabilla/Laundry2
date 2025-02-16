@@ -15,6 +15,7 @@ import androidx.activity.enableEdgeToEdge
 import androidx.cardview.widget.CardView
 import androidx.core.view.ViewCompat
 import com.google.android.material.floatingactionbutton.FloatingActionButton
+import com.huurisha.laundry.layanan.dataLayanan
 import com.huurisha.laundry.pegawai.dataPegawai
 import com.huurisha.laundry.pegawai.tambah_pegawai
 import com.huurisha.laundry.pelanggan.dataPelanggan
@@ -25,6 +26,7 @@ import java.util.*
 class MainActivity : AppCompatActivity() {
     lateinit var pelanggan1: ImageButton
     lateinit var pegawai1: ImageView
+    lateinit var layanan:CardView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -42,6 +44,7 @@ class MainActivity : AppCompatActivity() {
     fun init() {
         pelanggan1 = findViewById(R.id.pelanggan1)
         pegawai1 = findViewById(R.id.pegawai)
+        layanan = findViewById(R.id.layanan)
     }
 
     fun tekan() {
@@ -52,6 +55,11 @@ class MainActivity : AppCompatActivity() {
 
         pegawai1.setOnClickListener {
             val intent = Intent(this, dataPegawai::class.java)
+            startActivity(intent)
+        }
+
+        layanan.setOnClickListener{
+            val intent = Intent(this,dataLayanan::class.java)
             startActivity(intent)
         }
 

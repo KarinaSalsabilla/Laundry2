@@ -29,6 +29,8 @@
         <activity
             android:name=".pelanggan.dataPelanggan"
             android:exported="false" />
+        <activity android:name=".layanan.tambahLayanan"
+            android:exported="false"/>
         <activity
             android:name=".MainActivity"
             android:exported="true">
