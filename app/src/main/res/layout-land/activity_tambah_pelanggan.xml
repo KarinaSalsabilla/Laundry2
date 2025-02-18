@@ -8,124 +8,139 @@
     tools:context=".pelanggan.tambahPelanggan">
 
     <TextView
+        android:id="@+id/tvpelanggan1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/tvpelanggan1"
         android:text="@string/tvpelanggan"
+        android:textStyle="bold"
+        android:textSize="30sp"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="30dp"
-        android:textStyle="bold"
-        android:textSize="30sp"/>
+        android:layout_marginTop="30dp"/>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/tvnama"
-        android:text="@string/tvnama"
-        app:layout_constraintTop_toBottomOf="@+id/tvpelanggan1"
-        app:layout_constraintStart_toStartOf="parent"
-        android:layout_marginTop="35dp"
-        android:layout_marginStart="20dp"
-        android:textSize="20sp"/>
-
-    <EditText
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:id="@+id/inputnamapel"
-        android:hint="@string/tvnama"
-        app:layout_constraintTop_toBottomOf="@+id/tvnama"
+        android:layout_height="0dp"
+        app:layout_constraintTop_toBottomOf="@id/tvpelanggan1"
         app:layout_constraintStart_toStartOf="parent"
-        android:layout_marginStart="20dp"
-        android:layout_marginEnd="20dp"
-        android:layout_marginTop="15dp"
-        android:background="@drawable/edit_text_background"
-        />
+        app:layout_constraintBottom_toBottomOf="parent">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/tvalamat"
-        android:text="@string/tvalamat"
-        app:layout_constraintTop_toBottomOf="@+id/inputnamapel"
-        app:layout_constraintStart_toStartOf="parent"
-        android:layout_marginTop="30dp"
-        android:layout_marginStart="20dp"
-        android:textSize="20sp"/>
+        <!-- ConstraintLayout sebagai Child ScrollView -->
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:id="@+id/inputalamatpel"
-        android:hint="@string/tvalamat"
-        android:background="@drawable/edit_text_background"
-        app:layout_constraintTop_toBottomOf="@+id/tvalamat"
-        app:layout_constraintStart_toStartOf="parent"
-        android:layout_marginStart="20dp"
-        android:layout_marginEnd="20dp"
-        android:layout_marginTop="15dp" />
+            <TextView
+                android:id="@+id/tvnama"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/tvnama"
+                android:textSize="20sp"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginTop="35dp"
+                android:layout_marginStart="55dp"/>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/tvnohp"
-        android:text="@string/tvnohp"
-        app:layout_constraintTop_toBottomOf="@+id/inputalamatpel"
-        app:layout_constraintStart_toStartOf="parent"
-        android:layout_marginTop="30dp"
-        android:layout_marginStart="20dp"
-        android:textSize="20sp"/>
+            <EditText
+                android:id="@+id/inputnamapel"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:hint="@string/tvnama"
+                android:background="@drawable/edit_text_background"
+                app:layout_constraintTop_toBottomOf="@id/tvnama"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginStart="55dp"
+                android:layout_marginEnd="55dp"
+                android:layout_marginTop="15dp"/>
 
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:id="@+id/inputnohppel"
-        android:hint="@string/tvnohp"
-        android:inputType="phone"
-        android:background="@drawable/edit_text_background"
-        app:layout_constraintTop_toBottomOf="@+id/tvnohp"
-        app:layout_constraintStart_toStartOf="parent"
-        android:layout_marginStart="20dp"
-        android:layout_marginEnd="20dp"
-        android:layout_marginTop="15dp"
-        />
+            <TextView
+                android:id="@+id/tvalamat"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/tvalamat"
+                android:textSize="20sp"
+                app:layout_constraintTop_toBottomOf="@id/inputnamapel"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginTop="30dp"
+                android:layout_marginStart="55dp"/>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/cabang"
-        android:text="@string/cabang"
-        app:layout_constraintTop_toBottomOf="@+id/inputnohppel"
-        app:layout_constraintStart_toStartOf="parent"
-        android:layout_marginTop="30dp"
-        android:layout_marginStart="20dp"
-        android:textSize="20sp"/>
+            <EditText
+                android:id="@+id/inputalamatpel"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:hint="@string/tvalamat"
+                android:background="@drawable/edit_text_background"
+                app:layout_constraintTop_toBottomOf="@id/tvalamat"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginStart="55dp"
+                android:layout_marginEnd="55dp"
+                android:layout_marginTop="15dp"/>
 
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:id="@+id/inputcabangpel"
-        android:hint="@string/cabang"
-        android:background="@drawable/edit_text_background"
-        app:layout_constraintTop_toBottomOf="@+id/cabang"
-        app:layout_constraintStart_toStartOf="parent"
-        android:layout_marginStart="20dp"
-        android:layout_marginEnd="20dp"
-        android:layout_marginTop="15dp"
-        />
+            <TextView
+                android:id="@+id/tvnohp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/tvnohp"
+                android:textSize="20sp"
+                app:layout_constraintTop_toBottomOf="@id/inputalamatpel"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginTop="30dp"
+                android:layout_marginStart="55dp"/>
 
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:id="@+id/simpanpel"
-        app:layout_constraintTop_toBottomOf="@+id/inputcabangpel"
-        android:layout_marginStart="40dp"
-        android:layout_marginEnd="40dp"
-        android:layout_marginTop="50dp"
-        android:textColor="@color/white"
-        android:text="@string/simpan"
-        android:textSize="20sp"/>
+            <EditText
+                android:id="@+id/inputnohppel"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:hint="@string/tvnohp"
+                android:inputType="phone"
+                android:background="@drawable/edit_text_background"
+                app:layout_constraintTop_toBottomOf="@id/tvnohp"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginStart="55dp"
+                android:layout_marginEnd="55dp"
+                android:layout_marginTop="15dp"/>
 
+            <TextView
+                android:id="@+id/cabang"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/cabang"
+                android:textSize="20sp"
+                app:layout_constraintTop_toBottomOf="@id/inputnohppel"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginTop="30dp"
+                android:layout_marginStart="55dp"/>
+
+            <EditText
+                android:id="@+id/inputcabangpel"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:hint="@string/cabang"
+                android:background="@drawable/edit_text_background"
+                app:layout_constraintTop_toBottomOf="@id/cabang"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginStart="55dp"
+                android:layout_marginEnd="55dp"
+                android:layout_marginTop="15dp"/>
+
+            <Button
+                android:id="@+id/simpanpel"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:text="@string/simpan"
+                android:textSize="20sp"
+                android:textColor="@color/white"
+                app:layout_constraintTop_toBottomOf="@id/inputcabangpel"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:layout_marginBottom="20dp"
+                android:layout_marginStart="200dp"
+                android:layout_marginEnd="200dp"
+                android:layout_marginTop="50dp"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </ScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

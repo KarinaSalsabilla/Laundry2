@@ -5,15 +5,17 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/walpaper"
+    android:background="@drawable/wal2"
     tools:context=".MainActivity">
+
+
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/halo"
         android:text="Hallo,-!"
-        android:fontFamily="@font/playfair_display"
+        android:fontFamily="@font/parkinsans"
         android:textColor="#000000"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -29,12 +31,15 @@
         android:text="08 Januari 2025"
         android:textSize="15sp"
         android:textColor="#000000"
-        app:layout_constraintTop_toTopOf="parent"
+        android:textStyle="bold"
+        android:fontFamily="@font/parkinsans"
+        app:layout_constraintTop_toBottomOf="@+id/halo"
         app:layout_constraintBottom_toTopOf="@+id/card1"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="40dp"
         android:layout_marginEnd="35dp"
         />
+
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
@@ -44,8 +49,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toTopOf="@+id/hati"
-        android:layout_marginTop="40dp"
-        app:cardBackgroundColor="#3E92D7"
+        android:layout_marginTop="20dp"
+        app:cardBackgroundColor="#9E30D0"
         android:elevation="10dp"
         android:translationZ="10dp"
         android:layout_marginStart="20dp"
@@ -70,10 +75,11 @@
             android:layout_height="wrap_content"
             android:textColor="@color/white"
             android:text="Rp."
+            android:fontFamily="@font/parkinsans"
             android:id="@+id/rp"
-            android:textSize="10sp"
+            android:textSize="15sp"
             android:layout_marginTop="2dp"
-            android:layout_marginStart="245dp"
+            android:layout_marginStart="230dp"
             />
 
         <TextView
@@ -83,9 +89,11 @@
             android:text="40.000,-"
             android:id="@+id/empat"
             android:textSize="15sp"
+            android:fontFamily="@font/parkinsans"
             android:layout_marginTop="8dp"
             android:layout_marginStart="260dp"
             />
+
 
         <View
             android:layout_width="match_parent"
@@ -103,7 +111,7 @@
             android:layout_height="50dp"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            android:background="@drawable/transaksi"
+            android:background="@drawable/purse"
             android:layout_marginTop="60dp"
             android:layout_marginStart="25dp"
             android:id="@+id/transaksi"
@@ -117,21 +125,22 @@
             app:layout_constraintStart_toStartOf="parent"
             android:id="@+id/txttrans"
             android:textSize="14sp"
+            android:fontFamily="@font/parkinsans"
             android:textColor="@color/white"
             android:layout_marginTop="10dp"
             android:layout_marginStart="20dp"
             android:layout_marginEnd="20dp"/>
 
         <ImageButton
-            android:layout_width="75dp"
-            android:layout_height="75dp"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
             android:id="@+id/pelanggan1"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toEndOf="@+id/transaksi"
             android:layout_marginStart="55dp"
             android:layout_marginTop="45dp"
             android:layout_marginEnd="20dp"
-            android:background="@drawable/pe" />
+            android:background="@drawable/best" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -142,8 +151,9 @@
             app:layout_constraintStart_toEndOf="@+id/txttrans"
             android:textSize="14sp"
             android:textColor="@color/white"
-            android:layout_marginTop="1dp"
-            android:layout_marginStart="55dp"
+            android:fontFamily="@font/parkinsans"
+            android:layout_marginTop="5dp"
+            android:layout_marginStart="50dp"
             android:layout_marginEnd="20dp"/>
 
         <ImageButton
@@ -153,7 +163,7 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toEndOf="@+id/pelanggan1"
             app:layout_constraintEnd_toEndOf="parent"
-            android:background="@drawable/laporan"
+            android:background="@drawable/report"
             android:layout_marginTop="45dp"
             android:layout_marginStart="40dp"
             android:layout_marginEnd="20dp"/>
@@ -169,8 +179,9 @@
             android:textSize="14sp"
             android:textColor="@color/white"
             android:layout_marginEnd="35dp"
+            android:fontFamily="@font/parkinsans"
             android:layout_marginTop="10dp"
-            android:layout_marginStart="60dp" />
+            android:layout_marginStart="55dp" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
 
@@ -179,46 +190,34 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/hati"
-        app:layout_constraintTop_toTopOf="@+id/card1"
+        android:fontFamily="@font/parkinsans"
+        app:layout_constraintTop_toBottomOf="@+id/card1"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:text="Siap melayani pelanggan dengan setulus \nhati ❤️"
+        android:text="Kami selalu siap melayani anda \n kapanpun"
         android:textAlignment="center"
         android:textColor="@color/black"
-        android:textSize="18dp"
+        android:textSize="18sp"
         android:textStyle="bold"
-        android:layout_marginTop="170dp" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/pelanggan"
-        android:text="Jangan Kecewakan Pelanggan"
-        android:textSize="12sp"
-        android:textColor="@color/black"
-       app:layout_constraintTop_toBottomOf="@+id/hati"
-        app:layout_constraintStart_toStartOf="parent"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="20dp" />
-
+        android:layout_marginTop="40dp" />
 
         <androidx.cardview.widget.CardView
             android:layout_width="110dp"
             android:layout_height="110dp"
             android:id="@+id/akun"
-            app:cardBackgroundColor="#3E92D7"
-            app:layout_constraintTop_toBottomOf="@+id/pelanggan"
+            app:cardBackgroundColor="#9E30D0"
+            app:layout_constraintTop_toBottomOf="@+id/hati"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/layanan"
             app:layout_constraintBottom_toTopOf="@+id/pegawai1"
-            android:layout_marginStart="20dp"
+            android:layout_marginStart="30dp"
             android:layout_marginTop="20dp"
             app:cardCornerRadius="10dp">
 
             <ImageView
-                android:layout_width="70dp"
-                android:layout_height="70dp"
-                android:background="@drawable/akun"
+                android:layout_width="65dp"
+                android:layout_height="65dp"
+                android:background="@drawable/user"
                 android:layout_marginTop="10dp"
                 android:layout_marginStart="20dp" />
 
@@ -226,6 +225,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Akun"
+                android:fontFamily="@font/parkinsans"
                 android:textColor="@color/white"
                 android:layout_marginTop="85dp"
                 android:layout_marginStart="40dp"/>
@@ -237,8 +237,8 @@
         android:layout_width="110dp"
         android:layout_height="110dp"
         android:id="@+id/layanan"
-        app:cardBackgroundColor="#3E92D7"
-        app:layout_constraintTop_toBottomOf="@+id/pelanggan"
+        app:cardBackgroundColor="#9E30D0"
+        app:layout_constraintTop_toBottomOf="@+id/hati"
         app:layout_constraintStart_toEndOf="@+id/akun"
         app:layout_constraintEnd_toStartOf="@+id/tambahan"
         app:layout_constraintBottom_toTopOf="@+id/cabang"
@@ -249,7 +249,7 @@
         <ImageView
             android:layout_width="70dp"
             android:layout_height="70dp"
-            android:background="@drawable/layanan"
+            android:background="@drawable/wasching"
             android:layout_marginTop="10dp"
             android:layout_marginStart="25dp" />
 
@@ -257,9 +257,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Layanan"
+            android:fontFamily="@font/parkinsans"
             android:textColor="@color/white"
             android:layout_marginTop="85dp"
-            android:layout_marginStart="35dp"/>
+            android:layout_marginStart="30dp"/>
     </androidx.cardview.widget.CardView>
 
 
@@ -267,13 +268,13 @@
     <androidx.cardview.widget.CardView
         android:layout_width="110dp"
         android:layout_height="110dp"
-        app:cardBackgroundColor="#3E92D7"
+        app:cardBackgroundColor="#9E30D0"
         android:id="@+id/tambahan"
-        app:layout_constraintTop_toBottomOf="@+id/pelanggan"
+        app:layout_constraintTop_toBottomOf="@+id/hati"
         app:layout_constraintBottom_toTopOf="@+id/print"
         app:layout_constraintStart_toEndOf="@+id/layanan"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginEnd="20dp"
+        android:layout_marginEnd="30dp"
         android:layout_marginStart="5dp"
         android:layout_marginTop="20dp"
         app:cardCornerRadius="10dp">
@@ -291,6 +292,7 @@
             android:text="Tambahan"
             android:textColor="@color/white"
             android:layout_marginTop="85dp"
+            android:fontFamily="@font/parkinsans"
             android:layout_marginStart="20dp"/>
 
     </androidx.cardview.widget.CardView>
@@ -300,11 +302,11 @@
         android:id="@+id/pegawai1"
         android:layout_width="110dp"
         android:layout_height="110dp"
-        app:cardBackgroundColor="#3E92D7"
+        app:cardBackgroundColor="#9E30D0"
         app:layout_constraintTop_toBottomOf="@+id/akun"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/cabang"
-        android:layout_marginStart="20dp"
+        android:layout_marginStart="30dp"
         android:layout_marginTop="20dp"
         app:cardCornerRadius="10dp">
 
@@ -312,15 +314,16 @@
             android:id="@+id/pegawai"
             android:layout_width="60dp"
             android:layout_height="60dp"
-            android:background="@drawable/pegawai"
-            android:layout_marginTop="10dp"
+            android:background="@drawable/em"
+            android:layout_marginTop="15dp"
             android:layout_marginStart="25dp" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="30dp"
-            android:layout_marginTop="80dp"
+            android:layout_marginStart="25dp"
+            android:layout_marginTop="85dp"
+            android:fontFamily="@font/parkinsans"
             android:text="Pegawai"
             android:textColor="@color/white" />
     </androidx.cardview.widget.CardView>
@@ -328,19 +331,20 @@
     <androidx.cardview.widget.CardView
         android:layout_width="110dp"
         android:layout_height="110dp"
-        app:cardBackgroundColor="#3E92D7"
+        app:cardBackgroundColor="#9E30D0"
         android:id="@+id/cabang"
         app:layout_constraintTop_toBottomOf="@+id/layanan"
         app:layout_constraintStart_toEndOf="@+id/pegawai1"
         app:layout_constraintEnd_toStartOf="@+id/print"
         android:layout_marginStart="5dp"
+        android:layout_marginEnd="5dp"
         android:layout_marginTop="20dp"
         app:cardCornerRadius="10dp">
 
         <ImageView
             android:layout_width="70dp"
             android:layout_height="70dp"
-            android:background="@drawable/cabang"
+            android:background="@drawable/franchise"
             android:layout_marginTop="10dp"
             android:layout_marginStart="20dp" />
 
@@ -349,39 +353,39 @@
             android:layout_height="wrap_content"
             android:text="Cabang"
             android:textColor="@color/white"
-            android:layout_marginTop="80dp"
-            android:layout_marginStart="35dp"/>
+            android:fontFamily="@font/parkinsans"
+            android:layout_marginTop="85dp"
+            android:layout_marginStart="25dp"/>
     </androidx.cardview.widget.CardView>
 
     <androidx.cardview.widget.CardView
         android:layout_width="110dp"
         android:layout_height="110dp"
-        app:cardBackgroundColor="#3E92D7"
+        app:cardBackgroundColor="#9E30D0"
         android:id="@+id/print"
         app:layout_constraintTop_toBottomOf="@+id/tambahan"
         app:layout_constraintStart_toEndOf="@+id/cabang"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginEnd="20dp"
-        android:layout_marginStart="5dp"
+        android:layout_marginEnd="30dp"
         android:layout_marginTop="20dp"
         app:cardCornerRadius="10dp">
 
         <ImageView
             android:layout_width="80dp"
             android:layout_height="70dp"
-            android:background="@drawable/print"
+            android:background="@drawable/inkjet"
             android:layout_marginTop="10dp"
-            android:layout_marginStart="20dp" />
+            android:layout_marginStart="15dp" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Printer"
+            android:fontFamily="@font/parkinsans"
             android:textColor="@color/white"
             android:layout_marginTop="85dp"
             android:layout_marginStart="38dp"/>
     </androidx.cardview.widget.CardView>
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 

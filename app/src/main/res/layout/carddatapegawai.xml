@@ -12,7 +12,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:cardCornerRadius="10dp"
-        app:cardBackgroundColor="#FF9800"
+        app:cardBackgroundColor="#DD87EB"
         android:layout_marginStart="10dp"
         android:layout_marginEnd="10dp"
         android:layout_marginTop="10dp">
@@ -26,7 +26,7 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/pegawai"
                 app:layout_constraintTop_toTopOf="parent"
-                app:cardBackgroundColor="#FFEB3B">
+                app:cardBackgroundColor="#B036C5">
 
 
             <TextView
@@ -38,7 +38,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 android:layout_marginTop="10dp"
                 android:layout_marginStart="10dp"
-                android:textColor="@color/black"
+                android:textColor="@color/white"
                 android:textSize="18sp" />
             </androidx.cardview.widget.CardView>
 
@@ -108,10 +108,12 @@
                 android:id="@+id/hubungi"
                 android:layout_width="150dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
+                android:layout_marginStart="30dp"
+                android:layout_marginEnd="10dp"
                 android:layout_marginTop="10dp"
-                android:backgroundTint="#8C0000"
+                android:backgroundTint="#B82B2B"
                 android:text="Hubungi"
+                app:layout_constraintEnd_toStartOf="@+id/lihat"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/cabangpegawai" />
 
@@ -122,8 +124,9 @@
                 android:id="@+id/lihat"
                 app:layout_constraintTop_toBottomOf="@+id/cabangpegawai"
                 app:layout_constraintStart_toEndOf="@+id/hubungi"
-                android:backgroundTint="#077500"
-                android:layout_marginStart="30dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:backgroundTint="#214BB6"
+                android:layout_marginEnd="30dp"
                 android:layout_marginTop="10dp"/>
 
         </androidx.constraintlayout.widget.ConstraintLayout>

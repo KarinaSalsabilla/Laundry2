@@ -5,7 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/walpaper1"
+    android:background="@drawable/wal2"
     tools:context=".MainActivity">
 
     <TextView
@@ -196,7 +196,7 @@
             android:layout_height="60dp"
             android:layout_marginTop="10dp"
             android:layout_marginStart="30dp"
-            android:background="@drawable/transaksi" />
+            android:background="@drawable/purse" />
 
         <TextView
             android:layout_width="wrap_content"
