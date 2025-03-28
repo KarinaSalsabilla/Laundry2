@@ -41,7 +41,16 @@ class dataPegawai : AppCompatActivity() {
         rvdataPegawai.setHasFixedSize(true)
         pegawaiList = arrayListOf<ModelPegawai>()
         getData()
-        tekan()
+        tambahPega.setOnClickListener {
+            val intent = Intent(this, tambah_pegawai::class.java)
+            intent.putExtra("judul", this.getString(R.string.tvpegawai))
+            intent.putExtra("idPegawai","")
+            intent.putExtra("namaPegawai","")
+            intent.putExtra("noHpPegawai","")
+            intent.putExtra("alamatPegawai","")
+            intent.putExtra("idCabangPegawai","")
+            startActivity(intent)
+        }
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
@@ -77,11 +86,4 @@ class dataPegawai : AppCompatActivity() {
         })
 
     }
-
-            fun tekan() {
-                tambahPega.setOnClickListener {
-                    val intent = Intent(this, tambah_pegawai::class.java)
-                    startActivity(intent)
-                }
-            }
         }

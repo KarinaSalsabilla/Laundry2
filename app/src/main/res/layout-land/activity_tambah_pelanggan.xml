@@ -5,6 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/gradientbg"
     tools:context=".pelanggan.tambahPelanggan">
 
     <TextView
@@ -14,6 +15,7 @@
         android:text="@string/tvpelanggan"
         android:textStyle="bold"
         android:textSize="30sp"
+        android:textColor="@color/white"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -37,6 +39,7 @@
                 android:layout_height="wrap_content"
                 android:text="@string/tvnama"
                 android:textSize="20sp"
+                android:textColor="@color/white"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 android:layout_marginTop="35dp"
@@ -46,6 +49,12 @@
                 android:id="@+id/inputnamapel"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
+                android:inputType="textPersonName|textCapWords|textAutoComplete"
+                android:maxLength="50"
+                android:digits="ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz "
+                android:drawableLeft="@drawable/baseline_person_24"
+                android:drawablePadding="8dp"
+                android:textColor="@color/black"
                 android:hint="@string/tvnama"
                 android:background="@drawable/edit_text_background"
                 app:layout_constraintTop_toBottomOf="@id/tvnama"
@@ -60,22 +69,27 @@
                 android:layout_height="wrap_content"
                 android:text="@string/tvalamat"
                 android:textSize="20sp"
-                app:layout_constraintTop_toBottomOf="@id/inputnamapel"
+                android:textColor="@color/white"
+                app:layout_constraintTop_toBottomOf="@+id/inputnohppel"
                 app:layout_constraintStart_toStartOf="parent"
                 android:layout_marginTop="30dp"
                 android:layout_marginStart="55dp"/>
 
-            <EditText
+            <AutoCompleteTextView
                 android:id="@+id/inputalamatpel"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
+                android:drawableLeft="@drawable/baseline_place_24"
+                android:drawablePadding="8dp"
+                android:textColor="@color/black"
                 android:hint="@string/tvalamat"
+                android:inputType="textPostalAddress"
                 android:background="@drawable/edit_text_background"
-                app:layout_constraintTop_toBottomOf="@id/tvalamat"
+                app:layout_constraintTop_toBottomOf="@+id/tvalamat"
                 app:layout_constraintStart_toStartOf="parent"
                 android:layout_marginStart="55dp"
                 android:layout_marginEnd="55dp"
-                android:layout_marginTop="15dp"/>
+                android:layout_marginTop="15dp" />
 
             <TextView
                 android:id="@+id/tvnohp"
@@ -83,7 +97,8 @@
                 android:layout_height="wrap_content"
                 android:text="@string/tvnohp"
                 android:textSize="20sp"
-                app:layout_constraintTop_toBottomOf="@id/inputalamatpel"
+                android:textColor="@color/white"
+                app:layout_constraintTop_toBottomOf="@+id/inputnamapel"
                 app:layout_constraintStart_toStartOf="parent"
                 android:layout_marginTop="30dp"
                 android:layout_marginStart="55dp"/>
@@ -93,7 +108,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:hint="@string/tvnohp"
-                android:inputType="phone"
+                android:drawableLeft="@drawable/baseline_phone_24"
+                android:drawablePadding="8dp"
+                android:textColor="@color/black"
                 android:background="@drawable/edit_text_background"
                 app:layout_constraintTop_toBottomOf="@id/tvnohp"
                 app:layout_constraintStart_toStartOf="parent"
@@ -107,7 +124,8 @@
                 android:layout_height="wrap_content"
                 android:text="@string/cabang"
                 android:textSize="20sp"
-                app:layout_constraintTop_toBottomOf="@id/inputnohppel"
+                android:textColor="@color/white"
+                app:layout_constraintTop_toBottomOf="@+id/inputalamatpel"
                 app:layout_constraintStart_toStartOf="parent"
                 android:layout_marginTop="30dp"
                 android:layout_marginStart="55dp"/>
@@ -117,6 +135,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:hint="@string/cabang"
+                android:drawableLeft="@drawable/baseline_account_tree_24"
+                android:drawablePadding="8dp"
+                android:textColor="@color/black"
+                android:maxLength="30"
                 android:background="@drawable/edit_text_background"
                 app:layout_constraintTop_toBottomOf="@id/cabang"
                 app:layout_constraintStart_toStartOf="parent"
@@ -131,6 +153,7 @@
                 android:text="@string/simpan"
                 android:textSize="20sp"
                 android:textColor="@color/white"
+                android:backgroundTint="#000000"
                 app:layout_constraintTop_toBottomOf="@id/inputcabangpel"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintBottom_toBottomOf="parent"

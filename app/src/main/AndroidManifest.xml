@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
@@ -14,6 +14,18 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Laundry"
         tools:targetApi="31">
+        <activity
+            android:name=".cabang.Data_cabang"
+            android:exported="false" />
+        <activity
+            android:name=".cabang.Tambah_cabang"
+            android:exported="false" />
+        <activity
+            android:name=".tambahan.datatambahan"
+            android:exported="false" />
+        <activity
+            android:name=".tambahan.Tambahan"
+            android:exported="false" />
         <activity
             android:name=".layanan.dataLayanan"
             android:exported="false" />
@@ -29,8 +41,9 @@
         <activity
             android:name=".pelanggan.dataPelanggan"
             android:exported="false" />
-        <activity android:name=".layanan.tambahLayanan"
-            android:exported="false"/>
+        <activity
+            android:name=".layanan.tambahLayanan"
+            android:exported="false" />
         <activity
             android:name=".MainActivity"
             android:exported="true">

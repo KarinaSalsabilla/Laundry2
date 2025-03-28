@@ -24,6 +24,45 @@
     <string name="validasiCabang">Cabang Tidak Boleh Kosong</string>
     <string name="suksespelanggan">Sukses Menambahkan Data Pelanggan</string>
     <string name="gagalpelanggan">Gagal Menambahkan Data Pelanggan</string>
-    <string name="validasidaftar">Terdaftar tidak boleh kosong</string>
     <string name="validasiHarga">Harga tidak boleh kosong</string>
+    <string name="pegawai_tambah">Tambah Pegawai</string>
+    <string name="halo">Halo</string>
+    <string name="estimasi">Estimasi Hari Ini</string>
+    <string name="trans">Transaksi</string>
+    <string name="pelanggan">Pelanggan</string>
+    <string name="lapor">Laporan</string>
+    <string name="kami">Kami Selalu Siap Melayani Anda  Kapanpun</string>
+    <string name="akun">Akun</string>
+    <string name="lay">Layanan</string>
+    <string name="Tambahan">Tambahan</string>
+    <string name="pegawai">Pegawai</string>
+    <string name="cbg">Cabang</string>
+    <string name="esti">Estimasi</string>
+    <string name="tambahcabang">Tambah Cabang</string>
+    <string name="alamtcabang">Alamat Cabang</string>
+    <string name="jamoper">Jam Operasional</string>
+    <string name="namabarang">Nama Barang</string>
+    <string name="hargabarang">Harga Barang</string>
+    <string name="suksescabang">Sukses Menambahkan Data Cabang</string>
+    <string name="gagalcabang">Gagal Menambahkan Data Cabang</string>
+    <string name="sukseslayanan">Sukses Menambahkan Data Layanan</string>
+    <string name="gagalayanan">Gagal Menambahkan Data Layanan</string>
+    <string name="suksespegawai">Sukses Menambahkan Data Pegawai</string>
+    <string name="gagalpegawai">Gagal Menambahkan Data Pegawai</string>
+    <string name="suksestambahan">Sukses Menambahkan Data Tambahan</string>
+    <string name="gagaltambahan">Gagal Menambahkan Data Tambahan</string>
+    <string name="pagi">Selamat Pagi, Karina</string>
+    <string name="siang">Selamat Siang, Karina</string>
+    <string name="sore">Selamat Sore, Karina</string>
+    <string name="malam">Selamat Malam, Karina</string>
+
+
+    <!--<string-array name="alamat_list">-->
+<!--    <item>Jakarta</item>-->
+<!--    <item>Bandung</item>-->
+<!--    <item>Surabaya</item>-->
+<!--    <item>Yogyakarta</item>-->
+<!--</string-array>-->
+
 </resources>
+

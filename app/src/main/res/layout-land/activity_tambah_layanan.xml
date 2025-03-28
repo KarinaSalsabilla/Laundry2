@@ -5,6 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/gradientbg"
     tools:context=".layanan.tambahLayanan">
 
     <TextView
@@ -17,6 +18,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginTop="30dp"
         android:textStyle="bold"
+        android:textColor="@color/white"
         android:textSize="30sp"/>
 
     <ScrollView
@@ -36,8 +38,9 @@
         android:text="@string/namalayanan"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="35dp"
         android:layout_marginStart="55dp"
+        android:textColor="@color/white"
         android:textSize="20sp"/>
 
     <EditText
@@ -62,8 +65,9 @@
         android:text="@string/hargaLayanan"
         app:layout_constraintTop_toBottomOf="@+id/inputnamalayanan"
         app:layout_constraintStart_toStartOf="parent"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="35dp"
         android:layout_marginStart="55dp"
+        android:textColor="@color/white"
         android:textSize="20sp"/>
 
     <EditText
@@ -88,7 +92,8 @@
         android:text="@string/cabang"
         app:layout_constraintTop_toBottomOf="@+id/inputharga"
         app:layout_constraintStart_toStartOf="parent"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="35dp"
+        android:textColor="@color/white"
         android:layout_marginStart="55dp"
         android:textSize="20sp"/>
 
@@ -115,8 +120,12 @@
         app:layout_constraintTop_toBottomOf="@+id/inputcabang"
         android:layout_marginStart="200dp"
         android:layout_marginEnd="200dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginBottom="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginTop="50dp"
         android:text="@string/simpan"
+        android:textColor="@color/white"
+        android:backgroundTint="@color/black"
         android:textSize="20sp"/>
     </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>

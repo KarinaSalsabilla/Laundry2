@@ -18,6 +18,7 @@ import com.google.firebase.database.ValueEventListener
 import com.huurisha.laundry.R
 import com.huurisha.laundry.adapter.DataPelangganAdapter
 import com.huurisha.laundry.modeldata.ModelPelanggan
+import com.huurisha.laundry.pegawai.tambah_pegawai
 
 class dataPelanggan : AppCompatActivity() {
 
@@ -41,7 +42,16 @@ class dataPelanggan : AppCompatActivity() {
         rvdataPelanggan.setHasFixedSize(true)
         pelangganList = arrayListOf<ModelPelanggan>()
         getData()
-        tekan()
+        fabDATA_PENGGUNA_Tambah.setOnClickListener {
+            val intent = Intent(this, tambahPelanggan::class.java)
+            intent.putExtra("judul", this.getString(R.string.tvpelanggan))
+            intent.putExtra("idPelanggan","")
+            intent.putExtra("namaPelanggan","")
+            intent.putExtra("noHpPelanggan","")
+            intent.putExtra("alamatPelanggan","")
+            intent.putExtra("idCabang","")
+            startActivity(intent)
+        }
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
@@ -78,11 +88,5 @@ class dataPelanggan : AppCompatActivity() {
 
         })
 
-    }
-    fun tekan(){
-        fabDATA_PENGGUNA_Tambah.setOnClickListener{
-            val intent = Intent(this, tambahPelanggan::class.java)
-            startActivity(intent)
-        }
     }
 }

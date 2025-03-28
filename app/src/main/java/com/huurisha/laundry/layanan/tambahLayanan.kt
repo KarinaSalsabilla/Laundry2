@@ -88,11 +88,11 @@ class tambahLayanan : AppCompatActivity() {
             etCabang.text.toString()
         )
         layananBaru.setValue(data).addOnSuccessListener {
-            Toast.makeText(this,this.getString(R.string.suksespelanggan), Toast.LENGTH_SHORT).show()
+            Toast.makeText(this,this.getString(R.string.sukseslayanan), Toast.LENGTH_SHORT).show()
             finish()
         }
             .addOnFailureListener{
-                Toast.makeText(this,this.getString(R.string.gagalpelanggan), Toast.LENGTH_SHORT).show()
+                Toast.makeText(this,this.getString(R.string.gagalayanan), Toast.LENGTH_SHORT).show()
             }
     }
 }

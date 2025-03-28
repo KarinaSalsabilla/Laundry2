@@ -24,8 +24,8 @@ class DataLayananAdapter (private val ListLayanan: ArrayList<ModelLayanan>) : Re
         val item = ListLayanan[position]
         holder.tvid.text = item.idLayanan
         holder.tvNama.text = item.namaLayanan
-        holder.harga.text = item.hargaLayanan
-        holder.cabang.text = item.cabangLayanan
+        holder.harga.text = "Harga= ${item.hargaLayanan}"
+        holder.cabang.text = "Cabang= ${item.cabangLayanan}"
 
         holder.cvCard.setOnClickListener {
 

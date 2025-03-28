@@ -15,11 +15,13 @@ import androidx.activity.enableEdgeToEdge
 import androidx.cardview.widget.CardView
 import androidx.core.view.ViewCompat
 import com.google.android.material.floatingactionbutton.FloatingActionButton
+import com.huurisha.laundry.cabang.Data_cabang
 import com.huurisha.laundry.layanan.dataLayanan
 import com.huurisha.laundry.pegawai.dataPegawai
 import com.huurisha.laundry.pegawai.tambah_pegawai
 import com.huurisha.laundry.pelanggan.dataPelanggan
 import com.huurisha.laundry.pelanggan.tambahPelanggan
+import com.huurisha.laundry.tambahan.datatambahan
 
 import java.util.*
 
@@ -27,6 +29,8 @@ class MainActivity : AppCompatActivity() {
     lateinit var pelanggan1: ImageButton
     lateinit var pegawai1: ImageView
     lateinit var layanan:CardView
+    lateinit var tambahan:CardView
+    lateinit var cabang:ImageButton
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -34,17 +38,31 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         init()
         tekan()
+        WindowCompat.setDecorFitsSystemWindows(window, false)
+
+        WindowInsetsControllerCompat(window, window.decorView).apply {
+            hide(WindowInsetsCompat.Type.systemBars()) // Sembunyikan status bar & navigation bar
+            systemBarsBehavior = WindowInsetsControllerCompat.BEHAVIOR_SHOW_TRANSIENT_BARS_BY_SWIPE
+        }
+
+// Menghindari perubahan padding/margin pada button atau card
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
-            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
+            val imeInsets = insets.getInsets(WindowInsetsCompat.Type.ime()) // Menyesuaikan keyboard
+            val systemBars =
+                insets.getInsets(WindowInsetsCompat.Type.systemBars()) // Status & nav bar
+
+            v.setPadding(0, 0, 0, imeInsets.bottom) // Pastikan padding tidak berubah
             insets
         }
     }
 
-    fun init() {
+        fun init() {
         pelanggan1 = findViewById(R.id.pelanggan1)
         pegawai1 = findViewById(R.id.pegawai)
         layanan = findViewById(R.id.layanan)
+        tambahan = findViewById(R.id.tambahan)
+        cabang = findViewById(R.id.cabang2)
+
     }
 
     fun tekan() {
@@ -63,6 +81,16 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
+        tambahan.setOnClickListener {
+            val intent =  Intent(this, datatambahan::class.java)
+            startActivity(intent)
+        }
+
+        cabang.setOnClickListener {
+            val intent =  Intent(this, Data_cabang::class.java)
+            startActivity(intent)
+        }
+
         // Referensi TextView
         val helloTextView = findViewById<View>(R.id.halo) as TextView
         val dateTextView = findViewById<View>(R.id.tanggal) as TextView
@@ -76,10 +104,10 @@ class MainActivity : AppCompatActivity() {
         // Mengatur pesan berdasarkan waktu
         val hour = calendar.get(Calendar.HOUR_OF_DAY)
         val greeting = when {
-            hour in 5..11 -> "Selamat Pagi, Karina"
-            hour in 12..14 -> "Selamat Siang, Karina"
-            hour in 15..17 -> "Selamat Sore, Karina"
-            else -> "Selamat Malam, Karina"
+            hour in 5..11 -> this.getString(R.string.pagi)
+            hour in 12..14 -> this.getString(R.string.siang)
+            hour in 15..17 -> this.getString(R.string.sore)
+            else -> this.getString(R.string.malam)
         }
         helloTextView.text = greeting
     }

@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
     android:layout_width="match_parent"
+    android:background="@drawable/gradientbg"
     android:layout_height="match_parent"
     tools:context=".pelanggan.tambahPelanggan">
 
@@ -16,6 +17,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginTop="30dp"
+        android:textColor="@color/white"
         android:textStyle="bold"
         android:textSize="30sp"/>
 
@@ -28,13 +30,20 @@
         app:layout_constraintStart_toStartOf="parent"
         android:layout_marginTop="35dp"
         android:layout_marginStart="20dp"
+        android:textColor="@color/white"
         android:textSize="20sp"/>
 
     <EditText
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:id="@+id/inputnamapel"
+        android:inputType="textPersonName|textCapWords|textAutoComplete"
+        android:textColor="@color/black"
         android:hint="@string/tvnama"
+        android:maxLength="50"
+        android:digits="ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz "
+        android:drawableLeft="@drawable/baseline_person_24"
+        android:drawablePadding="8dp"
         app:layout_constraintTop_toBottomOf="@+id/tvnama"
         app:layout_constraintStart_toStartOf="parent"
         android:layout_marginStart="20dp"
@@ -48,17 +57,22 @@
         android:layout_height="wrap_content"
         android:id="@+id/tvalamat"
         android:text="@string/tvalamat"
-        app:layout_constraintTop_toBottomOf="@+id/inputnamapel"
+        app:layout_constraintTop_toBottomOf="@+id/inputnohppel"
         app:layout_constraintStart_toStartOf="parent"
         android:layout_marginTop="30dp"
         android:layout_marginStart="20dp"
+        android:textColor="@color/white"
         android:textSize="20sp"/>
 
-    <EditText
+    <AutoCompleteTextView
+        android:id="@+id/inputalamatpel"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:id="@+id/inputalamatpel"
+        android:drawableLeft="@drawable/baseline_place_24"
+        android:drawablePadding="8dp"
+        android:textColor="@color/black"
         android:hint="@string/tvalamat"
+        android:inputType="textPostalAddress"
         android:background="@drawable/edit_text_background"
         app:layout_constraintTop_toBottomOf="@+id/tvalamat"
         app:layout_constraintStart_toStartOf="parent"
@@ -71,10 +85,11 @@
         android:layout_height="wrap_content"
         android:id="@+id/tvnohp"
         android:text="@string/tvnohp"
-        app:layout_constraintTop_toBottomOf="@+id/inputalamatpel"
+        app:layout_constraintTop_toBottomOf="@+id/inputnamapel"
         app:layout_constraintStart_toStartOf="parent"
         android:layout_marginTop="30dp"
         android:layout_marginStart="20dp"
+        android:textColor="@color/white"
         android:textSize="20sp"/>
 
     <EditText
@@ -83,6 +98,10 @@
         android:id="@+id/inputnohppel"
         android:hint="@string/tvnohp"
         android:inputType="phone"
+        android:maxLength="14"
+        android:drawableLeft="@drawable/baseline_phone_24"
+        android:drawablePadding="8dp"
+        android:textColor="@color/black"
         android:background="@drawable/edit_text_background"
         app:layout_constraintTop_toBottomOf="@+id/tvnohp"
         app:layout_constraintStart_toStartOf="parent"
@@ -96,10 +115,11 @@
         android:layout_height="wrap_content"
         android:id="@+id/cabang"
         android:text="@string/cabang"
-        app:layout_constraintTop_toBottomOf="@+id/inputnohppel"
+        app:layout_constraintTop_toBottomOf="@+id/inputalamatpel"
         app:layout_constraintStart_toStartOf="parent"
         android:layout_marginTop="30dp"
         android:layout_marginStart="20dp"
+        android:textColor="@color/white"
         android:textSize="20sp"/>
 
     <EditText
@@ -107,24 +127,30 @@
         android:layout_height="50dp"
         android:id="@+id/inputcabangpel"
         android:hint="@string/cabang"
+        android:drawableLeft="@drawable/baseline_account_tree_24"
+        android:drawablePadding="8dp"
+        android:textColor="@color/black"
         android:background="@drawable/edit_text_background"
         app:layout_constraintTop_toBottomOf="@+id/cabang"
         app:layout_constraintStart_toStartOf="parent"
         android:layout_marginStart="20dp"
         android:layout_marginEnd="20dp"
         android:layout_marginTop="15dp"
+        android:maxLines="1"
+        android:maxLength="30"
         />
 
     <Button
         android:layout_width="match_parent"
-        android:layout_height="50dp"
+        android:layout_height="0dp"
         android:id="@+id/simpanpel"
         app:layout_constraintTop_toBottomOf="@+id/inputcabangpel"
         android:layout_marginStart="40dp"
         android:layout_marginEnd="40dp"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="40dp"
         android:textColor="@color/white"
         android:text="@string/simpan"
+        android:backgroundTint="#000000"
         android:textSize="20sp"/>
 
 

@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
     android:layout_width="match_parent"
+    android:background="@drawable/gradientbg"
     android:layout_height="match_parent"
     tools:context=".pegawai.tambah_pegawai">
 
@@ -12,6 +13,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
+        android:textColor="@color/white"
         android:text="@string/tvpegawai"
         android:textSize="30sp"
         android:textStyle="bold"
@@ -37,9 +39,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="55dp"
-                android:layout_marginTop="60dp"
+                android:layout_marginTop="35dp"
                 android:text="@string/tvnamapegawai"
-                android:textSize="16sp"
+                android:textColor="@color/white"
+                android:textSize="20sp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -50,9 +53,14 @@
                 android:layout_marginStart="55dp"
                 android:layout_marginTop="10dp"
                 android:layout_marginEnd="55dp"
+                android:maxLength="50"
+                android:digits="ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz "
+                android:drawableLeft="@drawable/baseline_person_24"
+                android:drawablePadding="8dp"
+                android:inputType="textPersonName|textCapWords"
+                android:textColor="@color/black"
                 android:background="@drawable/edit_text_background"
                 android:hint="@string/tvnamapegawai"
-                android:textColor="@color/black"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/tvnamapegawai" />
 
@@ -61,32 +69,38 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="55dp"
-                android:layout_marginTop="15dp"
+                android:layout_marginTop="30dp"
                 android:text="@string/tvalamat"
-                android:textSize="16sp"
+                android:textColor="@color/white"
+                android:textSize="20sp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/inputnamapegawai" />
 
-            <EditText
+            <AutoCompleteTextView
                 android:id="@+id/inputalamatpegawai"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
-                android:layout_marginStart="55dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginEnd="55dp"
-                android:background="@drawable/edit_text_background"
+                android:drawableLeft="@drawable/baseline_place_24"
+                android:padding="8dp"
+                android:textColor="@color/black"
                 android:hint="@string/tvalamat"
+                android:inputType="textPostalAddress"
+                android:background="@drawable/edit_text_background"
+                app:layout_constraintTop_toBottomOf="@+id/tvalamat"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tvalamat" />
+                android:layout_marginStart="55dp"
+                android:layout_marginEnd="55dp"
+                android:layout_marginTop="15dp"  />
 
             <TextView
                 android:id="@+id/tvnohp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="55dp"
-                android:layout_marginTop="15dp"
+                android:layout_marginTop="30dp"
                 android:text="@string/tvnohp"
-                android:textSize="16sp"
+                android:textColor="@color/white"
+                android:textSize="20sp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/inputalamatpegawai" />
 
@@ -95,48 +109,30 @@
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:layout_marginStart="55dp"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="15dp"
                 android:layout_marginEnd="55dp"
                 android:background="@drawable/edit_text_background"
                 android:hint="@string/tvnohp"
+                android:textColor="@color/black"
+                android:maxLength="14"
+                android:drawableLeft="@drawable/baseline_phone_24"
+                android:drawablePadding="8dp"
                 android:inputType="phone"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/tvnohp" />
 
-            <TextView
-                android:id="@+id/ttl"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="55dp"
-                android:layout_marginTop="15dp"
-                android:text="@string/ttl"
-                android:textSize="16sp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/inputnohppegawai" />
-
-
-            <EditText
-                android:id="@+id/edt_pegawai"
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:layout_marginStart="55dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginEnd="55dp"
-                android:background="@drawable/edit_text_background"
-                android:hint="@string/ttl"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/ttl" />
 
             <TextView
                 android:id="@+id/cbg"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="55dp"
-                android:layout_marginTop="15dp"
+                android:layout_marginTop="30dp"
                 android:text="@string/cabang"
-                android:textSize="16sp"
+                android:textSize="20sp"
+                android:textColor="@color/white"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/edt_pegawai" />
+                app:layout_constraintTop_toBottomOf="@+id/inputnohppegawai" />
 
 
             <EditText
@@ -144,10 +140,13 @@
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:layout_marginStart="55dp"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="15dp"
                 android:layout_marginEnd="55dp"
                 android:background="@drawable/edit_text_background"
                 android:hint="@string/cabang"
+                android:drawableLeft="@drawable/baseline_account_tree_24"
+                android:drawablePadding="8dp"
+                android:textColor="@color/black"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/cbg" />
 
@@ -157,12 +156,13 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="200dp"
-                android:layout_marginTop="16dp"
+                android:layout_marginTop="50dp"
                 android:layout_marginBottom="20dp"
                 android:layout_marginEnd="200dp"
                 android:text="@string/simpan"
                 android:textColor="@color/white"
                 android:textSize="20sp"
+                android:backgroundTint="#000000"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/edtcabangpegawai" />
         </androidx.constraintlayout.widget.ConstraintLayout>
