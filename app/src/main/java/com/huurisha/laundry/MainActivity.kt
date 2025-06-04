@@ -22,6 +22,7 @@ import com.huurisha.laundry.pegawai.tambah_pegawai
 import com.huurisha.laundry.pelanggan.dataPelanggan
 import com.huurisha.laundry.pelanggan.tambahPelanggan
 import com.huurisha.laundry.tambahan.datatambahan
+import com.huurisha.laundry.transaksi.Transaksi
 
 import java.util.*
 
@@ -31,6 +32,8 @@ class MainActivity : AppCompatActivity() {
     lateinit var layanan:CardView
     lateinit var tambahan:CardView
     lateinit var cabang:ImageButton
+    lateinit var transaksi:ImageView
+    lateinit var laporan:ImageButton
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -62,6 +65,8 @@ class MainActivity : AppCompatActivity() {
         layanan = findViewById(R.id.layanan)
         tambahan = findViewById(R.id.tambahan)
         cabang = findViewById(R.id.cabang2)
+        transaksi = findViewById(R.id.tras)
+            laporan = findViewById(R.id.imagebuttonlaporan)
 
     }
 
@@ -88,6 +93,15 @@ class MainActivity : AppCompatActivity() {
 
         cabang.setOnClickListener {
             val intent =  Intent(this, Data_cabang::class.java)
+            startActivity(intent)
+        }
+
+        transaksi.setOnClickListener {
+            val intent = Intent(this, Transaksi::class.java)
+            startActivity(intent)
+        }
+        laporan.setOnClickListener{
+            val intent = Intent(this,data_laporan::class.java)
             startActivity(intent)
         }
 

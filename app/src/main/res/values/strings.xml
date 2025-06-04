@@ -55,14 +55,18 @@
     <string name="siang">Selamat Siang, Karina</string>
     <string name="sore">Selamat Sore, Karina</string>
     <string name="malam">Selamat Malam, Karina</string>
+    <string name="editPegawai">Edit Pegawai</string>
+    <string name="sunting">Sunting</string>
+    <string name="Editpelanggan">Edit Pelanggan</string>
+    <string name="perbarui">Perbarui</string>
 
 
     <!--<string-array name="alamat_list">-->
-<!--    <item>Jakarta</item>-->
-<!--    <item>Bandung</item>-->
-<!--    <item>Surabaya</item>-->
-<!--    <item>Yogyakarta</item>-->
-<!--</string-array>-->
+    <!--    <item>Jakarta</item>-->
+    <!--    <item>Bandung</item>-->
+    <!--    <item>Surabaya</item>-->
+    <!--    <item>Yogyakarta</item>-->
+    <!--</string-array>-->
 
 </resources>
 

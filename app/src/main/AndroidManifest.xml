@@ -1,8 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
+    <!-- Permission untuk telephony -->
+    <uses-feature
+        android:name="android.hardware.telephony"
+        android:required="false" />
 
+    <uses-permission android:name="android.permission.CALL_PHONE" /> <!-- Permission untuk internet dan network -->
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" /> <!-- Permission untuk storage -->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission
+        android:name="android.permission.MANAGE_EXTERNAL_STORAGE"
+        tools:ignore="ScopedStorage" /> <!-- Permission untuk PRINTING -->
+    <uses-permission android:name="android.permission.BLUETOOTH" />
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" /> <!-- Untuk Android 12+ (API 31+) -->
+    <uses-permission android:name="android.permission.BLUETOOTH_CONNECT" />
+    <uses-permission android:name="android.permission.BLUETOOTH_SCAN" /> <!-- Hardware features untuk printing -->
+    <uses-feature
+        android:name="android.hardware.bluetooth"
+        android:required="false" />
+    <uses-feature
+        android:name="android.hardware.usb.host"
+        android:required="false" /> <!-- WhatsApp detection -->
+    <queries>
+        <package android:name="com.whatsapp" />
+        <package android:name="com.whatsapp.w4b" />
+    </queries>
 
     <application
         android:allowBackup="true"
@@ -14,6 +41,36 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Laundry"
         tools:targetApi="31">
+        <activity
+            android:name=".invoice_new"
+            android:exported="false" />
+        <!-- <activity -->
+        <!-- android:name=".CardDataLaporan" -->
+        <!-- android:exported="false" /> -->
+<!--        <activity-->
+<!--            android:name=".Invoice"-->
+<!--            android:exported="false" />-->
+        <activity
+            android:name=".konfirmasiData"
+            android:exported="false" />
+        <activity
+            android:name=".pilih_layanan_tambahan"
+            android:exported="false" />
+        <activity
+            android:name=".pilihPelangganActivity"
+            android:exported="false" />
+        <activity
+            android:name=".pilih_layanan"
+            android:exported="false" />
+        <activity
+            android:name=".transaksi.Transaksi"
+            android:exported="false" />
+        <activity
+            android:name=".login"
+            android:exported="false" />
+        <activity
+            android:name=".data_laporan"
+            android:exported="false" />
         <activity
             android:name=".cabang.Data_cabang"
             android:exported="false" />

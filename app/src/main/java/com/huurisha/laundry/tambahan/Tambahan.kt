@@ -11,6 +11,8 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.google.firebase.database.FirebaseDatabase
 import com.huurisha.laundry.R
+import java.text.NumberFormat
+import java.util.Locale
 import com.huurisha.laundry.modeldata.ModelPelanggan
 import com.huurisha.laundry.modeldata.ModelTambahan
 
@@ -52,6 +54,7 @@ class Tambahan : AppCompatActivity() {
         val nama = etNama.text.toString()
         val alamat = etharga.text.toString()
         val cabang =  etCabang.text.toString()
+        val hargaStr = etharga.text.toString()
 
         if (nama.isEmpty()){
             etNama.error= this.getString(R.string.validasinama)
@@ -60,6 +63,22 @@ class Tambahan : AppCompatActivity() {
             return
 
         }
+
+        if (hargaStr.isEmpty()) {
+            etharga.error = "Harga tidak boleh kosong"
+            Toast.makeText(this, "Harga tidak boleh kosong", Toast.LENGTH_SHORT).show()
+            etharga.requestFocus()
+            return
+        }
+
+        val harga = hargaStr.toDoubleOrNull()
+        if (harga == null || harga <= 0) {
+            etharga.error = "Harga harus lebih dari 0"
+            Toast.makeText(this, "Harga harus lebih dari 0", Toast.LENGTH_SHORT).show()
+            etharga.requestFocus()
+            return
+        }
+
 
         if (alamat.isEmpty()){
             etharga.error= this.getString(R.string.validasialamat)

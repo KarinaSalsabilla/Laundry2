@@ -5,5 +5,6 @@ class ModelPelanggan (
     val namaPelanggan: String? = null,
     val alamatPelanggan: String? = null,
     val noHpPelanggan: String? = null,
-    val idCabang: String? = null
+    val idCabang: String? = null,
+    val terdafter:String? = null
 )

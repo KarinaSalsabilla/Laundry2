@@ -56,4 +56,8 @@
     <string name="siang">Good Afternoon, Karina</string>
     <string name="sore">Good Afternoon, Karina</string>
     <string name="malam">Good Evening, Karina</string>
+    <string name="editPegawai">Edit Staff</string>
+    <string name="sunting">Edit</string>
+    <string name="Editpelanggan">Edit Customer</string>
+    <string name="perbarui">Update</string>
 </resources>

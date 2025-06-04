@@ -12,8 +12,6 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:listitem="@layout/carddatacabang">
-
-
     </androidx.recyclerview.widget.RecyclerView>
 
     <RelativeLayout
@@ -30,9 +28,5 @@
             android:layout_marginStart="10dp"
             android:layout_marginEnd="10dp"
             android:layout_marginBottom="50dp"/>
-
-
     </RelativeLayout>
-
-
 </androidx.constraintlayout.widget.ConstraintLayout>

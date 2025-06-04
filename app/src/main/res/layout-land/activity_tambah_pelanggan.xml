@@ -8,30 +8,25 @@
     android:background="@drawable/gradientbg"
     tools:context=".pelanggan.tambahPelanggan">
 
-    <TextView
-        android:id="@+id/tvpelanggan1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/tvpelanggan"
-        android:textStyle="bold"
-        android:textSize="30sp"
-        android:textColor="@color/white"
+    <LinearLayout
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="30dp"/>
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:id="@+id/layoutFormPelanggan"
+        >
 
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        app:layout_constraintTop_toBottomOf="@id/tvpelanggan1"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent">
-
-        <!-- ConstraintLayout sebagai Child ScrollView -->
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
+<!--    <TextView-->
+<!--        android:id="@+id/tvpelanggan1"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:text="@string/tvpelanggan"-->
+<!--        android:textStyle="bold"-->
+<!--        android:textSize="30sp"-->
+<!--        android:textColor="@color/white"-->
+<!--        android:layout_marginTop="10dp"-->
+<!--        android:layout_marginStart="90dp"/>-->
 
             <TextView
                 android:id="@+id/tvnama"
@@ -42,12 +37,13 @@
                 android:textColor="@color/white"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                android:layout_marginTop="35dp"
-                android:layout_marginStart="55dp"/>
+                android:layout_marginTop="5dp"
+                android:layout_marginStart="55dp"
+               />
 
             <EditText
                 android:id="@+id/inputnamapel"
-                android:layout_width="match_parent"
+                android:layout_width="350dp"
                 android:layout_height="50dp"
                 android:inputType="textPersonName|textCapWords|textAutoComplete"
                 android:maxLength="50"
@@ -57,11 +53,8 @@
                 android:textColor="@color/black"
                 android:hint="@string/tvnama"
                 android:background="@drawable/edit_text_background"
-                app:layout_constraintTop_toBottomOf="@id/tvnama"
-                app:layout_constraintStart_toStartOf="parent"
                 android:layout_marginStart="55dp"
-                android:layout_marginEnd="55dp"
-                android:layout_marginTop="15dp"/>
+                android:layout_marginTop="5dp"/>
 
             <TextView
                 android:id="@+id/tvalamat"
@@ -72,12 +65,12 @@
                 android:textColor="@color/white"
                 app:layout_constraintTop_toBottomOf="@+id/inputnohppel"
                 app:layout_constraintStart_toStartOf="parent"
-                android:layout_marginTop="30dp"
+                android:layout_marginTop="5dp"
                 android:layout_marginStart="55dp"/>
 
             <AutoCompleteTextView
                 android:id="@+id/inputalamatpel"
-                android:layout_width="match_parent"
+                android:layout_width="350dp"
                 android:layout_height="50dp"
                 android:drawableLeft="@drawable/baseline_place_24"
                 android:drawablePadding="8dp"
@@ -89,7 +82,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 android:layout_marginStart="55dp"
                 android:layout_marginEnd="55dp"
-                android:layout_marginTop="15dp" />
+                android:layout_marginTop="5dp" />
 
             <TextView
                 android:id="@+id/tvnohp"
@@ -100,12 +93,12 @@
                 android:textColor="@color/white"
                 app:layout_constraintTop_toBottomOf="@+id/inputnamapel"
                 app:layout_constraintStart_toStartOf="parent"
-                android:layout_marginTop="30dp"
+                android:layout_marginTop="5dp"
                 android:layout_marginStart="55dp"/>
 
             <EditText
                 android:id="@+id/inputnohppel"
-                android:layout_width="match_parent"
+                android:layout_width="350dp"
                 android:layout_height="50dp"
                 android:hint="@string/tvnohp"
                 android:drawableLeft="@drawable/baseline_phone_24"
@@ -116,7 +109,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 android:layout_marginStart="55dp"
                 android:layout_marginEnd="55dp"
-                android:layout_marginTop="15dp"/>
+                android:layout_marginTop="5dp"/>
 
             <TextView
                 android:id="@+id/cabang"
@@ -127,12 +120,12 @@
                 android:textColor="@color/white"
                 app:layout_constraintTop_toBottomOf="@+id/inputalamatpel"
                 app:layout_constraintStart_toStartOf="parent"
-                android:layout_marginTop="30dp"
+                android:layout_marginTop="5dp"
                 android:layout_marginStart="55dp"/>
 
             <EditText
                 android:id="@+id/inputcabangpel"
-                android:layout_width="match_parent"
+                android:layout_width="350dp"
                 android:layout_height="50dp"
                 android:hint="@string/cabang"
                 android:drawableLeft="@drawable/baseline_account_tree_24"
@@ -144,11 +137,11 @@
                 app:layout_constraintStart_toStartOf="parent"
                 android:layout_marginStart="55dp"
                 android:layout_marginEnd="55dp"
-                android:layout_marginTop="15dp"/>
+                android:layout_marginTop="5dp"/>
 
             <Button
                 android:id="@+id/simpanpel"
-                android:layout_width="match_parent"
+                android:layout_width="350dp"
                 android:layout_height="50dp"
                 android:text="@string/simpan"
                 android:textSize="20sp"
@@ -157,13 +150,11 @@
                 app:layout_constraintTop_toBottomOf="@id/inputcabangpel"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintBottom_toBottomOf="parent"
-                android:layout_marginBottom="20dp"
-                android:layout_marginStart="200dp"
-                android:layout_marginEnd="200dp"
-                android:layout_marginTop="50dp"/>
+                android:layout_marginStart="55dp"
+                android:layout_marginTop="10dp"/>
+    </LinearLayout>
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
-    </ScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
+
+

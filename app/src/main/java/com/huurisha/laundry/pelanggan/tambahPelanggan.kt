@@ -191,12 +191,15 @@ class tambahPelanggan : AppCompatActivity() {
     fun simpan(){
         val pelangganBaru = myRef.push()
         val pelangganId = pelangganBaru.key
+        val currentTime = SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.getDefault()).format(Date())
+
         val data = ModelPelanggan(
             pelangganId.toString(),
             etNama.text.toString(),
             etAlamat.text.toString(),
             etNoHP.text.toString(),
-            etCabang.text.toString()
+            etCabang.text.toString(),
+            currentTime
         )
         pelangganBaru.setValue(data).addOnSuccessListener {
             Toast.makeText(this,this.getString(R.string.suksespelanggan),Toast.LENGTH_SHORT).show()

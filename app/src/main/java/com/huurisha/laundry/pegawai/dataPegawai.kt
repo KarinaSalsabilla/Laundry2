@@ -41,6 +41,7 @@ class dataPegawai : AppCompatActivity() {
         rvdataPegawai.setHasFixedSize(true)
         pegawaiList = arrayListOf<ModelPegawai>()
         getData()
+
         tambahPega.setOnClickListener {
             val intent = Intent(this, tambah_pegawai::class.java)
             intent.putExtra("judul", this.getString(R.string.tvpegawai))

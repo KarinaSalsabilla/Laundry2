@@ -93,12 +93,25 @@
                 android:layout_marginTop="10dp"
                 android:layout_marginStart="10dp"/>
 
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Terdater"
+                android:id="@+id/terdaftar"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                app:layout_constraintTop_toBottomOf="@id/cabangpel"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginTop="10dp"
+                android:layout_marginStart="10dp"/>
+
         <Button
             android:layout_width="150dp"
             android:layout_height="wrap_content"
             android:text="@string/hubungi"
             android:id="@+id/hubungipel"
-            app:layout_constraintTop_toBottomOf="@+id/cabangpel"
+            app:layout_constraintTop_toBottomOf="@+id/terdaftar"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/lihatpel"
             android:layout_marginStart="30dp"
@@ -115,7 +128,7 @@
             android:text="@string/lihat"
             android:textColor="@color/white"
             android:id="@+id/lihatpel"
-            app:layout_constraintTop_toBottomOf="@+id/cabangpel"
+            app:layout_constraintTop_toBottomOf="@+id/terdaftar"
             app:layout_constraintStart_toEndOf="@+id/hubungipel"
             app:layout_constraintEnd_toEndOf="parent"
             android:layout_marginEnd="30dp"

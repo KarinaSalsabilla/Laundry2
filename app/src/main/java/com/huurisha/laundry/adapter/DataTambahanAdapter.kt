@@ -9,6 +9,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.huurisha.laundry.R
 import com.huurisha.laundry.modeldata.ModelPegawai
 import com.huurisha.laundry.modeldata.ModelTambahan
+import java.text.NumberFormat
+import java.util.Locale
 
 class DataTambahanAdapter (private val ListTambahan: ArrayList<ModelTambahan>) : RecyclerView.Adapter<DataTambahanAdapter.Viewholder>() {
     override fun onCreateViewHolder(
@@ -24,13 +26,20 @@ class DataTambahanAdapter (private val ListTambahan: ArrayList<ModelTambahan>) :
         val item = ListTambahan[position]
         holder.tvid.text = item.idcabang
         holder.tvNama.text = "Nama Barang= ${item.namabarang}"
-        holder.harga.text = "Harga = ${item.harga}"
+        val hargaDouble = item.harga?.toDoubleOrNull() ?: 0.0
+        holder.harga.text = "Harga= ${formatRupiah(hargaDouble)}"
         holder.cabang.text = "Cabang= ${item.namacabang}"
         holder.cvCard.setOnClickListener{
 
         }
 
     }
+
+    private fun formatRupiah(amount: Double): String {
+        val format = NumberFormat.getCurrencyInstance(Locale("in", "ID"))
+        return format.format(amount)
+    }
+
     override fun getItemCount(): Int {
         return ListTambahan.size
 

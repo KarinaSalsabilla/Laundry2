@@ -202,6 +202,7 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <ImageView
+            android:id="@+id/tras"
             android:layout_width="65dp"
             android:layout_height="60dp"
             android:layout_marginTop="10dp"
@@ -336,7 +337,8 @@
         android:layout_marginTop="20dp"
         app:cardCornerRadius="10dp">
 
-        <ImageView
+        <ImageButton
+            android:id="@+id/imagebuttonlaporan"
             android:layout_width="60dp"
             android:layout_height="60dp"
             android:background="@drawable/report"
