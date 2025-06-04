@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "708052285844",
+    "project_id": "karinslaundry",
+    "storage_bucket": "karinslaundry.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:708052285844:android:f5e9868ae41090e8abb781",
+        "android_client_info": {
+          "package_name": "com.huurisha.laundry"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBwrqW3HVQEnW1n1tWutWYK2zjeuNybt2k"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

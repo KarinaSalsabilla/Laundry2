@@ -103,7 +103,7 @@
                 android:textColor="@color/white"
                 android:layout_marginEnd="10dp"
                 android:layout_marginTop="10dp"
-                android:layout_marginBottom="10dp"
+                android:layout_marginBottom="5dp"
                 android:backgroundTint="#B82B2B"/>
 
             <Button
@@ -117,6 +117,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 android:layout_marginEnd="30dp"
                 android:backgroundTint="#214BB6"
+                android:layout_marginBottom="5dp"
                 android:layout_marginTop="10dp"/>
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
