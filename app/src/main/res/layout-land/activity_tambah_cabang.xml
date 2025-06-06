@@ -8,162 +8,221 @@
     android:background="@drawable/gradientbg"
     tools:context=".cabang.Tambah_cabang">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/tvpelanggan1"
-        android:text="Tambah Cabang"
+    <!-- Container untuk landscape layout -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        android:weightSum="10"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="30dp"
-        android:textColor="@color/white"
-        android:textStyle="bold"
-        android:textSize="30sp"/>
-
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        app:layout_constraintTop_toBottomOf="@+id/tvpelanggan1"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintBottom_toBottomOf="parent">
 
-
+        <!-- Left Side - Data List (60% width) -->
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="6"
+            android:padding="12dp">
 
+            <!-- Header untuk data list -->
+            <TextView
+                android:id="@+id/tvDataCabang"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Data Cabang"
+                android:textColor="@color/white"
+                android:textSize="22sp"
+                android:textStyle="bold"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="16dp"
+                android:layout_marginStart="8dp"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/tvnama"
-        android:text="@string/cabang"
-        android:textColor="@color/white"
-       app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        android:layout_marginTop="35dp"
-        android:layout_marginStart="55dp"
-        android:textSize="20sp"/>
+            <!-- RecyclerView -->
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvDataCabang"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginStart="4dp"
+                android:layout_marginEnd="4dp"
+                android:layout_marginBottom="8dp"
+                android:clipToPadding="false"
+                android:padding="4dp"
+                android:scrollbars="vertical"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:layout_constraintTop_toBottomOf="@+id/tvDataCabang"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                tools:listitem="@layout/carddatacabang"
+                tools:itemCount="5" />
 
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:id="@+id/inputcabang"
-        android:textColor="@color/black"
-        android:hint="@string/cabang"
-        android:inputType="textCapWords"
-        android:drawableLeft="@drawable/baseline_account_tree_24"
-        android:drawablePadding="8dp"
-        app:layout_constraintTop_toBottomOf="@+id/tvnama"
-        app:layout_constraintStart_toStartOf="parent"
-        android:layout_marginStart="55dp"
-        android:layout_marginEnd="55dp"
-        android:layout_marginTop="15dp"
-        android:background="@drawable/edit_text_background"
-        />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/tvalamat"
-        android:text="@string/alamtcabang"
-        app:layout_constraintTop_toBottomOf="@+id/inputcabang"
-        app:layout_constraintStart_toStartOf="parent"
-        android:layout_marginTop="35dp"
-        android:textColor="@color/white"
-        android:layout_marginStart="55dp"
-        android:textSize="20sp"/>
-
-    <AutoCompleteTextView
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:id="@+id/inputalamat"
-        android:drawableLeft="@drawable/baseline_place_24"
-        android:padding="8dp"
-        android:textColor="@color/black"
-        android:hint="@string/tvalamat"
-        android:inputType="textPostalAddress"
-        android:background="@drawable/edit_text_background"
-        app:layout_constraintTop_toBottomOf="@+id/tvalamat"
-        app:layout_constraintStart_toStartOf="parent"
-        android:layout_marginStart="55dp"
-        android:layout_marginEnd="55dp"
-        android:layout_marginTop="15dp" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/tvnohp"
-        android:text="@string/tvnohp"
-        android:textColor="@color/white"
-        app:layout_constraintTop_toBottomOf="@+id/inputalamat"
-        app:layout_constraintStart_toStartOf="parent"
-        android:layout_marginTop="35dp"
-        android:layout_marginStart="55dp"
-        android:textSize="20sp"/>
-
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:id="@+id/inputnohp"
-        android:hint="@string/tvnohp"
-        android:inputType="phone"
-        android:maxLength="14"
-        android:textColor="@color/black"
-        android:background="@drawable/edit_text_background"
-        app:layout_constraintTop_toBottomOf="@+id/tvnohp"
-        app:layout_constraintStart_toStartOf="parent"
-        android:layout_marginStart="55dp"
-        android:layout_marginEnd="55dp"
-        android:layout_marginTop="15dp"
-        />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/cabang"
-        android:text="Jam Operasional"
-        android:textColor="@color/white"
-        app:layout_constraintTop_toBottomOf="@+id/inputnohp"
-        app:layout_constraintStart_toStartOf="parent"
-        android:layout_marginTop="35dp"
-        android:layout_marginStart="55dp"
-        android:textSize="20sp"/>
-
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:id="@+id/jamopera"
-        android:hint="@string/jamoper"
-        android:textColor="@color/black"
-        android:drawableLeft="@drawable/baseline_access_time_24"
-        android:drawablePadding="8dp"
-        android:background="@drawable/edit_text_background"
-        app:layout_constraintTop_toBottomOf="@+id/cabang"
-        app:layout_constraintStart_toStartOf="parent"
-        android:focusable="false"
-        android:inputType="none"
-        android:layout_marginStart="55dp"
-        android:layout_marginEnd="55dp"
-        android:layout_marginTop="15dp"
-        />
-
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:id="@+id/simpanpel"
-        app:layout_constraintTop_toBottomOf="@+id/jamopera"
-        android:layout_marginStart="200dp"
-        android:layout_marginEnd="200dp"
-        android:layout_marginTop="50dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        android:layout_marginBottom="20dp"
-        android:textColor="@color/white"
-        android:text="@string/simpan"
-        android:backgroundTint="@color/black"
-        android:textSize="20sp"/>
         </androidx.constraintlayout.widget.ConstraintLayout>
-    </ScrollView>
+
+        <!-- Divider -->
+        <View
+            android:layout_width="2dp"
+            android:layout_height="match_parent"
+            android:background="@color/white"
+            android:alpha="0.4"
+            android:layout_marginTop="12dp"
+            android:layout_marginBottom="12dp" />
+
+        <!-- Right Side - Form Input (40% width) -->
+        <ScrollView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="4"
+            android:padding="16dp"
+            android:scrollbars="none">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingBottom="16dp">
+
+                <!-- Header -->
+                <TextView
+                    android:id="@+id/tvpelanggan1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginBottom="24dp"
+                    android:text="Tambah Cabang"
+                    android:textColor="@color/white"
+                    android:textSize="24sp"
+                    android:textStyle="bold" />
+
+                <!-- Nama Cabang -->
+                <TextView
+                    android:id="@+id/tvnama"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="6dp"
+                    android:text="@string/cabang"
+                    android:textColor="@color/white"
+                    android:textSize="15sp"
+                    android:textStyle="bold" />
+
+                <EditText
+                    android:id="@+id/inputcabang"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_marginBottom="16dp"
+                    android:background="@drawable/edit_text_background"
+                    android:drawableLeft="@drawable/baseline_account_tree_24"
+                    android:drawablePadding="10dp"
+                    android:hint="@string/cabang"
+                    android:inputType="textCapWords"
+                    android:padding="14dp"
+                    android:textColor="@color/black"
+                    android:textSize="14sp"
+                    android:elevation="2dp" />
+
+                <!-- Alamat -->
+                <TextView
+                    android:id="@+id/tvalamat"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="6dp"
+                    android:text="@string/alamtcabang"
+                    android:textColor="@color/white"
+                    android:textSize="15sp"
+                    android:textStyle="bold" />
+
+                <AutoCompleteTextView
+                    android:id="@+id/inputalamat"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_marginBottom="16dp"
+                    android:background="@drawable/edit_text_background"
+                    android:drawableLeft="@drawable/baseline_place_24"
+                    android:drawablePadding="10dp"
+                    android:hint="@string/tvalamat"
+                    android:inputType="textPostalAddress"
+                    android:padding="14dp"
+                    android:textColor="@color/black"
+                    android:textSize="14sp"
+                    android:elevation="2dp" />
+
+                <!-- No HP -->
+                <TextView
+                    android:id="@+id/tvnohp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="6dp"
+                    android:text="@string/tvnohp"
+                    android:textColor="@color/white"
+                    android:textSize="15sp"
+                    android:textStyle="bold" />
+
+                <EditText
+                    android:id="@+id/inputnohp"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_marginBottom="16dp"
+                    android:background="@drawable/edit_text_background"
+                    android:drawableLeft="@drawable/baseline_phone_24"
+                    android:drawablePadding="10dp"
+                    android:hint="@string/tvnohp"
+                    android:inputType="phone"
+                    android:maxLength="14"
+                    android:padding="14dp"
+                    android:textColor="@color/black"
+                    android:textSize="14sp"
+                    android:elevation="2dp" />
+
+                <!-- Jam Operasional -->
+                <TextView
+                    android:id="@+id/cabang"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="6dp"
+                    android:text="Jam Operasional"
+                    android:textColor="@color/white"
+                    android:textSize="15sp"
+                    android:textStyle="bold" />
+
+                <EditText
+                    android:id="@+id/jamopera"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_marginBottom="24dp"
+                    android:background="@drawable/edit_text_background"
+                    android:drawableLeft="@drawable/baseline_access_time_24"
+                    android:drawablePadding="10dp"
+                    android:focusable="false"
+                    android:hint="@string/jamoper"
+                    android:inputType="none"
+                    android:padding="14dp"
+                    android:textColor="@color/black"
+                    android:textSize="14sp"
+                    android:elevation="2dp" />
+
+                <!-- Button -->
+                <Button
+                    android:id="@+id/simpanpel"
+                    android:layout_width="match_parent"
+                    android:layout_height="52dp"
+                    android:layout_marginBottom="16dp"
+                    android:backgroundTint="@color/black"
+                    android:text="@string/simpan"
+                    android:textColor="@color/white"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:elevation="4dp"
+                    android:stateListAnimator="@null" />
+
+            </LinearLayout>
+
+        </ScrollView>
+
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

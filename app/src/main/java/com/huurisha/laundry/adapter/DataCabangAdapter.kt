@@ -82,6 +82,7 @@ class DataCabangAdapter (private val ListCabang: ArrayList<ModelCabang>) : Recyc
     }
 
     // Fungsi untuk menghapus cabang dari database
+    // Fungsi untuk menghapus cabang dari database - IMPROVED VERSION
     private fun deleteCabangFromDatabase(item: ModelCabang, position: Int) {
         val idToDelete = item.idcabang
 
@@ -90,14 +91,22 @@ class DataCabangAdapter (private val ListCabang: ArrayList<ModelCabang>) : Recyc
             return
         }
 
-        // Tampilkan loading toast
-        Toast.makeText(appContext, "Menghapus cabang...", Toast.LENGTH_SHORT).show()
+        // Tampilkan progress dialog
+        val progressDialog = AlertDialog.Builder(appContext)
+            .setMessage("Menghapus cabang...")
+            .setCancelable(false)
+            .create()
+        progressDialog.show()
 
-        databaseReference = FirebaseDatabase.getInstance().getReference("DataCabang")
+        // Inisialisasi database reference - PERBAIKAN: gunakan "cabang" bukan "DataCabang"
+        databaseReference = FirebaseDatabase.getInstance().getReference("cabang")
+
         databaseReference.child(idToDelete).removeValue()
             .addOnSuccessListener {
+                progressDialog.dismiss()
+
                 // Hapus dari list lokal dan update RecyclerView
-                if (position < ListCabang.size) {
+                if (position >= 0 && position < ListCabang.size) {
                     ListCabang.removeAt(position)
                     notifyItemRemoved(position)
                     notifyItemRangeChanged(position, ListCabang.size)
@@ -110,12 +119,134 @@ class DataCabangAdapter (private val ListCabang: ArrayList<ModelCabang>) : Recyc
                 ).show()
             }
             .addOnFailureListener { exception ->
+                progressDialog.dismiss()
+
                 Toast.makeText(
                     appContext,
                     "Gagal menghapus cabang: ${exception.message}",
                     Toast.LENGTH_LONG
                 ).show()
+
+                // Log error untuk debugging
+                android.util.Log.e("DeleteCabang", "Error deleting cabang: ${exception.message}", exception)
             }
+    }
+
+    // Alternative method dengan pengecekan koneksi internet
+    private fun deleteCabangFromDatabaseWithConnectionCheck(item: ModelCabang, position: Int) {
+        val idToDelete = item.idcabang
+
+        if (idToDelete.isNullOrEmpty()) {
+            Toast.makeText(appContext, "ID cabang tidak valid", Toast.LENGTH_SHORT).show()
+            return
+        }
+
+        // Cek koneksi internet
+        if (!isNetworkAvailable()) {
+            Toast.makeText(appContext, "Tidak ada koneksi internet", Toast.LENGTH_SHORT).show()
+            return
+        }
+
+        // Tampilkan progress dialog
+        val progressDialog = AlertDialog.Builder(appContext)
+            .setMessage("Menghapus cabang...")
+            .setCancelable(false)
+            .create()
+        progressDialog.show()
+
+        // Inisialisasi database reference - PERBAIKAN: gunakan "cabang" bukan "DataCabang"
+        databaseReference = FirebaseDatabase.getInstance().getReference("cabang")
+
+        // Pertama, cek apakah data exist di database
+        databaseReference.child(idToDelete).get()
+            .addOnSuccessListener { snapshot ->
+                if (snapshot.exists()) {
+                    // Data ada, lanjutkan penghapusan
+                    databaseReference.child(idToDelete).removeValue()
+                        .addOnSuccessListener {
+                            progressDialog.dismiss()
+
+                            // Hapus dari list lokal dan update RecyclerView
+                            if (position >= 0 && position < ListCabang.size) {
+                                ListCabang.removeAt(position)
+                                notifyItemRemoved(position)
+                                notifyItemRangeChanged(position, ListCabang.size)
+                            }
+
+                            Toast.makeText(
+                                appContext,
+                                "Cabang \"${item.namacabang}\" berhasil dihapus",
+                                Toast.LENGTH_SHORT
+                            ).show()
+                        }
+                        .addOnFailureListener { exception ->
+                            progressDialog.dismiss()
+                            Toast.makeText(
+                                appContext,
+                                "Gagal menghapus cabang: ${exception.message}",
+                                Toast.LENGTH_LONG
+                            ).show()
+                            android.util.Log.e("DeleteCabang", "Error deleting: ${exception.message}", exception)
+                        }
+                } else {
+                    progressDialog.dismiss()
+                    // Data tidak ada di database, hapus dari list lokal saja
+                    if (position >= 0 && position < ListCabang.size) {
+                        ListCabang.removeAt(position)
+                        notifyItemRemoved(position)
+                        notifyItemRangeChanged(position, ListCabang.size)
+                    }
+                    Toast.makeText(appContext, "Data sudah tidak ada di database", Toast.LENGTH_SHORT).show()
+                }
+            }
+            .addOnFailureListener { exception ->
+                progressDialog.dismiss()
+                Toast.makeText(
+                    appContext,
+                    "Gagal mengakses database: ${exception.message}",
+                    Toast.LENGTH_LONG
+                ).show()
+                android.util.Log.e("CheckCabang", "Error checking data: ${exception.message}", exception)
+            }
+    }
+
+    // Helper function untuk cek koneksi internet
+    private fun isNetworkAvailable(): Boolean {
+        val connectivityManager = appContext.getSystemService(Context.CONNECTIVITY_SERVICE) as android.net.ConnectivityManager
+        val activeNetworkInfo = connectivityManager.activeNetworkInfo
+        return activeNetworkInfo != null && activeNetworkInfo.isConnected
+    }
+
+    // Improved dialog konfirmasi dengan lebih detail
+    private fun showImprovedDeleteConfirmationDialog(item: ModelCabang, position: Int) {
+        val alertDialog = AlertDialog.Builder(appContext)
+            .setTitle("⚠️ Konfirmasi Hapus")
+            .setMessage("Apakah Anda yakin ingin menghapus cabang:\n\n" +
+                    "📍 Nama: ${item.namacabang}\n" +
+                    "🏠 Alamat: ${item.alamatcabang}\n" +
+                    "📞 No HP: ${item.nohp}\n\n" +
+                    "⚠️ PERINGATAN:\n" +
+                    "Data yang dihapus tidak dapat dikembalikan dan akan hilang permanen dari database.")
+            .setIcon(android.R.drawable.ic_dialog_alert)
+            .setPositiveButton("🗑️ Ya, Hapus") { dialog, _ ->
+                dialog.dismiss()
+                deleteCabangFromDatabase(item, position)
+                // Atau gunakan yang dengan connection check:
+                // deleteCabangFromDatabaseWithConnectionCheck(item, position)
+            }
+            .setNegativeButton("❌ Batal") { dialog, _ ->
+                dialog.dismiss()
+            }
+            .setCancelable(true)
+            .create()
+
+        alertDialog.show()
+
+        // Ubah warna tombol untuk menekankan aksi berbahaya
+        alertDialog.getButton(AlertDialog.BUTTON_POSITIVE)?.apply {
+            setTextColor(ContextCompat.getColor(appContext, android.R.color.holo_red_dark))
+            setBackgroundColor(ContextCompat.getColor(appContext, android.R.color.transparent))
+        }
     }
 
     private fun showCustomContactDialog(phoneNumber: String?, customerName: String?) {

@@ -42,14 +42,22 @@
         android:theme="@style/Theme.Laundry"
         tools:targetApi="31">
         <activity
-            android:name=".invoice_new"
+            android:name=".Bayar_nanti"
             android:exported="false" />
-        <!-- <activity -->
+        <activity
+            android:name=".landscapeCabang"
+            android:exported="false" />
+        <activity
+            android:name=".Akun"
+            android:exported="false" />
+        <activity
+            android:name=".invoice_new"
+            android:exported="false" /> <!-- <activity -->
         <!-- android:name=".CardDataLaporan" -->
         <!-- android:exported="false" /> -->
-<!--        <activity-->
-<!--            android:name=".Invoice"-->
-<!--            android:exported="false" />-->
+        <!-- <activity -->
+        <!-- android:name=".Invoice" -->
+        <!-- android:exported="false" /> -->
         <activity
             android:name=".konfirmasiData"
             android:exported="false" />

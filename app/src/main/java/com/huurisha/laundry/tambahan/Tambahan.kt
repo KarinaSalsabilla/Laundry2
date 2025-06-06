@@ -9,21 +9,29 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import androidx.recyclerview.widget.RecyclerView
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.ValueEventListener
+import com.google.firebase.database.DatabaseError
+import com.google.firebase.database.DataSnapshot
 import com.huurisha.laundry.R
-import java.text.NumberFormat
-import java.util.Locale
-import com.huurisha.laundry.modeldata.ModelPelanggan
+import com.huurisha.laundry.adapter.DataTambahanAdapter
 import com.huurisha.laundry.modeldata.ModelTambahan
 
 class Tambahan : AppCompatActivity() {
-    val database =  FirebaseDatabase.getInstance()
+    val database = FirebaseDatabase.getInstance()
     val myRef = database.getReference("tambahan")
+
     lateinit var tvJudul: TextView
     lateinit var etNama: EditText
-    lateinit var etharga : EditText
+    lateinit var etHarga: EditText
     lateinit var etCabang: EditText
-    lateinit var btSimpan : Button
+    lateinit var btSimpan: Button
+
+    var rvDataTambahan: RecyclerView? = null
+    var tambahanAdapter: DataTambahanAdapter? = null
+    private val listTambahan = arrayListOf<ModelTambahan>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -31,7 +39,7 @@ class Tambahan : AppCompatActivity() {
         setContentView(R.layout.activity_tambahan)
 
         init()
-        btSimpan.setOnClickListener{
+        btSimpan.setOnClickListener {
             cekValidasi()
         }
 
@@ -41,77 +49,112 @@ class Tambahan : AppCompatActivity() {
             insets
         }
     }
-    fun init(){
+
+    fun init() {
+        // Initialize form views - semua ID ini ada di kedua layout
         tvJudul = findViewById(R.id.tvlayanan)
         etNama = findViewById(R.id.inputnamalayanan)
-        etharga = findViewById(R.id.inputharga)
+        etHarga = findViewById(R.id.inputharga)
         etCabang = findViewById(R.id.inputcabang)
         btSimpan = findViewById(R.id.simpan)
 
+        // RecyclerView hanya ada di landscape mode
+        rvDataTambahan = findViewById(R.id.rvDataTambahan)
+
+        // Setup RecyclerView jika ada (landscape mode)
+        rvDataTambahan?.let { rv ->
+            setupRecyclerView()
+            loadDataTambahan()
+        }
     }
 
-    fun cekValidasi(){
-        val nama = etNama.text.toString()
-        val alamat = etharga.text.toString()
-        val cabang =  etCabang.text.toString()
-        val hargaStr = etharga.text.toString()
+    fun setupRecyclerView() {
+        rvDataTambahan?.let { rv ->
+            tambahanAdapter = DataTambahanAdapter(listTambahan)
+            rv.adapter = tambahanAdapter
+            rv.layoutManager = LinearLayoutManager(this)
+        }
+    }
 
-        if (nama.isEmpty()){
-            etNama.error= this.getString(R.string.validasinama)
+    fun loadDataTambahan() {
+        // Hanya jalankan jika RecyclerView ada (landscape mode)
+        rvDataTambahan?.let {
+            myRef.addValueEventListener(object : ValueEventListener {
+                override fun onDataChange(snapshot: DataSnapshot) {
+                    listTambahan.clear()
+                    for (data in snapshot.children) {
+                        val tambahan = data.getValue(ModelTambahan::class.java)
+                        tambahan?.let { listTambahan.add(it) }
+                    }
+                    tambahanAdapter?.notifyDataSetChanged()
+                }
+
+                override fun onCancelled(error: DatabaseError) {
+                    Toast.makeText(this@Tambahan, "Error: ${error.message}", Toast.LENGTH_SHORT).show()
+                }
+            })
+        }
+    }
+
+    fun cekValidasi() {
+        val nama = etNama.text.toString().trim()
+        val hargaStr = etHarga.text.toString().trim()
+        val cabang = etCabang.text.toString().trim()
+
+        if (nama.isEmpty()) {
+            etNama.error = this.getString(R.string.validasinama)
             Toast.makeText(this, this.getString(R.string.validasinama), Toast.LENGTH_SHORT).show()
             etNama.requestFocus()
             return
-
         }
 
         if (hargaStr.isEmpty()) {
-            etharga.error = "Harga tidak boleh kosong"
+            etHarga.error = "Harga tidak boleh kosong"
             Toast.makeText(this, "Harga tidak boleh kosong", Toast.LENGTH_SHORT).show()
-            etharga.requestFocus()
+            etHarga.requestFocus()
             return
         }
 
         val harga = hargaStr.toDoubleOrNull()
         if (harga == null || harga <= 0) {
-            etharga.error = "Harga harus lebih dari 0"
+            etHarga.error = "Harga harus lebih dari 0"
             Toast.makeText(this, "Harga harus lebih dari 0", Toast.LENGTH_SHORT).show()
-            etharga.requestFocus()
+            etHarga.requestFocus()
             return
         }
 
-
-        if (alamat.isEmpty()){
-            etharga.error= this.getString(R.string.validasialamat)
-            Toast.makeText(this,this.getString(R.string.validasialamat), Toast.LENGTH_SHORT).show()
-            etharga.requestFocus()
-            return
-        }
-
-        if (cabang.isEmpty()){
-            etCabang.error= this.getString(R.string.validasiCabang)
-            Toast.makeText(this,this.getString(R.string.validasiCabang), Toast.LENGTH_SHORT).show()
+        if (cabang.isEmpty()) {
+            etCabang.error = this.getString(R.string.validasiCabang)
+            Toast.makeText(this, this.getString(R.string.validasiCabang), Toast.LENGTH_SHORT).show()
             etCabang.requestFocus()
             return
         }
+
         simpan()
     }
 
-    fun simpan(){
-        val Tambahanbaru = myRef.push()
-        val tambahanId = Tambahanbaru.key
+    fun simpan() {
+        val tambahanBaru = myRef.push()
+        val tambahanId = tambahanBaru.key
         val data = ModelTambahan(
             tambahanId.toString(),
-            etNama.text.toString(),
-            etharga.text.toString(),
-            etCabang.text.toString()
-
+            etNama.text.toString().trim(),
+            etHarga.text.toString().trim(),
+            etCabang.text.toString().trim()
         )
-        Tambahanbaru.setValue(data).addOnSuccessListener {
-            Toast.makeText(this,this.getString(R.string.suksestambahan), Toast.LENGTH_SHORT).show()
-            finish()
+
+        tambahanBaru.setValue(data).addOnSuccessListener {
+            Toast.makeText(this, this.getString(R.string.suksestambahan), Toast.LENGTH_SHORT).show()
+            clearForm()
+//            finish()
+        }.addOnFailureListener {
+            Toast.makeText(this, this.getString(R.string.gagaltambahan), Toast.LENGTH_SHORT).show()
         }
-            .addOnFailureListener{
-                Toast.makeText(this,this.getString(R.string.gagaltambahan), Toast.LENGTH_SHORT).show()
-            }
+    }
+
+    private fun clearForm() {
+        etNama.setText("")
+        etHarga.setText("")
+        etCabang.setText("")
     }
 }

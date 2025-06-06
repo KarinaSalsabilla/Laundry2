@@ -124,6 +124,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Total Bayar"
+                android:layout_marginStart="15dp"
                 android:textSize="20sp"
                 android:textStyle="bold" />
 
@@ -132,6 +133,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Rp."
+                android:layout_marginStart="15dp"
                 android:textSize="28sp"
                 android:textStyle="bold" />
 

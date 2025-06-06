@@ -6,5 +6,4 @@ class ModelTambahan (
     val harga : String? = null,
     val namacabang : String? = null
 
-
-    )
+)

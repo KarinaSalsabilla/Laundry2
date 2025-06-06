@@ -34,12 +34,28 @@ class MainActivity : AppCompatActivity() {
     lateinit var cabang:ImageButton
     lateinit var transaksi:ImageView
     lateinit var laporan:ImageButton
+    lateinit var akun:ImageView
+
+    private var nama: String? = null
+    private var noHp: String? = null
+    private var alamat: String? = null
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.activity_main)
         init()
+        // Ambil data dari intent login
+        val nama = intent.getStringExtra("nama")
+        val noHp = intent.getStringExtra("noHp")
+        val alamat = intent.getStringExtra("alamat")
+
+// Simpan dalam variabel lokal kelas (jika ingin akses dari method lain)
+        this.nama = nama
+        this.noHp = noHp
+        this.alamat = alamat
+
         tekan()
         WindowCompat.setDecorFitsSystemWindows(window, false)
 
@@ -67,6 +83,8 @@ class MainActivity : AppCompatActivity() {
         cabang = findViewById(R.id.cabang2)
         transaksi = findViewById(R.id.tras)
             laporan = findViewById(R.id.imagebuttonlaporan)
+            akun = findViewById(R.id.gb1)
+
 
     }
 
@@ -104,6 +122,14 @@ class MainActivity : AppCompatActivity() {
             val intent = Intent(this,data_laporan::class.java)
             startActivity(intent)
         }
+        akun.setOnClickListener {
+            val intent = Intent(this, Akun::class.java)
+//            intent.putExtra("nama", nama)
+//            intent.putExtra("noHp", noHp)
+//            intent.putExtra("alamat", alamat)
+            startActivity(intent)
+        }
+
 
         // Referensi TextView
         val helloTextView = findViewById<View>(R.id.halo) as TextView

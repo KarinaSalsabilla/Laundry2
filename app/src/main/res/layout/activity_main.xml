@@ -18,7 +18,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         android:layout_marginTop="80dp"
-        android:layout_marginStart="25dp"
+        android:layout_marginStart="20dp"
         android:textStyle="bold"
         android:textSize="25sp"/>
 
@@ -214,11 +214,28 @@
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginStart="10dp"
         android:layout_marginEnd="10dp"
-        android:text="@string/kami"
+        android:text="Kami Selalu Siap"
         android:textAlignment="center"
         android:textColor="@color/black"
-        android:textSize="25sp"
+        android:textSize="18sp"
         android:layout_marginTop="40dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textbiasa"
+        android:fontFamily="@font/abril"
+        app:layout_constraintTop_toBottomOf="@+id/hati"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:text="Melayani Anda Kapanpun"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        android:layout_marginTop="10dp" />
+
 
         <androidx.cardview.widget.CardView
             android:layout_width="100dp"
@@ -226,7 +243,7 @@
             android:id="@+id/akun"
             android:padding="20dp"
             app:cardBackgroundColor="#9E30D0"
-            app:layout_constraintTop_toBottomOf="@+id/hati"
+            app:layout_constraintTop_toBottomOf="@+id/textbiasa"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/layanan"
             app:layout_constraintBottom_toTopOf="@+id/pegawai1"
@@ -274,7 +291,7 @@
         android:id="@+id/layanan"
         android:padding="20dp"
         app:cardBackgroundColor="#9E30D0"
-        app:layout_constraintTop_toBottomOf="@+id/hati"
+        app:layout_constraintTop_toBottomOf="@+id/textbiasa"
         app:layout_constraintStart_toEndOf="@+id/akun"
         app:layout_constraintEnd_toStartOf="@+id/tambahan"
         app:layout_constraintBottom_toTopOf="@+id/cabang"
@@ -309,7 +326,7 @@
         app:cardBackgroundColor="#9E30D0"
         android:id="@+id/tambahan"
         android:padding="20dp"
-        app:layout_constraintTop_toBottomOf="@+id/hati"
+        app:layout_constraintTop_toBottomOf="@+id/textbiasa"
         app:layout_constraintBottom_toTopOf="@+id/print"
         app:layout_constraintStart_toEndOf="@+id/layanan"
         app:layout_constraintEnd_toEndOf="parent"

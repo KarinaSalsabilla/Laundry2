@@ -71,14 +71,14 @@
 
         <ImageView
             android:id="@+id/btnHapus"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
             app:layout_constraintTop_toTopOf="parent"
             android:src="@drawable/sampah"
             app:layout_constraintStart_toEndOf="@+id/hargalayanantambahan"
             app:layout_constraintEnd_toEndOf="parent"
             android:layout_marginEnd="10dp"
-            android:layout_marginTop="50dp"
+            android:layout_marginTop="60dp"
 
             />
 

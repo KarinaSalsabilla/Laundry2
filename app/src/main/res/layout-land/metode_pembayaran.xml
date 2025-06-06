@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/bg_dialog"
+    android:id="@+id/pembayaran"
+    app:cardCornerRadius="12dp"
+    app:cardElevation="8dp"
+    android:layout_margin="16dp">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fillViewport="true">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="16dp"
+                    android:gravity="center">
+
+                        <!-- Header Section -->
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:gravity="center"
+                            android:layout_marginBottom="12dp">
+
+                                <TextView
+                                    android:id="@+id/tvJudul"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Pembayaran"
+                                    android:textSize="18sp"
+                                    android:textStyle="bold"
+                                    android:layout_marginBottom="4dp" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Pilih Metode Pembayaran"
+                                    android:textSize="14sp"
+                                    android:layout_marginBottom="8dp" />
+
+                                <View
+                                    android:layout_width="match_parent"
+                                    android:layout_height="1dp"
+                                    android:background="#E0E0E0"
+                                    android:layout_marginBottom="8dp" />
+
+                        </LinearLayout>
+
+                        <!-- Button Grid Layout untuk Landscape -->
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:layout_marginBottom="12dp">
+
+                                <!-- Row 1: Bayar Nanti & Tunai -->
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:orientation="horizontal"
+                                    android:layout_marginBottom="8dp">
+
+                                        <Button
+                                            android:id="@+id/btnBayarNanti"
+                                            android:layout_width="0dp"
+                                            android:layout_height="44dp"
+                                            android:layout_weight="1"
+                                            android:layout_marginEnd="6dp"
+                                            android:backgroundTint="#FF0000"
+                                            android:text="💳 Bayar Nanti"
+                                            android:textSize="13sp"
+                                            android:textStyle="bold"
+                                            android:textColor="@android:color/white" />
+
+                                        <Button
+                                            android:id="@+id/btnTunai"
+                                            android:layout_width="0dp"
+                                            android:layout_height="50dp"
+                                            android:layout_weight="1"
+                                            android:layout_marginStart="6dp"
+                                            android:backgroundTint="#FFC107"
+                                            android:text="💰 Tunai"
+                                            android:textSize="13sp"
+                                            android:textStyle="bold"
+                                            android:textColor="@android:color/black" />
+                                </LinearLayout>
+
+                                <!-- Row 2: QRIS & DANA -->
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:orientation="horizontal"
+                                    android:layout_marginBottom="8dp">
+
+                                        <Button
+                                            android:id="@+id/btnQRIS"
+                                            android:layout_width="0dp"
+                                            android:layout_height="50dp"
+                                            android:layout_weight="1"
+                                            android:layout_marginEnd="6dp"
+                                            android:backgroundTint="#FF9800"
+                                            android:text="📱 QRIS"
+                                            android:textSize="13sp"
+                                            android:textStyle="bold"
+                                            android:textColor="@android:color/white" />
+
+                                        <Button
+                                            android:id="@+id/btnDana"
+                                            android:layout_width="0dp"
+                                            android:layout_height="50dp"
+                                            android:layout_weight="1"
+                                            android:layout_marginStart="6dp"
+                                            android:backgroundTint="#2196F3"
+                                            android:text="💙 DANA"
+                                            android:textSize="13sp"
+                                            android:textStyle="bold"
+                                            android:textColor="@android:color/white" />
+                                </LinearLayout>
+
+                                <!-- Row 3: GoPay & OVO -->
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:orientation="horizontal">
+
+                                        <Button
+                                            android:id="@+id/btnGopay"
+                                            android:layout_width="0dp"
+                                            android:layout_height="50dp"
+                                            android:layout_weight="1"
+                                            android:layout_marginEnd="6dp"
+                                            android:backgroundTint="#00AA13"
+                                            android:text="🟢 GoPay"
+                                            android:textSize="13sp"
+                                            android:textStyle="bold"
+                                            android:textColor="@android:color/white" />
+
+                                        <Button
+                                            android:id="@+id/btnOvo"
+                                            android:layout_width="0dp"
+                                            android:layout_height="50dp"
+                                            android:layout_weight="1"
+                                            android:layout_marginStart="6dp"
+                                            android:backgroundTint="#673AB7"
+                                            android:text="🟣 OVO"
+                                            android:textSize="13sp"
+                                            android:textStyle="bold"
+                                            android:textColor="@android:color/white" />
+                                </LinearLayout>
+
+                        </LinearLayout>
+
+                        <!-- Footer dengan tombol Batal -->
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:gravity="end"
+                            android:layout_marginTop="8dp">
+
+                                <TextView
+                                    android:id="@+id/tvBatalDialog"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="50dp"
+                                    android:text="✖️ Batal"
+                                    android:textSize="16sp"
+                                    android:textStyle="bold"
+                                    android:textColor="#666666"
+                                    android:padding="8dp"
+                                    android:background="?android:attr/selectableItemBackground"
+                                    android:clickable="true"
+                                    android:focusable="true" />
+
+                        </LinearLayout>
+
+                </LinearLayout>
+
+        </ScrollView>
+
+</androidx.cardview.widget.CardView>

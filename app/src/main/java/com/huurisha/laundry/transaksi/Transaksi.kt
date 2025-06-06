@@ -81,14 +81,17 @@ class Transaksi : AppCompatActivity() {
         idPegawai = sharedPref.getString("idPegawai",null).toString()
         init()
 
+        // Restore data jika ada saved instance
+        if (savedInstanceState != null) {
+            restoreData(savedInstanceState)
+        }
+
         FirebaseApp.initializeApp(this)
         val layoutManager = LinearLayoutManager(this)
         layoutManager.reverseLayout = false
         rvLayananTambahan.layoutManager = layoutManager
-//        rvLayananTambahan.setHasFixedSize(true)
-
         rvLayananTambahan.isNestedScrollingEnabled = false
-        rvLayananTambahan.setHasFixedSize(false) // Eksplisit set ke false
+        rvLayananTambahan.setHasFixedSize(false)
 
         tambahanAdapter = TambahanTransaksiAdapter(datalist)
         rvLayananTambahan.adapter = tambahanAdapter
@@ -160,6 +163,78 @@ class Transaksi : AppCompatActivity() {
         }
     }
 
+    // Simpan data saat rotasi layar
+    override fun onSaveInstanceState(outState: Bundle) {
+        super.onSaveInstanceState(outState)
+
+        // Simpan data pelanggan
+        outState.putString("idPelanggan", idPelanggan)
+        outState.putString("namaPelanggan", namaPelanggan)
+        outState.putString("noHP", noHP)
+
+        // Simpan data layanan
+        outState.putString("idLayanan", idLayanan)
+        outState.putString("namaLayanan", namaLayanan)
+        outState.putString("hargaLayanan", hargaLayanan)
+
+        // Simpan data layanan tambahan
+        val tambahanIds = ArrayList<String>()
+        val tambahanNama = ArrayList<String>()
+        val tambahanHarga = ArrayList<Int>()
+
+        for (item in datalist) {
+            tambahanIds.add(item.idLayananTambahan ?: "")
+            tambahanNama.add(item.nama ?: "")
+            tambahanHarga.add(item.harga ?: 0)
+        }
+
+        outState.putStringArrayList("tambahan_ids", tambahanIds)
+        outState.putStringArrayList("tambahan_nama", tambahanNama)
+        outState.putIntegerArrayList("tambahan_harga", tambahanHarga)
+    }
+
+    // Restore data setelah rotasi layar
+    private fun restoreData(savedInstanceState: Bundle) {
+        // Restore data pelanggan
+        idPelanggan = savedInstanceState.getString("idPelanggan", "")
+        namaPelanggan = savedInstanceState.getString("namaPelanggan", "")
+        noHP = savedInstanceState.getString("noHP", "")
+
+        // Restore data layanan
+        idLayanan = savedInstanceState.getString("idLayanan", "")
+        namaLayanan = savedInstanceState.getString("namaLayanan", "")
+        hargaLayanan = savedInstanceState.getString("hargaLayanan", "")
+
+        // Update UI dengan data yang di-restore
+        if (namaPelanggan.isNotEmpty()) {
+            tvPelangganNama.text = "Nama Pelanggan : $namaPelanggan"
+            tvPelangganNoHP.text = "No HP : $noHP"
+        }
+
+        if (namaLayanan.isNotEmpty()) {
+            val hargaInt = parseHarga(hargaLayanan)
+            val hargaFormatted = formatHarga(hargaInt)
+            tvLayananNama.text = "Nama Layanan : $namaLayanan"
+            tvLayananHarga.text = "Harga : $hargaFormatted"
+        }
+
+        // Restore data layanan tambahan
+        val tambahanIds = savedInstanceState.getStringArrayList("tambahan_ids")
+        val tambahanNama = savedInstanceState.getStringArrayList("tambahan_nama")
+        val tambahanHarga = savedInstanceState.getIntegerArrayList("tambahan_harga")
+
+        if (tambahanIds != null && tambahanNama != null && tambahanHarga != null) {
+            datalist.clear()
+            for (i in tambahanIds.indices) {
+                val modelTambahan = ModelTransaksiTambahan(
+                    tambahanIds[i],
+                    tambahanNama[i],
+                    tambahanHarga[i]
+                )
+                datalist.add(modelTambahan)
+            }
+        }
+    }
 
     fun init(){
         tvPelangganNama = findViewById(R.id.txt2)
@@ -213,9 +288,6 @@ class Transaksi : AppCompatActivity() {
                 return
             }
         }
-
-        // Modifikasi pada bagian onActivityResult di class Transaksi
-// Ganti bagian untuk pilihLayananTambahan dengan kode berikut:
 
         if (requestCode == pilihLayananTambahan) {
             if (resultCode == RESULT_OK && data != null) {
