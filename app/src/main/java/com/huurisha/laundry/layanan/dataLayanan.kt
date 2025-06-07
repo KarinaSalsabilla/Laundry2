@@ -63,7 +63,7 @@ class dataLayanan : AppCompatActivity() {
                         val pegawai = dataSnapshot.getValue(ModelLayanan::class.java)
                         layananList.add(pegawai!!)
                     }
-                    val adapter = DataLayananAdapter(layananList)
+                    val adapter = DataLayananAdapter(this@dataLayanan,layananList)
                     rvdataLayanan.adapter = adapter
                     adapter.notifyDataSetChanged()
                 }

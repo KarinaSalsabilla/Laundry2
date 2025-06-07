@@ -39,9 +39,9 @@ class DataCabangAdapter (private val ListCabang: ArrayList<ModelCabang>) : Recyc
         val item = ListCabang[position]
         holder.tvid.text = item.idcabang
         holder.tvNama.text = item.namacabang
-        holder.harga.text = "Alamat= ${item.alamatcabang}"
-        holder.cabang.text = "NoHp= ${item.nohp}"
-        holder.jamoper.text = "Jam Operasional= ${item.jamopera}"
+        holder.harga.text = "${appContext.getString(R.string.tvalamat)}= ${item.alamatcabang}"
+        holder.cabang.text ="${appContext.getString(R.string.tvnohp)} =  ${item.nohp}"
+        holder.jamoper.text ="${appContext.getString(R.string.jamoper)} = ${item.jamopera}"
 
         holder.cvCard.setOnClickListener {
 
@@ -60,14 +60,14 @@ class DataCabangAdapter (private val ListCabang: ArrayList<ModelCabang>) : Recyc
     // Dialog konfirmasi hapus
     private fun showDeleteConfirmationDialog(item: ModelCabang, position: Int) {
         val alertDialog = AlertDialog.Builder(appContext)
-            .setTitle("Konfirmasi Hapus")
-            .setMessage("Apakah Anda yakin ingin menghapus cabang \"${item.namacabang}\"?\n\nData yang dihapus tidak dapat dikembalikan.")
+            .setTitle(appContext.getString(R.string.dialog_delete_title))
+            .setMessage(appContext.getString(R.string.dialog_delete_message, item.namacabang))
             .setIcon(android.R.drawable.ic_dialog_alert)
-            .setPositiveButton("Ya, Hapus") { dialog, _ ->
+            .setPositiveButton(appContext.getString(R.string.btn_yes_delete)) { dialog, _ ->
                 dialog.dismiss()
                 deleteCabangFromDatabase(item, position)
             }
-            .setNegativeButton("Batal") { dialog, _ ->
+            .setNegativeButton(appContext.getString(R.string.btn_cancel)) { dialog, _ ->
                 dialog.dismiss()
             }
             .setCancelable(true)
@@ -81,19 +81,18 @@ class DataCabangAdapter (private val ListCabang: ArrayList<ModelCabang>) : Recyc
         )
     }
 
-    // Fungsi untuk menghapus cabang dari database
     // Fungsi untuk menghapus cabang dari database - IMPROVED VERSION
     private fun deleteCabangFromDatabase(item: ModelCabang, position: Int) {
         val idToDelete = item.idcabang
 
         if (idToDelete.isNullOrEmpty()) {
-            Toast.makeText(appContext, "ID cabang tidak valid", Toast.LENGTH_SHORT).show()
+            Toast.makeText(appContext, appContext.getString(R.string.toast_invalid_branch_id), Toast.LENGTH_SHORT).show()
             return
         }
 
         // Tampilkan progress dialog
         val progressDialog = AlertDialog.Builder(appContext)
-            .setMessage("Menghapus cabang...")
+            .setMessage(appContext.getString(R.string.dialog_deleting_branch))
             .setCancelable(false)
             .create()
         progressDialog.show()
@@ -114,7 +113,7 @@ class DataCabangAdapter (private val ListCabang: ArrayList<ModelCabang>) : Recyc
 
                 Toast.makeText(
                     appContext,
-                    "Cabang \"${item.namacabang}\" berhasil dihapus",
+                    appContext.getString(R.string.toast_branch_deleted_success, item.namacabang),
                     Toast.LENGTH_SHORT
                 ).show()
             }
@@ -123,7 +122,7 @@ class DataCabangAdapter (private val ListCabang: ArrayList<ModelCabang>) : Recyc
 
                 Toast.makeText(
                     appContext,
-                    "Gagal menghapus cabang: ${exception.message}",
+                    appContext.getString(R.string.toast_branch_delete_failed, exception.message),
                     Toast.LENGTH_LONG
                 ).show()
 
@@ -137,19 +136,19 @@ class DataCabangAdapter (private val ListCabang: ArrayList<ModelCabang>) : Recyc
         val idToDelete = item.idcabang
 
         if (idToDelete.isNullOrEmpty()) {
-            Toast.makeText(appContext, "ID cabang tidak valid", Toast.LENGTH_SHORT).show()
+            Toast.makeText(appContext, appContext.getString(R.string.toast_invalid_branch_id), Toast.LENGTH_SHORT).show()
             return
         }
 
         // Cek koneksi internet
         if (!isNetworkAvailable()) {
-            Toast.makeText(appContext, "Tidak ada koneksi internet", Toast.LENGTH_SHORT).show()
+            Toast.makeText(appContext, appContext.getString(R.string.toast_no_internet_connection), Toast.LENGTH_SHORT).show()
             return
         }
 
         // Tampilkan progress dialog
         val progressDialog = AlertDialog.Builder(appContext)
-            .setMessage("Menghapus cabang...")
+            .setMessage(appContext.getString(R.string.dialog_deleting_branch))
             .setCancelable(false)
             .create()
         progressDialog.show()
@@ -175,7 +174,7 @@ class DataCabangAdapter (private val ListCabang: ArrayList<ModelCabang>) : Recyc
 
                             Toast.makeText(
                                 appContext,
-                                "Cabang \"${item.namacabang}\" berhasil dihapus",
+                                appContext.getString(R.string.toast_branch_deleted_success, item.namacabang),
                                 Toast.LENGTH_SHORT
                             ).show()
                         }
@@ -183,7 +182,7 @@ class DataCabangAdapter (private val ListCabang: ArrayList<ModelCabang>) : Recyc
                             progressDialog.dismiss()
                             Toast.makeText(
                                 appContext,
-                                "Gagal menghapus cabang: ${exception.message}",
+                                appContext.getString(R.string.toast_branch_delete_failed, exception.message),
                                 Toast.LENGTH_LONG
                             ).show()
                             android.util.Log.e("DeleteCabang", "Error deleting: ${exception.message}", exception)
@@ -196,14 +195,14 @@ class DataCabangAdapter (private val ListCabang: ArrayList<ModelCabang>) : Recyc
                         notifyItemRemoved(position)
                         notifyItemRangeChanged(position, ListCabang.size)
                     }
-                    Toast.makeText(appContext, "Data sudah tidak ada di database", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(appContext, appContext.getString(R.string.toast_data_not_found_in_database), Toast.LENGTH_SHORT).show()
                 }
             }
             .addOnFailureListener { exception ->
                 progressDialog.dismiss()
                 Toast.makeText(
                     appContext,
-                    "Gagal mengakses database: ${exception.message}",
+                    appContext.getString(R.string.toast_database_access_failed, exception.message),
                     Toast.LENGTH_LONG
                 ).show()
                 android.util.Log.e("CheckCabang", "Error checking data: ${exception.message}", exception)
@@ -219,22 +218,24 @@ class DataCabangAdapter (private val ListCabang: ArrayList<ModelCabang>) : Recyc
 
     // Improved dialog konfirmasi dengan lebih detail
     private fun showImprovedDeleteConfirmationDialog(item: ModelCabang, position: Int) {
+        val message = appContext.getString(
+            R.string.dialog_detailed_delete_message,
+            item.namacabang,
+            item.alamatcabang,
+            item.nohp
+        )
+
         val alertDialog = AlertDialog.Builder(appContext)
-            .setTitle("⚠️ Konfirmasi Hapus")
-            .setMessage("Apakah Anda yakin ingin menghapus cabang:\n\n" +
-                    "📍 Nama: ${item.namacabang}\n" +
-                    "🏠 Alamat: ${item.alamatcabang}\n" +
-                    "📞 No HP: ${item.nohp}\n\n" +
-                    "⚠️ PERINGATAN:\n" +
-                    "Data yang dihapus tidak dapat dikembalikan dan akan hilang permanen dari database.")
+            .setTitle(appContext.getString(R.string.dialog_warning_delete_title))
+            .setMessage(message)
             .setIcon(android.R.drawable.ic_dialog_alert)
-            .setPositiveButton("🗑️ Ya, Hapus") { dialog, _ ->
+            .setPositiveButton(appContext.getString(R.string.btn_delete_confirm)) { dialog, _ ->
                 dialog.dismiss()
                 deleteCabangFromDatabase(item, position)
                 // Atau gunakan yang dengan connection check:
                 // deleteCabangFromDatabaseWithConnectionCheck(item, position)
             }
-            .setNegativeButton("❌ Batal") { dialog, _ ->
+            .setNegativeButton(appContext.getString(R.string.btn_cancel_action)) { dialog, _ ->
                 dialog.dismiss()
             }
             .setCancelable(true)
@@ -251,7 +252,7 @@ class DataCabangAdapter (private val ListCabang: ArrayList<ModelCabang>) : Recyc
 
     private fun showCustomContactDialog(phoneNumber: String?, customerName: String?) {
         if (phoneNumber.isNullOrEmpty()) {
-            Toast.makeText(appContext, "Nomor telepon tidak tersedia", Toast.LENGTH_SHORT).show()
+            Toast.makeText(appContext, appContext.getString(R.string.toast_phone_not_available), Toast.LENGTH_SHORT).show()
             return
         }
 
@@ -273,7 +274,7 @@ class DataCabangAdapter (private val ListCabang: ArrayList<ModelCabang>) : Recyc
         val btnWhatsApp = dialogView.findViewById<Button>(R.id.btnwa)
 
         // Set nama pelanggan di dialog
-        jdlNama.text = customerName ?: "Cabang"
+        jdlNama.text = customerName ?: appContext.getString(R.string.default_branch_name)
 
         // Set click listeners untuk tombol
         btnTelepon.setOnClickListener {
@@ -293,21 +294,24 @@ class DataCabangAdapter (private val ListCabang: ArrayList<ModelCabang>) : Recyc
     // Fungsi alternatif menggunakan AlertDialog (jika ingin tetap menggunakan yang lama)
     private fun showContactOptionsDialog(phoneNumber: String?, customerName: String?) {
         if (phoneNumber.isNullOrEmpty()) {
-            Toast.makeText(appContext, "Nomor telepon tidak tersedia", Toast.LENGTH_SHORT).show()
+            Toast.makeText(appContext, appContext.getString(R.string.toast_phone_not_available), Toast.LENGTH_SHORT).show()
             return
         }
 
-        val options = arrayOf("Telepon", "WhatsApp")
+        val options = arrayOf(
+            appContext.getString(R.string.option_phone_call),
+            appContext.getString(R.string.option_whatsapp)
+        )
 
         val dialog = androidx.appcompat.app.AlertDialog.Builder(appContext)
-            .setTitle("Hubungi $customerName")
+            .setTitle(appContext.getString(R.string.dialog_contact_title, customerName))
             .setItems(options) { _, which ->
                 when (which) {
                     0 -> callPhoneNumber(phoneNumber) // Telepon
                     1 -> openWhatsApp(phoneNumber, customerName) // WhatsApp
                 }
             }
-            .setNegativeButton("Batal") { dialog, _ ->
+            .setNegativeButton(appContext.getString(R.string.btn_cancel)) { dialog, _ ->
                 dialog.dismiss()
             }
             .create()
@@ -332,14 +336,14 @@ class DataCabangAdapter (private val ListCabang: ArrayList<ModelCabang>) : Recyc
                 appContext.startActivity(dialIntent)
             }
         } catch (e: Exception) {
-            Toast.makeText(appContext, "Tidak dapat membuka aplikasi telepon", Toast.LENGTH_SHORT).show()
+            Toast.makeText(appContext, appContext.getString(R.string.toast_cannot_open_phone_app), Toast.LENGTH_SHORT).show()
         }
     }
 
     private fun openWhatsApp(phoneNumber: String?, customerName: String?) {
         try {
             val cleanNumber = cleanPhoneNumber(phoneNumber ?: "")
-            val message = "Halo, saya $customerName . Izin menghubungi terkait keperluan di cabang ini. Terima kasih."
+            val message = appContext.getString(R.string.whatsapp_default_message, customerName)
 
             // Format nomor untuk WhatsApp (Indonesia: +62)
             val whatsappNumber = formatWhatsAppNumber(cleanNumber)
@@ -353,11 +357,11 @@ class DataCabangAdapter (private val ListCabang: ArrayList<ModelCabang>) : Recyc
                 appContext.startActivity(intent)
             } else {
                 // Jika WhatsApp tidak terinstall, buka di browser
-                Toast.makeText(appContext, "WhatsApp tidak terinstall, membuka di browser", Toast.LENGTH_SHORT).show()
+                Toast.makeText(appContext, appContext.getString(R.string.toast_whatsapp_not_installed), Toast.LENGTH_SHORT).show()
                 appContext.startActivity(intent)
             }
         } catch (e: Exception) {
-            Toast.makeText(appContext, "Tidak dapat membuka WhatsApp", Toast.LENGTH_SHORT).show()
+            Toast.makeText(appContext, appContext.getString(R.string.toast_cannot_open_whatsapp), Toast.LENGTH_SHORT).show()
         }
     }
 

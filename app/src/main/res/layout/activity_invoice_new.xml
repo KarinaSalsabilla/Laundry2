@@ -67,7 +67,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="Tanggal"
+                    android:text="@string/tanggal"
                     android:textSize="16sp" />
 
                 <TextView
@@ -89,7 +89,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="Pesanan"
+                    android:text="@string/pesan"
                     android:textSize="16sp" />
 
                 <TextView
@@ -111,7 +111,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="Karyawan"
+                    android:text="@string/pegawai"
                     android:textSize="16sp" />
 
                 <TextView
@@ -166,7 +166,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Rincian Tambahan"
+                android:text="@string/rincian"
                 android:textSize="18sp"
                 android:textStyle="bold"
                 android:layout_marginBottom="12dp" />
@@ -202,7 +202,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="Subtotal Tambahan"
+                    android:text="@string/tambahtotal"
                     android:textSize="16sp" />
 
                 <TextView
@@ -257,7 +257,7 @@
                     android:layout_width="0dp"
                     android:layout_height="50dp"
                     android:layout_weight="1"
-                    android:text="Kirim WhatsApp"
+                    android:text="@string/kirim"
                     android:layout_marginEnd="8dp"
                     android:backgroundTint="@android:color/holo_green_dark" />
 
@@ -266,7 +266,7 @@
                     android:layout_width="0dp"
                     android:layout_height="50dp"
                     android:layout_weight="1"
-                    android:text="Cetak"
+                    android:text="Print"
                     android:layout_marginStart="8dp"
                     android:backgroundTint="@android:color/holo_blue_dark" />
             </LinearLayout>

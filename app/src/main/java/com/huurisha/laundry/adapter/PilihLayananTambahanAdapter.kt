@@ -35,7 +35,7 @@ class PilihLayananTambahanAdapter  (private val ListTambahan: ArrayList<ModelTam
         holder.tvid.text = "[$nomor]"
         holder.tvNama.text = item.namabarang
         val hargaDouble = item.harga?.toDoubleOrNull() ?: 0.0
-        holder.harga.text = "Harga= ${formatRupiah(hargaDouble)}"
+        holder.harga.text = "${appContext.getString(R.string.harga)} =  ${formatRupiah(hargaDouble)}"
 
         holder.cvCard.setOnClickListener {
             val intent = Intent()

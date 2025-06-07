@@ -35,7 +35,7 @@ class KonfirmasiDataAdapter (private val ListTambahan: ArrayList<ModelTransaksiT
         holder.tvid.text = "[$nomor]"
         holder.tvNama.text = item.nama
         val hargaDouble = item.harga ?: 0
-        holder.harga.text = "Harga= ${formatRupiah(hargaDouble)}"
+        holder.harga.text = "${appContext.getString(R.string.harga)} = ${formatRupiah(hargaDouble)}"
 
         holder.cvCard.setOnClickListener {
             val intent = Intent()

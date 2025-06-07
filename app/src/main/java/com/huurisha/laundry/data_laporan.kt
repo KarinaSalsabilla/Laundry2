@@ -27,6 +27,9 @@ class data_laporan : AppCompatActivity() {
         enableEdgeToEdge()
         setContentView(R.layout.activity_data_laporan)
 
+        // Set title with translation
+        title = getString(R.string.data_laporan_title)
+
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
@@ -56,27 +59,29 @@ class data_laporan : AppCompatActivity() {
             "PAYMENT_CONFIRMED" -> {
                 // Aksi ketika pembayaran dikonfirmasi
                 val message = if (item.metodepembayaran.isNullOrEmpty()) {
-                    "Pembayaran untuk ${item.namapelangganlaporan} telah dikonfirmasi"
+                    getString(R.string.payment_confirmed_simple, item.namapelangganlaporan ?: "")
                 } else {
-                    "Pembayaran untuk ${item.namapelangganlaporan} via ${item.metodepembayaran} telah dikonfirmasi"
+                    getString(R.string.payment_confirmed_with_method,
+                        item.namapelangganlaporan ?: "",
+                        item.metodepembayaran ?: "")
                 }
 
                 Toast.makeText(this, message, Toast.LENGTH_LONG).show()
 
                 // Log untuk debugging
-                Log.d("DataLaporan", "Payment confirmed for: ${item.namapelangganlaporan}")
+                Log.d("DataLaporan", getString(R.string.payment_confirmed_log, item.namapelangganlaporan ?: ""))
             }
             "ORDER_PICKED_UP" -> {
                 // Aksi ketika pesanan diambil
                 val currentDateTime = getCurrentDateTime()
-                Toast.makeText(
-                    this,
-                    "Pesanan ${item.namapelangganlaporan} telah diambil pada $currentDateTime",
-                    Toast.LENGTH_LONG
-                ).show()
+                val message = getString(R.string.order_picked_up,
+                    item.namapelangganlaporan ?: "",
+                    currentDateTime)
+
+                Toast.makeText(this, message, Toast.LENGTH_LONG).show()
 
                 // Log untuk debugging
-                Log.d("DataLaporan", "Order picked up: ${item.namapelangganlaporan}")
+                Log.d("DataLaporan", getString(R.string.order_picked_up_log, item.namapelangganlaporan ?: ""))
 
                 // Bisa tambahkan aksi lain seperti:
                 // - Kirim notifikasi
@@ -92,7 +97,7 @@ class data_laporan : AppCompatActivity() {
                 listLaporan.clear()
 
                 if (!snapshot.exists()) {
-                    Toast.makeText(this@data_laporan, "Tidak ada data laporan", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this@data_laporan, getString(R.string.no_report_data), Toast.LENGTH_SHORT).show()
                     adapter.notifyDataSetChanged()
                     return
                 }
@@ -106,7 +111,10 @@ class data_laporan : AppCompatActivity() {
                         listLaporan.add(laporan)
 
                         // Log untuk debugging
-                        Log.d("DataLaporan", "Loaded item: ${laporan.namapelangganlaporan}, Status: ${laporan.statuspembayaran}, ID: ${laporan.transactionId}")
+                        Log.d("DataLaporan", getString(R.string.loaded_item_log,
+                            laporan.namapelangganlaporan ?: "",
+                            laporan.statuspembayaran ?: "",
+                            laporan.transactionId ?: ""))
                     }
                 }
 
@@ -116,18 +124,20 @@ class data_laporan : AppCompatActivity() {
                         parseDate(it.terdafter ?: "")
                     }
                 } catch (e: Exception) {
-                    Log.e("data_laporan", "Error sorting data: ${e.message}")
+                    Log.e("data_laporan", getString(R.string.error_sorting_log, e.message ?: ""))
                     // Jika sorting gagal, tetap tampilkan data tanpa sort
                 }
 
                 adapter.notifyDataSetChanged()
 
-                Log.d("DataLaporan", "Data loaded: ${listLaporan.size} items")
+                Log.d("DataLaporan", getString(R.string.data_loaded_log, listLaporan.size))
             }
 
             override fun onCancelled(error: DatabaseError) {
-                Log.e("data_laporan", "Database error: ${error.message}")
-                Toast.makeText(this@data_laporan, "Gagal memuat data: ${error.message}", Toast.LENGTH_SHORT).show()
+                Log.e("data_laporan", getString(R.string.database_error_log, error.message))
+                Toast.makeText(this@data_laporan,
+                    getString(R.string.failed_load_data, error.message),
+                    Toast.LENGTH_SHORT).show()
             }
         })
     }

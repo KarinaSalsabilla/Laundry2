@@ -31,7 +31,7 @@
                 android:id="@+id/tvDataCabang"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Data Cabang"
+                android:text="@string/Datacabang"
                 android:textColor="@color/white"
                 android:textSize="22sp"
                 android:textStyle="bold"
@@ -94,7 +94,7 @@
                     android:layout_gravity="center_horizontal"
                     android:layout_marginTop="8dp"
                     android:layout_marginBottom="24dp"
-                    android:text="Tambah Cabang"
+                    android:text="@string/tambahcabang"
                     android:textColor="@color/white"
                     android:textSize="24sp"
                     android:textStyle="bold" />
@@ -184,7 +184,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="6dp"
-                    android:text="Jam Operasional"
+                    android:text="@string/jamoper"
                     android:textColor="@color/white"
                     android:textSize="15sp"
                     android:textStyle="bold" />

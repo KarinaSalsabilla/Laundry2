@@ -31,7 +31,7 @@
                 android:id="@+id/tvDataPelanggan"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Data Pelanggan"
+                android:text="@string/datapelanggan"
                 android:textColor="@color/white"
                 android:textSize="22sp"
                 android:textStyle="bold"

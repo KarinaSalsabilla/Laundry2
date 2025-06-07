@@ -116,7 +116,7 @@
                 android:layout_marginBottom="10dp"
                 android:backgroundTint="#B82B2B"
                 android:textColor="@color/white"
-                android:text="Hubungi"
+                android:text="@string/hubungi"
                 app:layout_constraintEnd_toStartOf="@+id/lihat"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/cabangpegawai"
@@ -125,7 +125,7 @@
             <Button
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="Lihat"
+                android:text="@string/lihat"
                 android:id="@+id/lihat"
                 app:layout_constraintTop_toBottomOf="@+id/cabangpegawai"
                 app:layout_constraintStart_toEndOf="@+id/hubungi"

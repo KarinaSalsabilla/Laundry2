@@ -1,5 +1,6 @@
 package com.huurisha.laundry.tambahan
 
+import android.content.res.Configuration
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
@@ -70,7 +71,7 @@ class Tambahan : AppCompatActivity() {
 
     fun setupRecyclerView() {
         rvDataTambahan?.let { rv ->
-            tambahanAdapter = DataTambahanAdapter(listTambahan)
+            tambahanAdapter = DataTambahanAdapter(this,listTambahan)
             rv.adapter = tambahanAdapter
             rv.layoutManager = LinearLayoutManager(this)
         }
@@ -144,9 +145,22 @@ class Tambahan : AppCompatActivity() {
         )
 
         tambahanBaru.setValue(data).addOnSuccessListener {
-            Toast.makeText(this, this.getString(R.string.suksestambahan), Toast.LENGTH_SHORT).show()
-            clearForm()
-//            finish()
+            Toast.makeText(this, getString(R.string.suksestambahan), Toast.LENGTH_SHORT).show()
+
+            // Logika baru untuk orientasi
+            if (resources.configuration.orientation == Configuration.ORIENTATION_PORTRAIT) {
+                clearForm() // Opsional: bersihkan form sebelum finish
+                finish() // Tutup aktivitas jika dalam mode potret
+            } else {
+                // Dalam mode lanskap, bersihkan form dan muat ulang data di RecyclerView (jika ada)
+                clearForm()
+                if (rvDataTambahan != null) {
+                    loadDataTambahan()
+                }
+            }
+//            Toast.makeText(this, this.getString(R.string.suksestambahan), Toast.LENGTH_SHORT).show()
+//            clearForm()
+////            finish()
         }.addOnFailureListener {
             Toast.makeText(this, this.getString(R.string.gagaltambahan), Toast.LENGTH_SHORT).show()
         }

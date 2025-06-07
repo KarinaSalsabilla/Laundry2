@@ -1,5 +1,6 @@
 package com.huurisha.laundry.layanan
 
+import android.content.res.Configuration
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
@@ -68,7 +69,7 @@ class tambahLayanan : AppCompatActivity() {
 
     fun setupRecyclerView() {
         rvDataLayanan?.let { rv ->
-            layananAdapter = DataLayananAdapter(listLayanan) // Ganti dengan adapter yang sesuai
+            layananAdapter = DataLayananAdapter(this,listLayanan) // Ganti dengan adapter yang sesuai
             rv.adapter = layananAdapter
             rv.layoutManager = LinearLayoutManager(this)
         }
@@ -134,13 +135,26 @@ class tambahLayanan : AppCompatActivity() {
             etCabang.text.toString()
         )
         layananBaru.setValue(data).addOnSuccessListener {
-            Toast.makeText(this, this.getString(R.string.sukseslayanan), Toast.LENGTH_SHORT).show()
-            // Hanya refresh jika RecyclerView ada (landscape)
-            if (rvDataLayanan != null) {
-                loadDataLayanan() // Ganti nama fungsi
+            // Logika baru untuk orientasi
+            if (resources.configuration.orientation == Configuration.ORIENTATION_PORTRAIT) {
+                clearForm() // Opsional: bersihkan form sebelum finish
+                finish() // Tutup aktivitas jika dalam mode potret
+            } else {
+                // Dalam mode lanskap, bersihkan form dan muat ulang data di RecyclerView (jika ada)
+                clearForm()
+                if (rvDataLayanan != null) {
+                    loadDataLayanan() // Ganti nama fungsi
+                }
             }
-            clearForm()
         }
+
+//            Toast.makeText(this, this.getString(R.string.sukseslayanan), Toast.LENGTH_SHORT).show()
+//            // Hanya refresh jika RecyclerView ada (landscape)
+//            if (rvDataLayanan != null) {
+//                loadDataLayanan() // Ganti nama fungsi
+//            }
+//            clearForm()
+//        }
             .addOnFailureListener {
                 Toast.makeText(this, this.getString(R.string.gagalayanan), Toast.LENGTH_SHORT).show()
             }

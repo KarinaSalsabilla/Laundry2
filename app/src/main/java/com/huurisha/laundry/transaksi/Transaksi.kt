@@ -108,7 +108,7 @@ class Transaksi : AppCompatActivity() {
 
         btTambahan.setOnClickListener{
             if (idPelanggan.isEmpty() || idLayanan.isEmpty()) {
-                Toast.makeText(this, "Pilih pelanggan dan layanan utama terlebih dahulu", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, getString(R.string.please_select_customer_and_service), Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
             val intent = Intent(this, pilih_layanan_tambahan::class.java)
@@ -117,7 +117,7 @@ class Transaksi : AppCompatActivity() {
 
         btProses.setOnClickListener {
             if (idPelanggan.isEmpty() || idLayanan.isEmpty()) {
-                Toast.makeText(this, "Pilih pelanggan dan layanan utama terlebih dahulu", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, getString(R.string.please_select_customer_and_service), Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
 
@@ -207,15 +207,15 @@ class Transaksi : AppCompatActivity() {
 
         // Update UI dengan data yang di-restore
         if (namaPelanggan.isNotEmpty()) {
-            tvPelangganNama.text = "Nama Pelanggan : $namaPelanggan"
-            tvPelangganNoHP.text = "No HP : $noHP"
+            tvPelangganNama.text = "${getString(R.string.customer_name)} : $namaPelanggan"
+            tvPelangganNoHP.text = "${getString(R.string.phone_number)} : $noHP"
         }
 
         if (namaLayanan.isNotEmpty()) {
             val hargaInt = parseHarga(hargaLayanan)
             val hargaFormatted = formatHarga(hargaInt)
-            tvLayananNama.text = "Nama Layanan : $namaLayanan"
-            tvLayananHarga.text = "Harga : $hargaFormatted"
+            tvLayananNama.text = "${getString(R.string.service_name)} : $namaLayanan"
+            tvLayananHarga.text = "${getString(R.string.price)} : $hargaFormatted"
         }
 
         // Restore data layanan tambahan
@@ -257,13 +257,13 @@ class Transaksi : AppCompatActivity() {
                 idPelanggan = data.getStringExtra("idPelanggan").toString()
                 val nama = data.getStringExtra("nama")
                 val nomorHP = data.getStringExtra("noHP")
-                tvPelangganNama.text = "Nama Pelanggan : $nama"
-                tvPelangganNoHP.text = "No HP : $nomorHP"
+                tvPelangganNama.text = "${getString(R.string.customer_name)} : $nama"
+                tvPelangganNoHP.text = "${getString(R.string.phone_number)} : $nomorHP"
                 namaPelanggan = nama.toString()
                 noHP = nomorHP.toString()
             }
             if (resultCode == RESULT_CANCELED){
-                Toast.makeText(this, "Batal memilih pelanggan $namaPelanggan", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "${getString(R.string.cancel_select_customer)} $namaPelanggan", Toast.LENGTH_SHORT).show()
                 return
             }
         }
@@ -278,13 +278,13 @@ class Transaksi : AppCompatActivity() {
                 val hargaInt = parseHarga(harga.toString())
                 val hargaFormatted = formatHarga(hargaInt)
 
-                tvLayananNama.text = "Nama Layanan : $nama"
-                tvLayananHarga.text = "Harga : $hargaFormatted"
+                tvLayananNama.text = "${getString(R.string.service_name)} : $nama"
+                tvLayananHarga.text = "${getString(R.string.price)} : $hargaFormatted"
                 namaLayanan = nama.toString()
                 hargaLayanan = harga.toString()
             }
             if (resultCode == RESULT_CANCELED){
-                Toast.makeText(this, "Batal memilih layanan $namaLayanan", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "${getString(R.string.cancel_select_service)} $namaLayanan", Toast.LENGTH_SHORT).show()
                 return
             }
         }
@@ -302,12 +302,12 @@ class Transaksi : AppCompatActivity() {
                 datalist.add(modelTambahan)
 
                 // Tampilkan Toast ketika item berhasil ditambahkan
-                Toast.makeText(this, "$namaLayanan berhasil ditambahkan", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "$namaLayanan ${getString(R.string.successfully_added)}", Toast.LENGTH_SHORT).show()
 
                 tambahanAdapter.notifyDataSetChanged()
             }
             if (resultCode == RESULT_CANCELED) {
-                Toast.makeText(this, "Batal menambah layanan tambahan", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, getString(R.string.cancel_add_additional_service), Toast.LENGTH_SHORT).show()
             }
         }
     }

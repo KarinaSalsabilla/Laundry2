@@ -31,8 +31,8 @@ class PilihPelangganAdapter(private val pelangganList: ArrayList<ModelPelanggan>
         val item = pelangganList[position]
         holder.tvid.text = "[$nomor]"
         holder.tvNama.text = item.namaPelanggan
-        holder.tvAlamat.text = "Alamat= ${item.alamatPelanggan}"
-        holder.tvNoHP.text = "No Hp= ${item.noHpPelanggan}"
+        holder.tvAlamat.text = "${appContext.getString(R.string.tvalamat)} =  ${item.alamatPelanggan}"
+        holder.tvNoHP.text = "${appContext.getString(R.string.tvnohp)} =  ${item.noHpPelanggan}"
         holder.cvCard.setOnClickListener {
             val intent = Intent()
             intent.putExtra("idPelanggan", item.idPelanggan)

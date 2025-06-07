@@ -32,7 +32,7 @@
                         android:paddingEnd="10dp"
                         android:paddingBottom="5dp"
                         android:textAppearance="@style/TextAppearance.AppCompat.Title"
-                        android:text="Detail Pegawai"/>
+                        android:text="@string/stafdetail"/>
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -51,7 +51,7 @@
                             android:layout_marginBottom="3dp"
                             android:layout_weight="1.35"
                             android:gravity="start"
-                            android:text="ID PEGAWAI"/>
+                            android:text="@string/idpegawai"/>
 
                         <TextView
                             android:id="@+id/tvDIALOG_MOD_PEGAWAI_ID"
@@ -82,7 +82,7 @@
                             android:layout_marginBottom="3dp"
                             android:layout_weight="1.35"
                             android:gravity="start"
-                            android:text="Nama Pegawai"/>
+                            android:text="@string/namapega"/>
 
                         <TextView
                             android:id="@+id/tvDIALOG_MOD_PEGAWAI_Nama"
@@ -114,7 +114,7 @@
                             android:layout_marginBottom="3dp"
                             android:layout_weight="1.35"
                             android:gravity="start"
-                            android:text="ALAMAT"/>
+                            android:text="@string/tvalamat"/>
 
                         <TextView
                             android:id="@+id/tvDIALOG_MOD_PEGAWAI_ALAMAT"
@@ -145,7 +145,7 @@
                             android:layout_marginBottom="3dp"
                             android:layout_weight="1.35"
                             android:gravity="start"
-                            android:text="NO HP"/>
+                            android:text="@string/tvnohp"/>
 
                         <TextView
                             android:id="@+id/tvDIALOG_MOD_PEGAWAI_NOHP"
@@ -177,7 +177,7 @@
                             android:layout_marginBottom="3dp"
                             android:layout_weight="1.35"
                             android:gravity="start"
-                            android:text="CABANG"/>
+                            android:text="@string/cbg"/>
 
                         <TextView
                             android:id="@+id/tvDIALOG_MOD_PEGAWAI_CABANG"
@@ -208,7 +208,7 @@
                             android:layout_marginBottom="3dp"
                             android:layout_weight="1.35"
                             android:gravity="start"
-                            android:text="TERDAFTAR"/>
+                            android:text="@string/ttl"/>
 
                         <TextView
                             android:id="@+id/tvDIALOG_MOD_PEGAWAI_DAFTAR"
@@ -234,7 +234,12 @@
                             android:layout_height="50dp"
                             android:layout_marginEnd="3dp"
                             android:backgroundTint="#2196F3"
-                            android:text="Sunting"
+                            android:text="@string/sunting"
+                            android:textColor="@android:color/white"
+                            app:icon="@drawable/editnote"
+                            app:iconTint="@android:color/white"
+                            app:iconPadding="8dp"
+                            app:iconGravity="textStart"
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintEnd_toStartOf="@+id/btDIALOG_MOD_PEGAWAI_Hapus"
                             app:layout_constraintStart_toStartOf="parent"
@@ -245,8 +250,10 @@
                             android:layout_width="0dp"
                             android:layout_height="50dp"
                             android:layout_marginStart="3dp"
-                            android:text="Hapus"
+                            android:text="@string/hapus"
                             android:backgroundTint="#B82929"
+                            app:icon="@drawable/delete"
+                            app:iconTint="@android:color/white"
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintStart_toEndOf="@+id/btDIALOG_MOD_PEGAWAI_Edit"

@@ -55,15 +55,15 @@
             android:padding="8dp">
 
             <!-- Informasi Transaksi -->
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Informasi Transaksi"
-                android:textStyle="bold"
-                android:textSize="16sp"
-                android:layout_marginStart="20dp"
-                android:layout_marginBottom="8dp"
-                android:textColor="@android:color/holo_blue_dark" />
+<!--            <TextView-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:text="Informasi Transaksi"-->
+<!--                android:textStyle="bold"-->
+<!--                android:textSize="16sp"-->
+<!--                android:layout_marginStart="20dp"-->
+<!--                android:layout_marginBottom="8dp"-->
+<!--                android:textColor="@android:color/holo_blue_dark" />-->
 
             <!-- Transaction Info - Layout lebih compact -->
             <LinearLayout
@@ -100,7 +100,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="0.80"
                     android:layout_marginStart="20dp"
-                    android:text="Tanggal"
+                    android:text="@string/tanggal"
                     android:textSize="14sp" />
 
                 <TextView
@@ -123,7 +123,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:layout_marginStart="20dp"
-                    android:text="Pesanan"
+                    android:text="@string/pesan"
                     android:textSize="14sp" />
 
                 <TextView
@@ -146,7 +146,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:layout_marginStart="20dp"
-                    android:text="Karyawan"
+                    android:text="@string/pegawai"
                     android:textSize="14sp" />
 
                 <TextView
@@ -166,15 +166,15 @@
                 android:layout_marginBottom="12dp" />
 
             <!-- Service Detail -->
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Layanan Utama"
-                android:layout_marginStart="20dp"
-                android:textStyle="bold"
-                android:textSize="16sp"
-                android:layout_marginBottom="8dp"
-                android:textColor="@android:color/holo_blue_dark" />
+<!--            <TextView-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:text="Layanan Utama"-->
+<!--                android:layout_marginStart="20dp"-->
+<!--                android:textStyle="bold"-->
+<!--                android:textSize="16sp"-->
+<!--                android:layout_marginBottom="8dp"-->
+<!--                android:textColor="@android:color/holo_blue_dark" />-->
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -207,7 +207,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Rincian Tambahan"
+                android:text="@string/rincian"
                 android:textStyle="bold"
                 android:textSize="16sp"
                 android:layout_marginStart="20dp"
@@ -242,7 +242,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:layout_marginStart="20dp"
-                        android:text="Subtotal Tambahan"
+                        android:text="@string/tambahtotal"
                         android:textSize="14sp" />
 
                     <TextView
@@ -308,7 +308,7 @@
             android:layout_width="0dp"
             android:layout_height="48dp"
             android:layout_weight="1"
-            android:text="📱 WhatsApp"
+            android:text="@string/kirim"
             android:layout_marginEnd="8dp"
             android:backgroundTint="@android:color/holo_green_dark"
             android:textSize="14sp"
@@ -319,7 +319,7 @@
             android:layout_width="0dp"
             android:layout_height="48dp"
             android:layout_weight="1"
-            android:text="🖨️ Cetak"
+            android:text="Print"
             android:layout_marginStart="8dp"
             android:backgroundTint="@android:color/holo_blue_dark"
             android:textSize="14sp"

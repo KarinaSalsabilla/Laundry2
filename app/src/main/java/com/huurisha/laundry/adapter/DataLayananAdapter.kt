@@ -1,5 +1,6 @@
 package com.huurisha.laundry.adapter
 
+import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -12,7 +13,9 @@ import com.huurisha.laundry.modeldata.ModelPegawai
 import java.text.NumberFormat
 import java.util.Locale
 
-class DataLayananAdapter (private val ListLayanan: ArrayList<ModelLayanan>) : RecyclerView.Adapter<DataLayananAdapter.Viewholder>() {
+class DataLayananAdapter (
+    private val context: Context,
+    private val ListLayanan: ArrayList<ModelLayanan>) : RecyclerView.Adapter<DataLayananAdapter.Viewholder>() {
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int
@@ -27,8 +30,8 @@ class DataLayananAdapter (private val ListLayanan: ArrayList<ModelLayanan>) : Re
         holder.tvid.text = item.idLayanan
         holder.tvNama.text = item.namaLayanan
         val hargaDouble = item.hargaLayanan?.toDoubleOrNull() ?: 0.0
-        holder.harga.text = "Harga: ${formatRupiah(hargaDouble)}"
-        holder.cabang.text = "Cabang= ${item.cabangLayanan}"
+        holder.harga.text = "${context.getString(R.string.hargaLayanan)} = ${formatRupiah(hargaDouble)}"
+        holder.cabang.text = "${context.getString(R.string.cabang)} = ${item.cabangLayanan}"
 
         holder.cvCard.setOnClickListener {
 

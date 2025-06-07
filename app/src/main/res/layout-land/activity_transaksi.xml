@@ -38,7 +38,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="20dp"
                     android:layout_marginTop="5dp"
-                    android:text="Data Pelanggan"
+                    android:text="@string/datapelanggan"
                     android:textSize="25sp"
                     android:textStyle="bold" />
 
@@ -48,7 +48,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="20dp"
                     android:layout_marginTop="5dp"
-                    android:text="Nama Pelanggan:"
+                    android:text="@string/customer_name"
                     android:textSize="20sp" />
 
                 <TextView
@@ -57,7 +57,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="20dp"
                     android:layout_marginTop="5dp"
-                    android:text="No HP:"
+                    android:text="@string/phone_number"
                     android:textSize="20sp" />
 
                 <Button
@@ -67,7 +67,7 @@
                     android:layout_marginStart="20dp"
                     android:layout_marginTop="5dp"
                     android:layout_marginEnd="100dp"
-                    android:text="Pilih Pelanggan"
+                    android:text="@string/pilihpelanggan"
                     android:textStyle="bold" />
 
                 <TextView
@@ -75,7 +75,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="20dp"
                     android:layout_marginTop="5dp"
-                    android:text="Layanan Utama"
+                    android:text="@string/layananutama"
                     android:textSize="25sp"
                     android:textStyle="bold" />
 
@@ -85,7 +85,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="20dp"
                     android:layout_marginTop="5dp"
-                    android:text="Nama Layanan:"
+                    android:text="@string/service_name"
                     android:textSize="20sp" />
 
                 <TextView
@@ -94,7 +94,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="20dp"
                     android:layout_marginTop="5dp"
-                    android:text="Harga"
+                    android:text="@string/price"
                     android:textSize="20sp" />
 
                 <Button
@@ -104,7 +104,7 @@
                     android:layout_marginStart="20dp"
                     android:layout_marginTop="5dp"
                     android:layout_marginEnd="100dp"
-                    android:text="Pilih Layanan"
+                    android:text="@string/PilihLayanan"
                     android:textStyle="bold" />
 
             </LinearLayout>
@@ -123,7 +123,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="10dp"
                     android:layout_marginTop="10dp"
-                    android:text="Layanan Tambahan"
+                    android:text="@string/layanantambahan"
                     android:textSize="25sp"
                     android:textStyle="bold" />
 
@@ -159,7 +159,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:layout_marginEnd="4dp"
-                        android:text="Tambahan" />
+                        android:text="@string/Tambahan" />
 
                     <Button
                         android:id="@+id/btnProses"
@@ -167,7 +167,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:layout_marginStart="4dp"
-                        android:text="Proses" />
+                        android:text="@string/proses" />
 
                 </LinearLayout>
 

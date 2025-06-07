@@ -38,7 +38,14 @@ class konfirmasiData : AppCompatActivity() {
     private var hargalayanan: Int = 0
     private var totalAkhir: Int = 0
     private var employeeName: String? = null
-    private var transactionId: String? = null
+    private var transactionId: String? = null // This will hold the Firebase push ID
+
+    // Konstanta status untuk konsistensi dengan adapter
+    companion object {
+        const val STATUS_UNPAID = "Belum dibayar"
+        const val STATUS_PAID = "Sudah dibayar"
+        const val STATUS_COMPLETED = "Sudah diambil"
+    }
 
     // Fungsi untuk memformat harga ke format Indonesia
     private fun formatHarga(harga: Int): String {
@@ -59,44 +66,9 @@ class konfirmasiData : AppCompatActivity() {
         }
 
         init()
-
-        // Ambil data dari intent
-        nama = intent.getStringExtra("nama")
-        telepon = intent.getStringExtra("telepon")
-        namalayanan = intent.getStringExtra("namalayanan")
-        hargalayanan = intent.getIntExtra("hargalayanan", 0)
-        employeeName = intent.getStringExtra("employee_name")
-        val tambahanNamaList = intent.getStringArrayListExtra("tambahan_nama")
-        val tambahanHargaList = intent.getIntegerArrayListExtra("tambahan_harga")
-
-        // Generate transaction ID
-        transactionId = "-O${System.currentTimeMillis()}"
-
-        // Masukkan ke TextView dengan format harga yang benar
-        tvnama.text = nama
-        tvhp.text = telepon
-        tvnamalayanan.text = namalayanan
-        tvhargalayanan.text = formatHarga(hargalayanan)
-
-        // Siapkan data layanan tambahan
-        if (tambahanNamaList != null && tambahanHargaList != null) {
-            for (i in tambahanNamaList.indices) {
-                val item = ModelTransaksiTambahan(
-                    nama = tambahanNamaList[i],
-                    harga = tambahanHargaList[i]
-                )
-                layananTambahanList.add(item)
-            }
-        }
-
-        // Hitung total
-        val totalTambahan = layananTambahanList.sumOf { it.harga ?: 0 }
-        totalAkhir = hargalayanan + totalTambahan
-        hargatotal.text = formatHarga(totalAkhir)
-
-        // Setup RecyclerView
-        rvKonfirmasi.layoutManager = LinearLayoutManager(this)
-        rvKonfirmasi.adapter = KonfirmasiDataAdapter(layananTambahanList)
+        loadDataFromIntent()
+        setupRecyclerView()
+        calculateTotal()
     }
 
     private fun init() {
@@ -107,28 +79,82 @@ class konfirmasiData : AppCompatActivity() {
         tvhargalayanan = findViewById(R.id.hargalayanan)
         hargatotal = findViewById(R.id.rp)
         btnBatal = findViewById(R.id.btnBatal)
+        btnPembayaran = findViewById(R.id.btnBayar)
+
         btnBatal.setOnClickListener {
-            val intent = Intent()
-            Toast.makeText(this,"Batal Memilih Pelanggan", Toast.LENGTH_SHORT).show()
-            setResult(RESULT_CANCELED, intent)
+            // Use string resource for Toast message
+            Toast.makeText(this, getString(R.string.btn_cancel), Toast.LENGTH_SHORT).show()
+            setResult(RESULT_CANCELED)
             finish()
         }
 
-        btnPembayaran = findViewById(R.id.btnBayar)
         btnPembayaran.setOnClickListener {
             showPaymentDialog()
         }
     }
 
+    private fun loadDataFromIntent() {
+        nama = intent.getStringExtra("nama")
+        telepon = intent.getStringExtra("telepon")
+        namalayanan = intent.getStringExtra("namalayanan")
+        hargalayanan = intent.getIntExtra("hargalayanan", 0)
+        employeeName = intent.getStringExtra("employee_name")
+
+        val tambahanNamaList = intent.getStringArrayListExtra("tambahan_nama")
+        val tambahanHargaList = intent.getIntegerArrayListExtra("tambahan_harga")
+
+        tvnama.text = nama ?: "-"
+        tvhp.text = telepon ?: "-"
+        tvnamalayanan.text = namalayanan ?: "-"
+        tvhargalayanan.text = formatHarga(hargalayanan)
+
+        prepareAdditionalServices(tambahanNamaList, tambahanHargaList)
+    }
+
+    private fun prepareAdditionalServices(namaList: ArrayList<String>?, hargaList: ArrayList<Int>?) {
+        layananTambahanList.clear()
+
+        if (namaList != null && hargaList != null && namaList.size == hargaList.size) {
+            for (i in namaList.indices) {
+                val item = ModelTransaksiTambahan(
+                    nama = namaList[i],
+                    harga = hargaList[i]
+                )
+                layananTambahanList.add(item)
+            }
+        }
+    }
+
+    private fun setupRecyclerView() {
+        rvKonfirmasi.layoutManager = LinearLayoutManager(this)
+        rvKonfirmasi.adapter = KonfirmasiDataAdapter(layananTambahanList)
+    }
+
+    private fun calculateTotal() {
+        val totalTambahan = layananTambahanList.sumOf { it.harga ?: 0 }
+        totalAkhir = hargalayanan + totalTambahan
+        hargatotal.text = formatHarga(totalAkhir)
+    }
+
     private fun showPaymentDialog() {
-        val dialogView = layoutInflater.inflate(R.layout.metode_pembayaran, null)
+        try {
+            val dialogView = layoutInflater.inflate(R.layout.metode_pembayaran, null)
 
-        val dialog = androidx.appcompat.app.AlertDialog.Builder(this)
-            .setView(dialogView)
-            .setCancelable(false)
-            .create()
+            val dialog = androidx.appcompat.app.AlertDialog.Builder(this)
+                .setView(dialogView)
+                .setCancelable(false)
+                .create()
 
-        // Setup tombol-tombol pembayaran
+            setupPaymentButtons(dialogView, dialog)
+            dialog.show()
+
+        } catch (e: Exception) {
+            // Use string resource with a placeholder for the error message
+            Toast.makeText(this, getString(R.string.error_displaying_payment_dialog, e.message), Toast.LENGTH_SHORT).show()
+        }
+    }
+
+    private fun setupPaymentButtons(dialogView: android.view.View, dialog: androidx.appcompat.app.AlertDialog) {
         val btnBayarNanti = dialogView.findViewById<Button>(R.id.btnBayarNanti)
         val btnTunai = dialogView.findViewById<Button>(R.id.btnTunai)
         val btnQRIS = dialogView.findViewById<Button>(R.id.btnQRIS)
@@ -137,110 +163,130 @@ class konfirmasiData : AppCompatActivity() {
         val btnOvo = dialogView.findViewById<Button>(R.id.btnOvo)
         val tvBatalDialog = dialogView.findViewById<TextView>(R.id.tvBatalDialog)
 
-        btnBayarNanti.setOnClickListener {
-            saveToDatabase("Bayar Nanti", "Belum dibayar")
-            goToInvoice("Bayar Nanti")
-            dialog.dismiss()
+        btnBayarNanti?.setOnClickListener {
+            processPayment("Pay Later", STATUS_UNPAID, dialog)
         }
 
-        btnTunai.setOnClickListener {
-            saveToDatabase("Tunai", "Sudah dibayar")
-            goToInvoice("Tunai")
-            dialog.dismiss()
+        btnTunai?.setOnClickListener {
+            processPayment("Tunai", STATUS_PAID, dialog)
         }
 
-        btnQRIS.setOnClickListener {
-            saveToDatabase("QRIS", "Sudah dibayar")
-            goToInvoice("QRIS")
-            dialog.dismiss()
+        btnQRIS?.setOnClickListener {
+            processPayment("QRIS", STATUS_PAID, dialog)
         }
 
-        btnDana.setOnClickListener {
-            saveToDatabase("DANA", "Sudah dibayar")
-            goToInvoice("DANA")
-            dialog.dismiss()
+        btnDana?.setOnClickListener {
+            processPayment("DANA", STATUS_PAID, dialog)
         }
 
-        btnGopay.setOnClickListener {
-            saveToDatabase("GoPay", "Sudah dibayar")
-            goToInvoice("GoPay")
-            dialog.dismiss()
+        btnGopay?.setOnClickListener {
+            processPayment("GoPay", STATUS_PAID, dialog)
         }
 
-        btnOvo.setOnClickListener {
-            saveToDatabase("OVO", "Sudah dibayar")
-            goToInvoice("OVO")
-            dialog.dismiss()
+        btnOvo?.setOnClickListener {
+            processPayment("OVO", STATUS_PAID, dialog)
         }
 
-        tvBatalDialog.setOnClickListener {
+        tvBatalDialog?.setOnClickListener {
             dialog.dismiss()
         }
-
-        dialog.show()
     }
 
-    private fun saveToDatabase(metodePembayaran: String, statusPembayaran: String) {
-        val database = FirebaseDatabase.getInstance().getReference("laporan")
+    private fun processPayment(metodePembayaran: String, statusPembayaran: String, dialog: androidx.appcompat.app.AlertDialog) {
+        dialog.window?.decorView?.isEnabled = false
 
-        val tambahLayananText = if (layananTambahanList.isNotEmpty()) {
-            "+${layananTambahanList.size} Layanan Tambahan"
-        } else {
-            "Tidak ada layanan tambahan"
-        }
-
-        val currentDateTime = SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.getDefault()).format(Date())
-
-        if (transactionId.isNullOrEmpty()) {
-            transactionId = "-O${System.currentTimeMillis()}"
-        }
-
-        val laporan = ModelLaporan(
-            namapelangganlaporan = nama ?: "",
-            terdafter = currentDateTime,
-            namalayananlaporan = namalayanan ?: "",
-            tambahlaporan = tambahLayananText,
-            totalbayar = formatHarga(totalAkhir),
-            metodepembayaran = metodePembayaran,
-            statuspembayaran = statusPembayaran,
-            transactionId = transactionId  // Tambahkan ini
-        )
-
-        database.child(transactionId!!).setValue(laporan)
-            .addOnSuccessListener {
-                Toast.makeText(this, "Data berhasil disimpan", Toast.LENGTH_SHORT).show()
+        try {
+            saveToDatabase(metodePembayaran, statusPembayaran) { success ->
+                if (success) {
+                    goToInvoice(metodePembayaran, statusPembayaran)
+                    dialog.dismiss()
+                } else {
+                    dialog.window?.decorView?.isEnabled = true
+                }
             }
-            .addOnFailureListener {
-                Toast.makeText(this, "Gagal menyimpan data: ${it.message}", Toast.LENGTH_SHORT).show()
-            }
+        } catch (e: Exception) {
+            // Use string resource with a placeholder for the error message
+            Toast.makeText(this, getString(R.string.error_processing_payment, e.message), Toast.LENGTH_SHORT).show()
+            dialog.window?.decorView?.isEnabled = true
+        }
     }
 
-    private fun goToInvoice(metodePembayaran: String) {
-        val intent = Intent(this, invoice_new::class.java)
+    private fun saveToDatabase(metodePembayaran: String, statusPembayaran: String, callback: (Boolean) -> Unit) {
+        try {
+            val database = FirebaseDatabase.getInstance().getReference("laporan")
 
-        // Kirim semua data ke invoice
-        intent.putExtra("customer_name", nama)
-        intent.putExtra("customer_phone", telepon)
-        intent.putExtra("service_name", namalayanan)
-        intent.putExtra("service_price", hargalayanan)
-        intent.putExtra("payment_method", metodePembayaran)
-        intent.putExtra("total_price", totalAkhir)
-        intent.putExtra("employee_name", employeeName ?: "Karina")
+            val tambahLayananText = if (layananTambahanList.isNotEmpty()) {
+                getString(R.string.layanantambahan) + " (${layananTambahanList.size})"
+            } else {
+                getString(R.string.no_additional_service)
+            }
 
-        // Kirim data layanan tambahan
-        val tambahanNamaArray = ArrayList<String>()
-        val tambahanHargaArray = ArrayList<Int>()
+            val currentDateTime = SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.getDefault()).format(Date())
 
-        for (item in layananTambahanList) {
-            tambahanNamaArray.add(item.nama ?: "")
-            tambahanHargaArray.add(item.harga ?: 0)
+            val newTransactionRef = database.push()
+            transactionId = newTransactionRef.key
+
+            val laporan = ModelLaporan(
+                namapelangganlaporan = nama ?: "",
+                terdafter = currentDateTime,
+                namalayananlaporan = namalayanan ?: "",
+                tambahlaporan = tambahLayananText,
+                totalbayar = formatHarga(totalAkhir),
+                metodepembayaran = metodePembayaran,
+                statuspembayaran = statusPembayaran,
+                transactionId = transactionId
+            )
+
+            newTransactionRef.setValue(laporan)
+                .addOnSuccessListener {
+                    // Use string resource
+                    Toast.makeText(this, getString(R.string.data_saved_successfully), Toast.LENGTH_SHORT).show()
+                    callback(true)
+                }
+                .addOnFailureListener { exception ->
+                    // Use string resource with a placeholder for the error message
+                    Toast.makeText(this, getString(R.string.failed_to_save_data, exception.message), Toast.LENGTH_SHORT).show()
+                    callback(false)
+                }
+
+        } catch (e: Exception) {
+            // Use string resource with a placeholder for the error message
+            Toast.makeText(this, getString(R.string.failed_to_save_data, e.message), Toast.LENGTH_SHORT).show()
+            callback(false)
         }
+    }
 
-        intent.putStringArrayListExtra("tambahan_nama", tambahanNamaArray)
-        intent.putIntegerArrayListExtra("tambahan_harga", tambahanHargaArray)
-        intent.putExtra("transaction_id", transactionId)
+    private fun goToInvoice(metodePembayaran: String, statusPembayaran: String) {
+        try {
+            val intent = Intent(this, invoice_new::class.java)
 
-        startActivity(intent)
-        finish()
+            intent.putExtra("customer_name", nama)
+            intent.putExtra("customer_phone", telepon)
+            intent.putExtra("service_name", namalayanan)
+            intent.putExtra("service_price", hargalayanan)
+            intent.putExtra("payment_method", metodePembayaran)
+            intent.putExtra("payment_status", statusPembayaran)
+            intent.putExtra("total_price", totalAkhir)
+            intent.putExtra("employee_name", employeeName ?: "Karina")
+            intent.putExtra("transaction_id", transactionId)
+
+            val tambahanNamaArray = ArrayList<String>()
+            val tambahanHargaArray = ArrayList<Int>()
+
+            for (item in layananTambahanList) {
+                tambahanNamaArray.add(item.nama ?: "")
+                tambahanHargaArray.add(item.harga ?: 0)
+            }
+
+            intent.putStringArrayListExtra("tambahan_nama", tambahanNamaArray)
+            intent.putIntegerArrayListExtra("tambahan_harga", tambahanHargaArray)
+
+            startActivity(intent)
+            finish()
+
+        } catch (e: Exception) {
+            // Use string resource with a placeholder for the error message
+            Toast.makeText(this, getString(R.string.error_opening_invoice, e.message), Toast.LENGTH_SHORT).show()
+        }
     }
 }

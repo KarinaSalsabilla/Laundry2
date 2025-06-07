@@ -24,7 +24,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/txt1"
-                android:text="Data Pelanggan"
+                android:text="@string/datapelanggan"
                 android:layout_marginTop="20dp"
                 android:layout_marginStart="10dp"
                 android:textStyle="bold"
@@ -35,7 +35,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/txt2"
-                android:text="Nama Pelanggan:"
+                android:text="@string/customer_name"
                 android:layout_marginTop="10dp"
                 android:layout_marginStart="10dp"
                 android:textSize="20sp"/>
@@ -44,7 +44,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/txt3"
-                android:text="No HP:"
+                android:text="@string/phone_number"
                 android:layout_marginTop="10dp"
                 android:layout_marginStart="10dp"
                 android:textSize="20sp"/>
@@ -53,7 +53,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/btn1"
-                android:text="Pilih Pelanggan"
+                android:text="@string/pilihpelanggan"
                 android:textStyle="bold"
                 android:layout_marginTop="10dp"
                 android:layout_marginStart="20dp"
@@ -62,7 +62,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Layanan Utama"
+                android:text="@string/layananutama"
                 android:textStyle="bold"
                 android:textSize="25sp"
                 android:layout_marginTop="10dp"
@@ -73,7 +73,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/txt4"
-                android:text="Nama Layanan:"
+                android:text="@string/service_name"
                 android:textSize="20dp"
                 android:layout_marginStart="10dp"
                 android:layout_marginTop="10dp"/>
@@ -82,7 +82,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/txt5"
-                android:text="Harga"
+                android:text="@string/price"
                 android:textSize="20dp"
                 android:layout_marginStart="10dp"
                 android:layout_marginTop="10dp"/>
@@ -90,7 +90,7 @@
             <Button
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Pilih Layanan"
+                android:text="@string/PilihLayanan"
                 android:layout_marginTop="10dp"
                 android:layout_marginStart="20dp"
                 android:layout_marginEnd="20dp"
@@ -101,7 +101,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Layanan Tambahan"
+                android:text="@string/layanantambahan"
                 android:textSize="25sp"
                 android:id="@+id/LayananTambahan"
                 android:textStyle="bold"
@@ -160,7 +160,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:layout_marginStart="5dp"
-                android:text="Tambahan" />
+                android:text="@string/Tambahan" />
 
             <View
                 android:layout_width="16dp"
@@ -172,7 +172,7 @@
                 android:layout_marginEnd="5dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Proses" />
+                android:text="@string/proses" />
         </LinearLayout>
     </androidx.cardview.widget.CardView>
 

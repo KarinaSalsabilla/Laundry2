@@ -2,9 +2,11 @@ package com.huurisha.laundry.tambahan
 
 import android.content.Intent
 import android.os.Bundle
+import android.view.View
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContentProviderCompat.requireContext
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -66,7 +68,7 @@ class datatambahan : AppCompatActivity() {
                         val pegawai = dataSnapshot.getValue(ModelTambahan::class.java)
                         tambahanList.add(pegawai!!)
                     }
-                    val adapter = DataTambahanAdapter(tambahanList)
+                    val adapter = DataTambahanAdapter(this@datatambahan, tambahanList)
                     rvdataTambahan.adapter = adapter
                     adapter.notifyDataSetChanged()
                 }

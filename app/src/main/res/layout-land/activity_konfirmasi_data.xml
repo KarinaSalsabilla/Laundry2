@@ -26,7 +26,7 @@
                 android:id="@+id/judul"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Konfirmasi Data"
+                android:text="@string/konfirmasidata"
                 android:textSize="22sp"
                 android:textStyle="bold"
                 android:layout_gravity="center_horizontal"
@@ -98,7 +98,7 @@
                         android:id="@+id/judullayanantambahan"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Layanan Tambahan"
+                        android:text="@string/layanantambahan"
                         android:textSize="14sp"
                         android:textStyle="bold"
                         android:layout_marginStart="4dp"
@@ -145,7 +145,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Total Bayar: "
+                    android:text="@string/Totalbayar"
                     android:textSize="18sp"
                     android:textStyle="bold" />
 
@@ -167,14 +167,14 @@
                     android:id="@+id/btnBatal"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Batal"
+                    android:text="@string/btn_cancel"
                     android:layout_marginEnd="8dp" />
 
                 <Button
                     android:id="@+id/btnBayar"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:text="Pembayaran"
+                    android:text="@string/pembayaran"
                     android:layout_weight="1" />
             </LinearLayout>
         </LinearLayout>

@@ -1,6 +1,7 @@
 package com.huurisha.laundry.cabang
 
 import android.app.TimePickerDialog
+import android.content.res.Configuration
 import android.os.Bundle
 import android.widget.ArrayAdapter
 import android.widget.AutoCompleteTextView
@@ -185,13 +186,27 @@ class Tambah_cabang : AppCompatActivity() {
             etjam.text.toString()
         )
         cabangBaru.setValue(data).addOnSuccessListener {
-            Toast.makeText(this, this.getString(R.string.suksescabang), Toast.LENGTH_SHORT).show()
-            // Hanya refresh jika RecyclerView ada (landscape)
-            if (rvDataCabang != null) {
-                loadDataCabang()
+            Toast.makeText(this, getString(R.string.suksescabang), Toast.LENGTH_SHORT).show()
+
+            // Logika baru untuk orientasi
+            if (resources.configuration.orientation == Configuration.ORIENTATION_PORTRAIT) {
+                clearForm() // Opsional: bersihkan form sebelum finish
+                finish() // Tutup aktivitas jika dalam mode potret
+            } else {
+                // Dalam mode lanskap, bersihkan form dan muat ulang data di RecyclerView (jika ada)
+                clearForm()
+                if (rvDataCabang != null) {
+                    loadDataCabang()
+                }
             }
-            clearForm()
         }
+//            Toast.makeText(this, this.getString(R.string.suksescabang), Toast.LENGTH_SHORT).show()
+//            // Hanya refresh jika RecyclerView ada (landscape)
+//            if (rvDataCabang != null) {
+//                loadDataCabang()
+//            }
+//            clearForm()
+//        }
             .addOnFailureListener {
                 Toast.makeText(this, this.getString(R.string.gagalcabang), Toast.LENGTH_SHORT).show()
             }

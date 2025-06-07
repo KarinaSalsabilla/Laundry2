@@ -42,10 +42,11 @@ class DataPelangganAdapter (private val ListPelanggan: ArrayList<ModelPelanggan>
         val item = ListPelanggan[position]
         holder.tvid.text = item.idPelanggan
         holder.tvNama.text = item.namaPelanggan
-        holder.tvAlamat.text = "Alamat= ${item.alamatPelanggan}"
-        holder.tvNoHP.text = "No Hp= ${item.noHpPelanggan}"
-        holder.cabangpelang.text = "Cabang= ${item.idCabang}"
-        holder.terdafter.text = "Terdaftar= ${item.terdafter}"
+        holder.tvAlamat.text = "${appContext.getString(R.string.tvalamat)} = ${item.alamatPelanggan}"
+        holder.tvNoHP.text = "${appContext.getString(R.string.tvnohp)} = ${item.noHpPelanggan}"
+        holder.cabangpelang.text = "${appContext.getString(R.string.cbg)} = ${item.idCabang}"
+        holder.terdafter.text = "${appContext.getString(R.string.ttl)} = ${item.terdafter}"
+
 
         holder.btHubungi.setOnClickListener {
             // Tampilkan custom dialog dengan layout XML yang Anda buat
@@ -58,7 +59,7 @@ class DataPelangganAdapter (private val ListPelanggan: ArrayList<ModelPelanggan>
 
         holder.cvCard.setOnClickListener {
             val intent = Intent(appContext, tambahPelanggan::class.java)
-            intent.putExtra("judul","Edit Pelanggan")
+            intent.putExtra("judul", appContext.getString(R.string.editpelanggan))
             intent.putExtra("idPelanggan",item.idPelanggan)
             intent.putExtra("namaPelanggan",item.namaPelanggan)
             intent.putExtra("noHpPelanggan",item.noHpPelanggan)
@@ -110,24 +111,26 @@ class DataPelangganAdapter (private val ListPelanggan: ArrayList<ModelPelanggan>
         dialog.show()
     }
 
-    // Fungsi alternatif menggunakan AlertDialog (jika ingin tetap menggunakan yang lama)
     private fun showContactOptionsDialog(phoneNumber: String?, customerName: String?) {
         if (phoneNumber.isNullOrEmpty()) {
-            Toast.makeText(appContext, "Nomor telepon tidak tersedia", Toast.LENGTH_SHORT).show()
+            Toast.makeText(appContext, appContext.getString(R.string.nomor_tidak_tersedia), Toast.LENGTH_SHORT).show()
             return
         }
 
-        val options = arrayOf("Telepon", "WhatsApp")
+        val options = arrayOf(
+            appContext.getString(R.string.telephone),   // Ganti ini sesuai nama string yang benar
+            appContext.getString(R.string.whatsapp)     // Ganti juga ke resource string, bukan hardcoded "whatsApp"
+        )
 
-        val dialog = androidx.appcompat.app.AlertDialog.Builder(appContext)
-            .setTitle("Hubungi $customerName")
+        val dialog = AlertDialog.Builder(appContext)
+            .setTitle(appContext.getString(R.string.hubungi1, customerName))
             .setItems(options) { _, which ->
                 when (which) {
-                    0 -> callPhoneNumber(phoneNumber) // Telepon
-                    1 -> openWhatsApp(phoneNumber, customerName) // WhatsApp
+                    0 -> callPhoneNumber(phoneNumber)
+                    1 -> openWhatsApp(phoneNumber, customerName)
                 }
             }
-            .setNegativeButton("Batal") { dialog, _ ->
+            .setNegativeButton(appContext.getString(R.string.btn_cancel)) { dialog, _ ->
                 dialog.dismiss()
             }
             .create()
@@ -152,14 +155,15 @@ class DataPelangganAdapter (private val ListPelanggan: ArrayList<ModelPelanggan>
                 appContext.startActivity(dialIntent)
             }
         } catch (e: Exception) {
-            Toast.makeText(appContext, "Tidak dapat membuka aplikasi telepon", Toast.LENGTH_SHORT).show()
+            val message = appContext.getString(R.string.tidaktelepon)
+            Toast.makeText(appContext, message, Toast.LENGTH_SHORT).show()
         }
     }
 
     private fun openWhatsApp(phoneNumber: String?, customerName: String?) {
         try {
             val cleanNumber = cleanPhoneNumber(phoneNumber ?: "")
-            val message = "Halo $customerName, ada yang bisa kami bantu?"
+            val message = appContext.getString(R.string.greeting_message, customerName)
 
             // Format nomor untuk WhatsApp (Indonesia: +62)
             val whatsappNumber = formatWhatsAppNumber(cleanNumber)
@@ -172,12 +176,14 @@ class DataPelangganAdapter (private val ListPelanggan: ArrayList<ModelPelanggan>
             if (intent.resolveActivity(packageManager) != null) {
                 appContext.startActivity(intent)
             } else {
+                val message = appContext.getString(R.string.tidakinstall)
+                Toast.makeText(appContext, message, Toast.LENGTH_SHORT).show()
                 // Jika WhatsApp tidak terinstall, buka di browser
-                Toast.makeText(appContext, "WhatsApp tidak terinstall, membuka di browser", Toast.LENGTH_SHORT).show()
                 appContext.startActivity(intent)
             }
         } catch (e: Exception) {
-            Toast.makeText(appContext, "Tidak dapat membuka WhatsApp", Toast.LENGTH_SHORT).show()
+            val message = appContext.getString(R.string.tidakbukawa)
+            Toast.makeText(appContext, message, Toast.LENGTH_SHORT).show()
         }
     }
 
@@ -239,7 +245,7 @@ class DataPelangganAdapter (private val ListPelanggan: ArrayList<ModelPelanggan>
         btEdit.setOnClickListener {
             dialog.dismiss()
             val intent = Intent(appContext, tambahPelanggan::class.java)
-            intent.putExtra("judul","Edit Pelanggan")
+            intent.putExtra("judul", appContext.getString(R.string.editpelanggan))
             intent.putExtra("idPelanggan", pelanggan.idPelanggan)
             intent.putExtra("namaPelanggan", pelanggan.namaPelanggan)
             intent.putExtra("noHpPelanggan", pelanggan.noHpPelanggan)
@@ -256,21 +262,27 @@ class DataPelangganAdapter (private val ListPelanggan: ArrayList<ModelPelanggan>
     }
 
     private fun showDeleteConfirmation(pelanggan: ModelPelanggan, parentDialog: Dialog) {
+        val title = appContext.getString(R.string.dialog_title_hapus)
+        val message = appContext.getString(R.string.dialog_message_hapus, pelanggan.namaPelanggan)
+        val positiveText = appContext.getString(R.string.ya)
+        val negativeText = appContext.getString(R.string.tidak)
+
         val confirmDialog = AlertDialog.Builder(appContext)
-            .setTitle("Konfirmasi Hapus")
-            .setMessage("Apakah Anda yakin ingin menghapus pelanggan ${pelanggan.namaPelanggan}?")
+            .setTitle(title)
+            .setMessage(message)
             .setIcon(android.R.drawable.ic_dialog_alert)
-            .setPositiveButton("Ya") { _, _ ->
+            .setPositiveButton(positiveText) { _, _ ->
                 deletePelanggan(pelanggan)
                 parentDialog.dismiss()
             }
-            .setNegativeButton("Tidak") { dialog, _ ->
+            .setNegativeButton(negativeText) { dialog, _ ->
                 dialog.dismiss()
             }
             .create()
 
         confirmDialog.show()
     }
+
 
     private fun deletePelanggan(pelanggan: ModelPelanggan) {
         databaseReference = FirebaseDatabase.getInstance().getReference("pelanggan")
@@ -281,11 +293,13 @@ class DataPelangganAdapter (private val ListPelanggan: ArrayList<ModelPelanggan>
                 if (position != -1) {
                     ListPelanggan.removeAt(position)
                     notifyItemRemoved(position)
-                    Toast.makeText(appContext, "Pelanggan berhasil dihapus", Toast.LENGTH_SHORT).show()
+                    val message = appContext.getString(R.string.pelanggandeleted)
+                    Toast.makeText(appContext, message, Toast.LENGTH_SHORT).show()
                 }
             }
             .addOnFailureListener { exception ->
-                Toast.makeText(appContext, "Gagal menghapus pelanggan: ${exception.message}", Toast.LENGTH_SHORT).show()
+                val message = appContext.getString(R.string.gagalpelanggan1)
+                Toast.makeText(appContext, message, Toast.LENGTH_SHORT).show()
             }
     }
 

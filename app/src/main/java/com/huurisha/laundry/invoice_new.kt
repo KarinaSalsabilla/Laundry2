@@ -42,8 +42,8 @@ import android.bluetooth.BluetoothAdapter
 import android.bluetooth.BluetoothDevice
 import android.bluetooth.BluetoothSocket
 import androidx.activity.enableEdgeToEdge
-import java.text.DecimalFormat // Import ini
-import java.text.NumberFormat // Import ini
+import java.text.DecimalFormat
+import java.text.NumberFormat
 
 class invoice_new : AppCompatActivity() {
 
@@ -79,7 +79,7 @@ class invoice_new : AppCompatActivity() {
         if (allGranted) {
             showPrinterSelection()
         } else {
-            Toast.makeText(this, "Permission Bluetooth diperlukan untuk mencetak", Toast.LENGTH_LONG).show()
+            Toast.makeText(this, getString(R.string.bluetooth_permission_required), Toast.LENGTH_LONG).show()
         }
     }
 
@@ -152,11 +152,11 @@ class invoice_new : AppCompatActivity() {
         val tambahanHargaList = intent.getIntegerArrayListExtra("tambahan_harga")
 
         // Set data ke TextView sesuai layout
-        tvTransactionId.text = transactionId ?: "-O-DEFAULT"
-        tvCustomerName.text = customerName ?: "Customer Name"
-        tvEmployeeName.text = employeeName ?: "Default Employee"
-        tvServiceName.text = serviceName ?: "Layanan Default"
-        tvServicePrice.text = currencyFormat.format(servicePrice) // Menggunakan currencyFormat
+        tvTransactionId.text = transactionId ?: getString(R.string.default_transaction_id)
+        tvCustomerName.text = customerName ?: getString(R.string.default_customer_name)
+        tvEmployeeName.text = employeeName ?: getString(R.string.default_employee_name)
+        tvServiceName.text = serviceName ?: getString(R.string.default_service_name)
+        tvServicePrice.text = currencyFormat.format(servicePrice)
 
         // Set tanggal dan jam saat ini dengan format yang lebih lengkap
         currentDateTime = SimpleDateFormat("dd/MM/yyyy HH:mm:ss", Locale.getDefault()).format(Date())
@@ -175,8 +175,8 @@ class invoice_new : AppCompatActivity() {
 
         // Hitung subtotal tambahan
         val additionalSubtotal = layananTambahanList.sumOf { it.harga ?: 0 }
-        tvAdditionalSubtotal.text = currencyFormat.format(additionalSubtotal) // Menggunakan currencyFormat
-        tvTotal.text = currencyFormat.format(totalPrice) // Menggunakan currencyFormat
+        tvAdditionalSubtotal.text = currencyFormat.format(additionalSubtotal)
+        tvTotal.text = currencyFormat.format(totalPrice)
     }
 
     private fun setupRecyclerView() {
@@ -197,12 +197,12 @@ class invoice_new : AppCompatActivity() {
     // FUNGSI BARU: Handle print click dengan permission check
     private fun handlePrintClick() {
         if (!bluetoothPrinter.isBluetoothAvailable()) {
-            Toast.makeText(this, "Bluetooth tidak tersedia", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, getString(R.string.bluetooth_not_available), Toast.LENGTH_SHORT).show()
             return
         }
 
         if (!bluetoothPrinter.isBluetoothEnabled()) {
-            Toast.makeText(this, "Silakan aktifkan Bluetooth terlebih dahulu", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, getString(R.string.bluetooth_enable_first), Toast.LENGTH_SHORT).show()
             return
         }
 
@@ -237,12 +237,12 @@ class invoice_new : AppCompatActivity() {
 
             if (shouldShowRationale) {
                 androidx.appcompat.app.AlertDialog.Builder(this)
-                    .setTitle("Permission Diperlukan")
-                    .setMessage("Aplikasi memerlukan akses Bluetooth untuk mencetak invoice ke printer Bluetooth.")
-                    .setPositiveButton("OK") { _, _ ->
+                    .setTitle(getString(R.string.permission_required_title))
+                    .setMessage(getString(R.string.bluetooth_permission_explanation))
+                    .setPositiveButton(getString(R.string.ok)) { _, _ ->
                         permissionLauncher.launch(missingPermissions.toTypedArray())
                     }
-                    .setNegativeButton("Batal", null)
+                    .setNegativeButton(getString(R.string.cancel), null)
                     .show()
             } else {
                 permissionLauncher.launch(missingPermissions.toTypedArray())
@@ -289,17 +289,17 @@ class invoice_new : AppCompatActivity() {
         /*
         myRef.child(invoiceId).setValue(invoice)
             .addOnSuccessListener {
-                Toast.makeText(this, "Invoice berhasil disimpan dengan ID: $invoiceId", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, getString(R.string.invoice_saved_success, invoiceId), Toast.LENGTH_SHORT).show()
             }
             .addOnFailureListener { exception ->
-                Toast.makeText(this, "Gagal menyimpan invoice: ${exception.message}", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, getString(R.string.invoice_save_failed, exception.message), Toast.LENGTH_SHORT).show()
             }
         */
     }
 
     private fun sendWhatsAppMessage() {
         if (customerPhone.isNullOrEmpty()) {
-            Toast.makeText(this, "Nomor telepon customer tidak tersedia", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, getString(R.string.customer_phone_not_available), Toast.LENGTH_SHORT).show()
             return
         }
 
@@ -319,11 +319,11 @@ class invoice_new : AppCompatActivity() {
                 startActivity(intent)
             } else {
                 // Jika WhatsApp tidak terinstall, buka di browser
-                Toast.makeText(this, "WhatsApp tidak terinstall, membuka di browser", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, getString(R.string.whatsapp_open_browser), Toast.LENGTH_SHORT).show()
                 startActivity(intent)
             }
         } catch (e: Exception) {
-            Toast.makeText(this, "Tidak dapat membuka WhatsApp", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, getString(R.string.cannot_open_whatsapp), Toast.LENGTH_SHORT).show()
         }
     }
 
@@ -354,25 +354,25 @@ class invoice_new : AppCompatActivity() {
 
     private fun createInvoiceMessage(): String {
         val stringBuilder = StringBuilder()
-        stringBuilder.append("*KAARYNS LAUNDRY*\n\n")
-        stringBuilder.append("ID Transaksi: $transactionId\n")
-        stringBuilder.append("Tanggal: ${tvDateTime.text}\n")
-        stringBuilder.append("Customer: $customerName\n")
-        stringBuilder.append("Karyawan: $employeeName\n")
-        stringBuilder.append("Layanan: ${tvServiceName.text}\n\n")
-        stringBuilder.append("--- RINCIAN ---\n")
-        stringBuilder.append("Harga Layanan: ${currencyFormat.format(servicePrice)}\n") // Menggunakan currencyFormat
+        stringBuilder.append(getString(R.string.whatsapp_header))
+        stringBuilder.append("${getString(R.string.transaction_id_label)} $transactionId\n")
+        stringBuilder.append("${getString(R.string.date_label)} ${tvDateTime.text}\n")
+        stringBuilder.append("${getString(R.string.customer_label)} $customerName\n")
+        stringBuilder.append("${getString(R.string.employee_label)} $employeeName\n")
+        stringBuilder.append("${getString(R.string.service_label)} ${tvServiceName.text}\n\n")
+        stringBuilder.append(getString(R.string.details_separator))
+        stringBuilder.append("${getString(R.string.service_price_label)} ${currencyFormat.format(servicePrice)}\n")
 
         if (layananTambahanList.isNotEmpty()) {
-            stringBuilder.append("\nLayanan Tambahan:\n")
+            stringBuilder.append("\n${getString(R.string.additional_services_label)}\n")
             for (item in layananTambahanList) {
-                stringBuilder.append("- ${item.nama}: ${currencyFormat.format(item.harga ?: 0)}\n") // Menggunakan currencyFormat
+                stringBuilder.append("- ${item.nama}: ${currencyFormat.format(item.harga ?: 0)}\n")
             }
-            stringBuilder.append("Subtotal Tambahan: ${currencyFormat.format(layananTambahanList.sumOf { it.harga ?: 0 })}\n") // Menggunakan currencyFormat
+            stringBuilder.append("${getString(R.string.additional_subtotal_label)} ${currencyFormat.format(layananTambahanList.sumOf { it.harga ?: 0 })}\n")
         }
 
-        stringBuilder.append("\n*TOTAL: ${currencyFormat.format(totalPrice)}*\n\n") // Menggunakan currencyFormat
-        stringBuilder.append("Terima kasih telah menggunakan layanan kami! 🙏")
+        stringBuilder.append("\n${getString(R.string.total_label)} ${currencyFormat.format(totalPrice)}*\n\n")
+        stringBuilder.append(getString(R.string.whatsapp_footer))
 
         return stringBuilder.toString()
     }
@@ -381,7 +381,7 @@ class invoice_new : AppCompatActivity() {
     private fun showPrinterSelection() {
         val pairedDevices = bluetoothPrinter.getPairedDevices()
         if (pairedDevices.isEmpty()) {
-            Toast.makeText(this, "Tidak ada printer yang dipasangkan", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, getString(R.string.no_paired_printers), Toast.LENGTH_SHORT).show()
             return
         }
 
@@ -392,13 +392,6 @@ class invoice_new : AppCompatActivity() {
                     Manifest.permission.BLUETOOTH_CONNECT
                 ) != PackageManager.PERMISSION_GRANTED
             ) {
-                // TODO: Consider calling
-                //    ActivityCompat#requestPermissions
-                // here to request the missing permissions, and then overriding
-                //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
-                //                                          int[] grantResults)
-                // to handle the case where the user grants the permission. See the documentation
-                // for ActivityCompat#requestPermissions for more details.
                 return
             }
             device.name?.contains("printer", ignoreCase = true) == true ||
@@ -415,12 +408,12 @@ class invoice_new : AppCompatActivity() {
         }
 
         androidx.appcompat.app.AlertDialog.Builder(this)
-            .setTitle("Pilih Printer")
+            .setTitle(getString(R.string.select_printer_title))
             .setItems(deviceNames) { _, which ->
                 val selectedDevice = if (printers.isNotEmpty()) printers[which] else pairedDevices[which]
                 connectAndPrint(selectedDevice)
             }
-            .setNegativeButton("Batal", null)
+            .setNegativeButton(getString(R.string.cancel), null)
             .show()
     }
 
@@ -431,16 +424,9 @@ class invoice_new : AppCompatActivity() {
                 Manifest.permission.BLUETOOTH_CONNECT
             ) != PackageManager.PERMISSION_GRANTED
         ) {
-            // TODO: Consider calling
-            //    ActivityCompat#requestPermissions
-            // here to request the missing permissions, and then overriding
-            //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
-            //                                          int[] grantResults)
-            // to handle the case where the user grants the permission. See the documentation
-            // for ActivityCompat#requestPermissions for more details.
             return
         }
-        Toast.makeText(this, "Menghubungkan ke ${device.name}...", Toast.LENGTH_SHORT).show()
+        Toast.makeText(this, getString(R.string.connecting_to_printer, device.name), Toast.LENGTH_SHORT).show()
 
         Thread {
             bluetoothPrinter.connectToPrinter(device) { success, message ->
@@ -459,7 +445,7 @@ class invoice_new : AppCompatActivity() {
     // Print invoice ke bluetooth printer
     private fun printToBluetoothPrinter() {
         if (!bluetoothPrinter.isConnected()) {
-            Toast.makeText(this, "Printer tidak terhubung", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, getString(R.string.printer_not_connected), Toast.LENGTH_SHORT).show()
             return
         }
 
@@ -475,38 +461,38 @@ class invoice_new : AppCompatActivity() {
                 bluetoothPrinter.printText("KAARYNS LAUNDRY\n")
                 bluetoothPrinter.sendCommand(ESCPOSCommands.TEXT_NORMAL)
                 bluetoothPrinter.sendCommand(ESCPOSCommands.BOLD_OFF)
-                bluetoothPrinter.printText("Invoice Pembayaran\n")
+                bluetoothPrinter.printText("${getString(R.string.payment_invoice)}\n")
 
                 // Separator
                 bluetoothPrinter.sendCommand(ESCPOSCommands.ALIGN_LEFT)
                 bluetoothPrinter.printText(ESCPOSCommands.createSeparatorLine("="))
 
                 // Transaction details
-                bluetoothPrinter.printText("ID Transaksi: $transactionId\n")
-                bluetoothPrinter.printText("Tanggal: $currentDateTime\n")
-                bluetoothPrinter.printText("Customer: $customerName\n")
-                bluetoothPrinter.printText("Karyawan: $employeeName\n")
+                bluetoothPrinter.printText("${getString(R.string.transaction_id_label)} $transactionId\n")
+                bluetoothPrinter.printText("${getString(R.string.date_label)} $currentDateTime\n")
+                bluetoothPrinter.printText("${getString(R.string.customer_label)} $customerName\n")
+                bluetoothPrinter.printText("${getString(R.string.employee_label)} $employeeName\n")
 
                 bluetoothPrinter.printText(ESCPOSCommands.createSeparatorLine("-"))
 
                 // Service details
                 bluetoothPrinter.sendCommand(ESCPOSCommands.BOLD_ON)
-                bluetoothPrinter.printText("RINCIAN LAYANAN:\n")
+                bluetoothPrinter.printText("${getString(R.string.service_details_header)}\n")
                 bluetoothPrinter.sendCommand(ESCPOSCommands.BOLD_OFF)
 
                 bluetoothPrinter.printText("${serviceName}\n")
-                bluetoothPrinter.printText("Harga: ${currencyFormat.format(servicePrice)}\n") // Menggunakan currencyFormat
+                bluetoothPrinter.printText("${getString(R.string.price_label)} ${currencyFormat.format(servicePrice)}\n")
 
                 // Additional services
                 if (layananTambahanList.isNotEmpty()) {
-                    bluetoothPrinter.printText("\nLayanan Tambahan:\n")
+                    bluetoothPrinter.printText("\n${getString(R.string.additional_services_label)}\n")
                     for (item in layananTambahanList) {
                         bluetoothPrinter.printText("- ${item.nama}\n")
-                        bluetoothPrinter.printText("  ${currencyFormat.format(item.harga ?: 0)}\n") // Menggunakan currencyFormat
+                        bluetoothPrinter.printText("  ${currencyFormat.format(item.harga ?: 0)}\n")
                     }
 
                     val additionalTotal = layananTambahanList.sumOf { it.harga ?: 0 }
-                    bluetoothPrinter.printText("Subtotal Tambahan: ${currencyFormat.format(additionalTotal)}\n") // Menggunakan currencyFormat
+                    bluetoothPrinter.printText("${getString(R.string.additional_subtotal_label)} ${currencyFormat.format(additionalTotal)}\n")
                 }
 
                 bluetoothPrinter.printText(ESCPOSCommands.createSeparatorLine("="))
@@ -514,7 +500,7 @@ class invoice_new : AppCompatActivity() {
                 // Total
                 bluetoothPrinter.sendCommand(ESCPOSCommands.TEXT_DOUBLE_WIDTH)
                 bluetoothPrinter.sendCommand(ESCPOSCommands.BOLD_ON)
-                bluetoothPrinter.printText("TOTAL: ${currencyFormat.format(totalPrice)}\n") // Menggunakan currencyFormat
+                bluetoothPrinter.printText("${getString(R.string.total_uppercase_label)} ${currencyFormat.format(totalPrice)}\n")
                 bluetoothPrinter.sendCommand(ESCPOSCommands.TEXT_NORMAL)
                 bluetoothPrinter.sendCommand(ESCPOSCommands.BOLD_OFF)
 
@@ -522,19 +508,19 @@ class invoice_new : AppCompatActivity() {
 
                 // Footer
                 bluetoothPrinter.sendCommand(ESCPOSCommands.ALIGN_CENTER)
-                bluetoothPrinter.printText("Terima kasih atas kepercayaan Anda\n")
-                bluetoothPrinter.printText("Semoga puas dengan layanan kami\n\n")
+                bluetoothPrinter.printText("${getString(R.string.thank_you_message)}\n")
+                bluetoothPrinter.printText("${getString(R.string.satisfaction_message)}\n\n")
 
                 // Cut paper
                 bluetoothPrinter.sendCommand(ESCPOSCommands.CUT_PAPER)
 
                 runOnUiThread {
-                    Toast.makeText(this, "Invoice berhasil dicetak!", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this, getString(R.string.invoice_printed_success), Toast.LENGTH_SHORT).show()
                 }
 
             } catch (e: Exception) {
                 runOnUiThread {
-                    Toast.makeText(this, "Gagal mencetak: ${e.message}", Toast.LENGTH_LONG).show()
+                    Toast.makeText(this, getString(R.string.print_failed, e.message), Toast.LENGTH_LONG).show()
                 }
             }
         }.start()

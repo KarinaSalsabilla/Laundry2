@@ -60,4 +60,221 @@
     <string name="sunting">Sunting</string>
     <string name="Editpelanggan">Edit Pelanggan</string>
     <string name="perbarui">Perbarui</string>
+    <string name="textdepan">Kami Selalu Siap</string>
+    <string name="textdepan2">Melayani Anda Kapanpun</string>
+    <string name="idcustomer">ID Pelanggan</string>
+    <string name="hapus">Hapus</string>
+    <string name="detail">Detail Pelanggan</string>
+    <string name="telephone">Telepon</string>
+    <string name="editpelanggan">Edit Pelanggan</string>
+    <string name="datatambahan">Data Tambahan</string>
+    <string name="datalayanan">Data Layanan</string>
+    <string name="Datacabang">Data Cabang</string>
+    <string name="Totalbayar">Total Bayar</string>
+    <string name="selamat">Selamat Datang</string>
+    <string name="login">Silahkan Login Untuk Melanjutkan</string>
+    <string name="Datapegawai">Data Pegawai</string>
+    <string name="editpegawai">Edit Pegawai</string>
+    <string name="unknown">Tidak diketahui</string>
+    <string name="service">Layanan</string>
+    <string name="date">Tanggal</string>
+    <string name="no_additional_service">Tidak ada layanan tambahan</string>
+
+    <string name="status_unpaid">Belum Dibayar</string>
+    <string name="status_paid">Sudah Dibayar</string>
+    <string name="status_completed">Selesai</string>
+    <string name="picked_up_on">Diambil</string>
+
+    <string name="btn_pay_now">Bayar Sekarang</string>
+    <string name="btn_pick_up_now">Ambil Sekarang</string>
+    <string name="btn_cancel">Batal</string>
+
+    <string name="payment_cash">Tunai</string>
+    <string name="payment_qris">QRIS</string>
+    <string name="payment_dana">DANA</string>
+    <string name="payment_gopay">GoPay</string>
+    <string name="payment_ovo">OVO</string>
+
+    <string name="toast_order_picked_up_success">Pesanan berhasil diambil</string>
+    <string name="toast_order_already_picked_up">Pesanan sudah diambil</string>
+    <string name="toast_payment_success">Pembayaran dengan %1$s berhasil dikonfirmasi</string>
+    <string name="toast_update_status_failed">Gagal mengupdate status: %1$s</string>
+    <string name="nama">Nama</string>
+    <string name="datapelanggan">Data pelanggan</string>
+    <string name="pilihpelanggan">Pilih Pelanggan</string>
+    <string name="layananutama">Layanan Utama</string>
+    <string name="layanantambahan">layanan tambahan</string>
+    <string name="PilihLayanan">Pilih Layanan</string>
+    <string name="proses">Proses</string>
+
+    <string name="pay_later">Bayar Nanti</string>
+    <string name="payment_confirmed_success">Data berhasil disimpan ke laporan</string>
+    <string name="payment_save_failed">Gagal menyimpan data</string>
+    <string name="cancel_customer_selection">Batal Memilih Pelanggan</string>
+    <string name="additional_services_count">Layanan Tambahan</string>
+    <string name="pembayaran">Pembayaran</string>
+    <string name="pilihmetode">Pilih Metode Pembayaran</string>
+    <string name="bayarnanti">Bayar Nanti</string>
+    <string name="konfirmasidata">Konfirmasi Data</string>
+    <string name="harga">Harga</string>
+    <string name="customer_name">Nama Pelanggan</string>
+    <string name="phone_number">No HP</string>
+    <string name="service_name">Nama Layanan</string>
+    <string name="price">Harga</string>
+    <string name="select_customer">Pilih Pelanggan</string>
+    <string name="select_service">Pilih Layanan</string>
+    <string name="additional_service">Layanan Tambahan</string>
+    <string name="process">Proses</string>
+    <string name="please_select_customer_and_service">Pilih pelanggan dan layanan utama terlebih dahulu</string>
+    <string name="cancel_select_customer">Batal memilih pelanggan</string>
+    <string name="cancel_select_service">Batal memilih layanan</string>
+    <string name="cancel_add_additional_service">Batal menambah layanan tambahan</string>
+    <string name="successfully_added">berhasil ditambahkan</string>
+
+    <string name="item_deleted">%1$s berhasil dihapus</string>
+    <string name="pelanggandeleted">Pelanggan Berhasil Dihapus</string>
+    <string name="gagalpelanggan1">Gagal Menghapus Pelanggan</string>
+    <string name="dialog_title_hapus">Konfirmasi Hapus</string>
+    <string name="dialog_message_hapus">Apakah Anda yakin ingin menghapus pelanggan %1$s?</string>
+    <string name="ya">Ya</string>
+    <string name="tidak">Tidak</string>
+    <string name="tidakbukawa">Tidak Dapat Membuka WhatsApp</string>
+    <string name="tidakinstall">WhatsApp tidak terinstall, membuka di browser</string>
+    <string name="greeting_message">Halo %1$s, ada yang bisa kami bantu?</string>
+    <string name="tidaktelepon">Tidak dapat membuka aplikasi telepon</string>
+    <string name="nomor_tidak_tersedia">Nomor telepon tidak tersedia</string>
+    <string name="hubungi1">Hubungi %1$s</string>
+    <string name="whatsapp">WhatsApp</string>
+    <string name="hapus_konfirmasi_judul">Konfirmasi Hapus</string>
+    <string name="hapus_konfirmasi_pesan">Apakah Anda yakin ingin menghapus pegawai "%1$s"? Data yang dihapus tidak dapat dikembalikan.</string>
+    <string name="hapus_ya">Ya, Hapus</string>
+    <string name="hapus_batal">Batal</string>
+    <string name="hapus_loading">Menghapus pegawai...</string>
+    <string name="hapus_sukses">Pegawai "%1$s" berhasil dihapus</string>
+    <string name="hapus_gagal">Gagal menghapus pegawai: %1$s</string>
+    <string name="hapus_idtidakvalid">ID pegawai tidak valid</string>
+    <string name="wa_pesan">Halo %1$s, ada yang bisa kami bantu?</string>
+    <string name="telepon_tdktersedia">Nomor telepon tidak tersedia</string>
+    <string name="buka_telepon_gagal">Tidak dapat membuka aplikasi telepon</string>
+    <string name="wa_tidak_ada">WhatsApp tidak terinstal, membuka di browser</string>
+    <string name="buka_wa_gagal">Tidak dapat membuka WhatsApp</string>
+    <string name="dialog_delete_title">Konfirmasi Hapus</string>
+    <string name="dialog_delete_message">Apakah Anda yakin ingin menghapus cabang \"%s\"?\n\nData yang dihapus tidak dapat dikembalikan.</string>
+    <string name="dialog_warning_delete_title">⚠️ Konfirmasi Hapus</string>
+    <string name="dialog_detailed_delete_message">Apakah Anda yakin ingin menghapus cabang:\n\n📍 Nama: %1$s\n🏠 Alamat: %2$s\n📞 No HP: %3$s\n\n⚠️ PERINGATAN:\nData yang dihapus tidak dapat dikembalikan dan akan hilang permanen dari database.</string>
+    <string name="dialog_deleting_branch">Menghapus cabang...</string>
+
+    <string name="btn_yes_delete">Ya, Hapus</string>
+    <string name="btn_delete_confirm">🗑️ Ya, Hapus</string>
+    <string name="btn_cancel_action">❌ Batal</string>
+
+    <string name="toast_invalid_branch_id">ID cabang tidak valid</string>
+    <string name="toast_branch_deleted_success">Cabang \"%s\" berhasil dihapus</string>
+    <string name="toast_branch_delete_failed">Gagal menghapus cabang: %s</string>
+    <string name="toast_no_internet_connection">Tidak ada koneksi internet</string>
+    <string name="toast_data_not_found_in_database">Data sudah tidak ada di database</string>
+    <string name="toast_database_access_failed">Gagal mengakses database: %s</string>
+    <string name="toast_phone_not_available">Nomor telepon tidak tersedia</string>
+    <string name="toast_cannot_open_phone_app">Tidak dapat membuka aplikasi telepon</string>
+    <string name="toast_whatsapp_not_installed">WhatsApp tidak terinstall, membuka di browser</string>
+    <string name="toast_cannot_open_whatsapp">Tidak dapat membuka WhatsApp</string>
+
+    <string name="default_branch_name">Cabang</string>
+    <string name="dialog_contact_title">Hubungi %s</string>
+    <string name="option_phone_call">Telepon</string>
+    <string name="option_whatsapp">WhatsApp</string>
+
+    <string name="whatsapp_default_message">Halo, saya %s. Izin menghubungi terkait keperluan di cabang ini. Terima kasih.</string>
+    <string name="tanggal">Tanggal</string>
+    <string name="pesan">Pesanan</string>
+    <string name="rincian">Rincian Tambahan</string>
+    <string name="tambahtotal">Subtotal Tambahan</string>
+    <string name="kirim">Kirim WhatsApp</string>
+
+
+    <string name="error_displaying_payment_dialog">Kesalahan menampilkan dialog pembayaran: %s</string>
+    <string name="error_processing_payment">Kesalahan memproses pembayaran: %s</string>
+    <string name="failed_to_save_data">Gagal menyimpan data: %s</string>
+    <string name="error_opening_invoice">Kesalahan membuka faktur: %s</string>
+    <string name="data_saved_successfully">Data berhasil disimpan</string>
+    <string name="idpegawai">ID Pegawai</string>
+    <string name="stafdetail">Detail Pegawai</string>
+    <string name="namapega">Nama Pegawai</string>
+        <!-- Toast Messages -->
+        <string name="bluetooth_permission_required">Permission Bluetooth diperlukan untuk mencetak</string>
+        <string name="bluetooth_not_available">Bluetooth tidak tersedia</string>
+        <string name="bluetooth_enable_first">Silakan aktifkan Bluetooth terlebih dahulu</string>
+        <string name="customer_phone_not_available">Nomor telepon customer tidak tersedia</string>
+        <string name="whatsapp_open_browser">WhatsApp tidak terinstall, membuka di browser</string>
+        <string name="cannot_open_whatsapp">Tidak dapat membuka WhatsApp</string>
+        <string name="no_paired_printers">Tidak ada printer yang dipasangkan</string>
+        <string name="printer_not_connected">Printer tidak terhubung</string>
+        <string name="invoice_printed_success">Invoice berhasil dicetak!</string>
+        <string name="print_failed">Gagal mencetak: %1$s</string>
+        <string name="connecting_to_printer">Menghubungkan ke %1$s...</string>
+
+        <!-- Dialog Messages -->
+        <string name="permission_required_title">Permission Diperlukan</string>
+        <string name="bluetooth_permission_explanation">Aplikasi memerlukan akses Bluetooth untuk mencetak invoice ke printer Bluetooth.</string>
+        <string name="select_printer_title">Pilih Printer</string>
+
+        <!-- Button Labels -->
+        <string name="ok">OK</string>
+        <string name="cancel">Batal</string>
+
+        <!-- Default Values -->
+        <string name="default_transaction_id">-O-DEFAULT</string>
+        <string name="default_customer_name">Nama Customer</string>
+        <string name="default_employee_name">Karyawan Default</string>
+        <string name="default_service_name">Layanan Default</string>
+
+        <!-- Invoice Labels -->
+        <string name="transaction_id_label">ID Transaksi:</string>
+        <string name="date_label">Tanggal:</string>
+        <string name="customer_label">Customer:</string>
+        <string name="employee_label">Karyawan:</string>
+        <string name="service_label">Layanan:</string>
+        <string name="service_price_label">Harga Layanan:</string>
+        <string name="additional_services_label">Layanan Tambahan:</string>
+        <string name="additional_subtotal_label">Subtotal Tambahan:</string>
+        <string name="total_label">*TOTAL:</string>
+        <string name="total_uppercase_label">TOTAL:</string>
+        <string name="price_label">Harga:</string>
+
+        <!-- WhatsApp Message -->
+        <string name="whatsapp_header">*KAARYNS LAUNDRY*\n\n</string>
+        <string name="details_separator">--- RINCIAN ---\n</string>
+        <string name="whatsapp_footer">Terima kasih telah menggunakan layanan kami! 🙏</string>
+
+        <!-- Printer Receipt -->
+        <string name="payment_invoice">Invoice Pembayaran</string>
+        <string name="service_details_header">RINCIAN LAYANAN:</string>
+        <string name="thank_you_message">Terima kasih atas kepercayaan Anda</string>
+        <string name="satisfaction_message">Semoga puas dengan layanan kami</string>
+
+        <!-- Firebase Database Messages (Optional - if you uncomment the save functionality) -->
+        <string name="invoice_saved_success">Invoice berhasil disimpan dengan ID: %1$s</string>
+        <string name="invoice_save_failed">Gagal menyimpan invoice: %1$s</string>
+
+    <string name="service_price">Harga Layanan</string>
+
+    <string name="payment_confirmed_simple">Pembayaran untuk %1$s telah dikonfirmasi</string>
+    <string name="payment_confirmed_with_method">Pembayaran untuk %1$s via %2$s telah dikonfirmasi</string>
+    <string name="order_picked_up">Pesanan %1$s telah diambil pada %2$s</string>
+    <string name="no_report_data">Tidak ada data laporan</string>
+    <string name="failed_load_data">Gagal memuat data: %1$s</string>
+
+    <!-- Log Messages -->
+    <string name="payment_confirmed_log">Pembayaran berhasil untuk: %1$s</string>
+    <string name="order_picked_up_log">Pesanan diambil: %1$s</string>
+    <string name="loaded_item_log">Barang dimuat: %1$s, Status: %2$s, ID: %3$s</string>
+    <string name="data_loaded_log">Data dimuat: %1$d item</string>
+    <string name="error_sorting_log">Kesalahan saat menyortir data: %1$s</string>
+    <string name="database_error_log">Kesalahan database: %1$s</string>
+
+    <!-- Activity Title -->
+    <string name="data_laporan_title">Data Laporan</string>
+    <!-- In strings.xml -->
+
+
 </resources>

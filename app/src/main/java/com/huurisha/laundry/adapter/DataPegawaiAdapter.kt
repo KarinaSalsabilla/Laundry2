@@ -39,10 +39,10 @@ class DataPegawaiAdapter(private val listPegawai: ArrayList<ModelPegawai>) :
 
         holder.tvId.text = item.idPegawai
         holder.tvNama.text = item.namaPegawai
-        holder.tvAlamat.text = "Alamat= ${item.alamatPegawai}"
-        holder.tvNoHP.text = "No Hp= ${item.noHpPegawai}"
-        holder.cabangPegawai.text = "Cabang= ${item.idCabangPegawai}"
-        holder.terdaftar.text = "Terdaftar= ${item.terdaftar}"
+        holder.tvAlamat.text = "${appContext.getString(R.string.tvalamat)} =  ${item.alamatPegawai}"
+        holder.tvNoHP.text = "${appContext.getString(R.string.tvnohp)} =  ${item.noHpPegawai}"
+        holder.cabangPegawai.text = "${appContext.getString(R.string.cabang)} =  ${item.idCabangPegawai}"
+        holder.terdaftar.text = "${appContext.getString(R.string.ttl)} =  ${item.terdaftar}"
 
         holder.btHubungi.setOnClickListener {
             showCustomContactDialog(item.noHpPegawai, item.namaPegawai)
@@ -54,7 +54,7 @@ class DataPegawaiAdapter(private val listPegawai: ArrayList<ModelPegawai>) :
 
         holder.cvCard.setOnClickListener {
             val intent = Intent(appContext, tambah_pegawai::class.java)
-            intent.putExtra("judul", "Edit Pegawai")
+            intent.putExtra("judul",  appContext.getString(R.string.editPegawai))
             intent.putExtra("idPegawai", item.idPegawai)
             intent.putExtra("namaPegawai", item.namaPegawai)
             intent.putExtra("noHpPegawai", item.noHpPegawai)
@@ -66,7 +66,7 @@ class DataPegawaiAdapter(private val listPegawai: ArrayList<ModelPegawai>) :
 
     private fun showCustomContactDialog(phoneNumber: String?, customerName: String?) {
         if (phoneNumber.isNullOrEmpty()) {
-            Toast.makeText(appContext, "Nomor telepon tidak tersedia", Toast.LENGTH_SHORT).show()
+            Toast.makeText(appContext, appContext.getString(R.string.telepon_tdktersedia), Toast.LENGTH_SHORT).show()
             return
         }
 
@@ -102,40 +102,51 @@ class DataPegawaiAdapter(private val listPegawai: ArrayList<ModelPegawai>) :
     private fun callPhoneNumber(phoneNumber: String) {
         try {
             val cleanNumber = cleanPhoneNumber(phoneNumber)
-            val intent = Intent(Intent.ACTION_CALL)
+
+            // Langsung gunakan ACTION_DIAL untuk menghindari konflik
+            val intent = Intent(Intent.ACTION_DIAL)
             intent.data = Uri.parse("tel:$cleanNumber")
 
-            if (ContextCompat.checkSelfPermission(appContext, Manifest.permission.CALL_PHONE)
-                == PackageManager.PERMISSION_GRANTED) {
+            // Pastikan intent bisa di-resolve sebelum menjalankan
+            if (intent.resolveActivity(appContext.packageManager) != null) {
                 appContext.startActivity(intent)
             } else {
-                val dialIntent = Intent(Intent.ACTION_DIAL)
-                dialIntent.data = Uri.parse("tel:$cleanNumber")
-                appContext.startActivity(dialIntent)
+                Toast.makeText(appContext, appContext.getString(R.string.buka_telepon_gagal), Toast.LENGTH_SHORT).show()
             }
         } catch (e: Exception) {
-            Toast.makeText(appContext, "Tidak dapat membuka aplikasi telepon", Toast.LENGTH_SHORT).show()
+            Toast.makeText(appContext, appContext.getString(R.string.buka_telepon_gagal), Toast.LENGTH_SHORT).show()
         }
     }
 
     private fun openWhatsApp(phoneNumber: String?, customerName: String?) {
         try {
             val cleanNumber = cleanPhoneNumber(phoneNumber ?: "")
-            val message = "Halo $customerName, ada yang bisa kami bantu?"
+            val message = appContext.getString(R.string.wa_pesan, customerName)
             val whatsappNumber = formatWhatsAppNumber(cleanNumber)
 
+            // Buat intent khusus untuk WhatsApp
             val intent = Intent(Intent.ACTION_VIEW)
             intent.data = Uri.parse("https://wa.me/$whatsappNumber?text=${Uri.encode(message)}")
 
-            val packageManager = appContext.packageManager
-            if (intent.resolveActivity(packageManager) != null) {
+            // Set package secara eksplisit untuk WhatsApp jika ada
+            intent.setPackage("com.whatsapp")
+
+            // Cek apakah WhatsApp terinstall
+            if (intent.resolveActivity(appContext.packageManager) != null) {
                 appContext.startActivity(intent)
             } else {
-                Toast.makeText(appContext, "WhatsApp tidak terinstall, membuka di browser", Toast.LENGTH_SHORT).show()
-                appContext.startActivity(intent)
+                // Jika WhatsApp tidak ada, coba WhatsApp Business
+                intent.setPackage("com.whatsapp.w4b")
+                if (intent.resolveActivity(appContext.packageManager) != null) {
+                    appContext.startActivity(intent)
+                } else {
+                    // Jika kedua WhatsApp tidak ada, buka di browser
+                    intent.setPackage(null)
+                    appContext.startActivity(intent)
+                }
             }
         } catch (e: Exception) {
-            Toast.makeText(appContext, "Tidak dapat membuka WhatsApp", Toast.LENGTH_SHORT).show()
+            Toast.makeText(appContext, appContext.getString(R.string.buka_wa_gagal), Toast.LENGTH_SHORT).show()
         }
     }
 
@@ -187,7 +198,7 @@ class DataPegawaiAdapter(private val listPegawai: ArrayList<ModelPegawai>) :
         btEdit.setOnClickListener {
             dialog.dismiss()
             val intent = Intent(appContext, tambah_pegawai::class.java)
-            intent.putExtra("judul", "Edit Pegawai")
+            intent.putExtra("judul",  appContext.getString(R.string.editPegawai))
             intent.putExtra("idPegawai", pegawai.idPegawai)
             intent.putExtra("namaPegawai", pegawai.namaPegawai)
             intent.putExtra("noHpPegawai", pegawai.noHpPegawai)
@@ -197,53 +208,50 @@ class DataPegawaiAdapter(private val listPegawai: ArrayList<ModelPegawai>) :
         }
 
         btHapus.setOnClickListener {
-            dialog.dismiss()
-            // Gunakan dialog konfirmasi yang sama seperti DataCabangAdapter
-            showDeleteConfirmationDialog(pegawai, position)
+            // Tidak menutup dialog utama, hanya menampilkan konfirmasi
+            showDeleteConfirmationDialog(pegawai, position, dialog)
         }
 
         dialog.show()
     }
 
-    // Dialog konfirmasi hapus - sama seperti di DataCabangAdapter
-    private fun showDeleteConfirmationDialog(pegawai: ModelPegawai, position: Int) {
+    private fun showDeleteConfirmationDialog(pegawai: ModelPegawai, position: Int, parentDialog: Dialog) {
         val alertDialog = AlertDialog.Builder(appContext)
-            .setTitle("Konfirmasi Hapus")
-            .setMessage("Apakah Anda yakin ingin menghapus pegawai \"${pegawai.namaPegawai}\"?\n\nData yang dihapus tidak dapat dikembalikan.")
+            .setTitle(appContext.getString(R.string.hapus_konfirmasi_judul))
+            .setMessage(appContext.getString(R.string.hapus_konfirmasi_pesan, pegawai.namaPegawai))
             .setIcon(android.R.drawable.ic_dialog_alert)
-            .setPositiveButton("Ya, Hapus") { dialog, _ ->
+            .setPositiveButton(appContext.getString(R.string.hapus_ya)) { dialog, _ ->
                 dialog.dismiss()
+                // Tutup parent dialog hanya setelah konfirmasi
+                parentDialog.dismiss()
                 deletePegawaiFromDatabase(pegawai, position)
             }
-            .setNegativeButton("Batal") { dialog, _ ->
+            .setNegativeButton(appContext.getString(R.string.hapus_batal)) { dialog, _ ->
                 dialog.dismiss()
+                // Parent dialog tetap terbuka
             }
             .setCancelable(true)
             .create()
 
         alertDialog.show()
 
-        // Opsional: Ubah warna tombol untuk menekankan aksi berbahaya
         alertDialog.getButton(AlertDialog.BUTTON_POSITIVE)?.setTextColor(
             ContextCompat.getColor(appContext, android.R.color.holo_red_dark)
         )
     }
 
-    // Fungsi untuk menghapus pegawai dari database - diperbaiki seperti DataCabangAdapter
     private fun deletePegawaiFromDatabase(pegawai: ModelPegawai, position: Int) {
         val pegawaiId = pegawai.idPegawai
 
         if (pegawaiId.isNullOrEmpty()) {
-            Toast.makeText(appContext, "ID pegawai tidak valid", Toast.LENGTH_SHORT).show()
+            Toast.makeText(appContext, appContext.getString(R.string.hapus_idtidakvalid), Toast.LENGTH_SHORT).show()
             return
         }
 
-        // Tampilkan loading toast
-        Toast.makeText(appContext, "Menghapus pegawai...", Toast.LENGTH_SHORT).show()
+        Toast.makeText(appContext, appContext.getString(R.string.hapus_loading), Toast.LENGTH_SHORT).show()
 
         databaseReference.child(pegawaiId).removeValue()
             .addOnSuccessListener {
-                // Hapus dari list lokal dan update RecyclerView
                 if (position < listPegawai.size) {
                     listPegawai.removeAt(position)
                     notifyItemRemoved(position)
@@ -252,14 +260,14 @@ class DataPegawaiAdapter(private val listPegawai: ArrayList<ModelPegawai>) :
 
                 Toast.makeText(
                     appContext,
-                    "Pegawai \"${pegawai.namaPegawai}\" berhasil dihapus",
+                    appContext.getString(R.string.hapus_sukses, pegawai.namaPegawai),
                     Toast.LENGTH_SHORT
                 ).show()
             }
             .addOnFailureListener { exception ->
                 Toast.makeText(
                     appContext,
-                    "Gagal menghapus pegawai: ${exception.message}",
+                    appContext.getString(R.string.hapus_gagal, exception.message),
                     Toast.LENGTH_LONG
                 ).show()
             }

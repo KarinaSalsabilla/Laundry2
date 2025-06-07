@@ -11,91 +11,130 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toTopOf="parent"
+        android:orientation="vertical"
         app:layout_constraintStart_toStartOf="parent"
-        android:orientation="vertical">
+        app:layout_constraintTop_toTopOf="parent">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Akun"
-            android:textSize="20sp"
-            android:textStyle="bold"
             android:layout_gravity="center"
-            android:layout_marginTop="10dp"/>
+            android:layout_marginTop="10dp"
+            android:text="@string/akun"
+            android:textColor="@color/black"
+            android:textSize="30sp"
+            android:textStyle="bold" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Nama : "
-            android:textSize="18sp"
             android:layout_marginStart="20dp"
-            android:layout_marginTop="10dp"/>
+            android:layout_marginTop="50dp"
+            android:text="@string/nama"
+            android:textColor="@color/black"
+            android:textSize="18sp" />
 
         <EditText
             android:id="@+id/namaAkun"
-            android:text="Karina Salsabilla"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:layout_marginStart="20dp"
+            android:layout_marginTop="10dp"
             android:layout_marginEnd="20dp"
-            android:layout_marginTop="10dp"/>
+            android:background="@drawable/edittext_bg"
+            android:padding="8dp"
+            android:text="Karina Salsabilla"
+            android:textColor="#000000" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Password : "
-            android:textSize="18sp"
+            android:layout_marginStart="20dp"
             android:layout_marginTop="10dp"
-            android:layout_marginStart="20dp"/>
+            android:text="Password : "
+            android:textColor="@color/black"
+            android:textSize="18sp" />
 
         <EditText
-            android:text="admin"
             android:id="@+id/passwordAkun"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:layout_marginStart="20dp"
+            android:layout_marginTop="10dp"
             android:layout_marginEnd="20dp"
-            android:layout_marginTop="10dp"/>
+            android:background="@drawable/edittext_bg"
+            android:padding="8dp"
+            android:text="admin"
+            android:textColor="#000000" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Nomor Hp :"
-            android:layout_marginTop="10dp"
             android:layout_marginStart="20dp"
-            android:textSize="18sp"/>
+            android:layout_marginTop="10dp"
+            android:text="@string/tvnohp"
+            android:textColor="@color/black"
+            android:textSize="18sp" />
 
         <EditText
             android:id="@+id/nohpakun"
             android:layout_width="match_parent"
-            android:text="087833524624"
             android:layout_height="50dp"
             android:layout_marginStart="20dp"
+            android:layout_marginTop="10dp"
             android:layout_marginEnd="20dp"
-            android:layout_marginTop="10dp"/>
+            android:background="@drawable/edittext_bg"
+            android:padding="8dp"
+            android:text="087833524624"
+            android:textColor="#000000" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="10dp"
+            android:text="@string/cbg"
+            android:textColor="@color/black"
+            android:textSize="18sp" />
+
+        <EditText
+            android:id="@+id/inputcabang"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="20dp"
+            android:background="@drawable/edittext_bg"
+            android:padding="8dp"
+            android:text="087833524624"
+            android:textColor="#000000" />
 
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
+            android:layout_marginTop="20dp"
             android:gravity="center"
-            android:layout_marginTop="20dp">
+            android:orientation="horizontal">
 
             <Button
                 android:id="@+id/updateakun"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="25dp"
+                android:layout_marginEnd="10dp"
+                android:backgroundTint="#4CAF50"
                 android:text="Update Data"
-                android:layout_marginEnd="10dp" />
+                android:textColor="#FFFFFF" />
 
             <Button
                 android:id="@+id/logout"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:backgroundTint="#F44336"
                 android:text="Logout"
-                android:layout_marginStart="10dp" />
+                android:textColor="#FFFFFF" />
         </LinearLayout>
 
     </LinearLayout>

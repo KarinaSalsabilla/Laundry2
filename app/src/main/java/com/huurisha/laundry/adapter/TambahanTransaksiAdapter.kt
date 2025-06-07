@@ -41,7 +41,7 @@ class TambahanTransaksiAdapter(
         holder.tvid.text = "[$nomor]"
         holder.tvNama.text = item.nama
         val hargaDouble = item.harga ?: 0
-        holder.harga.text = "Harga= ${formatRupiah(hargaDouble)}"
+        holder.harga.text = "${appContext.getString(R.string.harga)} =  ${formatRupiah(hargaDouble)}"
 
         holder.cvCard.setOnClickListener {
             val intent = Intent()
@@ -65,7 +65,9 @@ class TambahanTransaksiAdapter(
             notifyItemRangeChanged(position, ListTambahan.size)
 
             // Tampilkan Toast ketika item dihapus
-            Toast.makeText(appContext, "$namaItem berhasil dihapus", Toast.LENGTH_SHORT).show()
+            val message = appContext.getString(R.string.item_deleted, namaItem)
+            Toast.makeText(appContext, message, Toast.LENGTH_SHORT).show()
+
 
             // Panggil callback untuk memberitahu parent activity/fragment
             onItemRemoved?.invoke()

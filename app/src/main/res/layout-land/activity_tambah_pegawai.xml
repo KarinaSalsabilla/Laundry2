@@ -31,7 +31,7 @@
                 android:id="@+id/tvDataPegawai"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Data Pegawai"
+                android:text="@string/Datapegawai"
                 android:textColor="@color/white"
                 android:textSize="22sp"
                 android:textStyle="bold"

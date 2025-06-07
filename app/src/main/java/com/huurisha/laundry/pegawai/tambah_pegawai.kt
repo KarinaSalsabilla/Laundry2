@@ -1,5 +1,6 @@
 package com.huurisha.laundry.pegawai
 
+import android.content.res.Configuration // Import ini ditambahkan
 import android.os.Bundle
 import android.util.Log
 import android.widget.ArrayAdapter
@@ -28,6 +29,7 @@ import java.util.Locale
 class tambah_pegawai : AppCompatActivity() {
     val database = FirebaseDatabase.getInstance()
     val myRef = database.getReference("pegawai")
+
     lateinit var tvJudul: TextView
     lateinit var etNama: EditText
     lateinit var etAlamat: AutoCompleteTextView
@@ -41,10 +43,19 @@ class tambah_pegawai : AppCompatActivity() {
 
     var idPegawai: String = ""
 
+    // Enum untuk mengelola state button
+    private enum class ButtonState {
+        SIMPAN, SUNTING, PERBARUI
+    }
+
+    // Variabel untuk menyimpan state button saat ini
+    private var currentButtonState = ButtonState.SIMPAN
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.activity_tambah_pegawai)
+
         init()
         setupAutoCompleteAlamat()
         getData()
@@ -133,15 +144,18 @@ class tambah_pegawai : AppCompatActivity() {
         etNoHP.setText(hp)
         etCabang.setText(cabang)
 
-        if (!tvJudul.text.equals(this.getString(R.string.tvpegawai))) {
-            if (judul.equals("Edit Pegawai")) {
+        // Menggunakan getString untuk perbandingan string
+        if (!tvJudul.text.equals(getString(R.string.tvpegawai))) {
+            if (judul.equals(getString(R.string.editPegawai))) {
                 mati()
-                btSimpan.text = "Sunting"
+                btSimpan.text = getString(R.string.sunting) // Gunakan string resource
+                currentButtonState = ButtonState.SUNTING
             }
         } else {
             hidup()
             etNama.requestFocus()
-            btSimpan.text = "Simpan"
+            btSimpan.text = getString(R.string.simpan)
+            currentButtonState = ButtonState.SIMPAN
         }
     }
 
@@ -179,10 +193,20 @@ class tambah_pegawai : AppCompatActivity() {
         updateData["waktuUpdate"] = currentTime
 
         pegawaiRef.updateChildren(updateData).addOnSuccessListener {
-            Toast.makeText(this@tambah_pegawai, "Data Pegawai Berhasil Diperbarui", Toast.LENGTH_SHORT).show()
-            finish()
+            Toast.makeText(this@tambah_pegawai, getString(R.string.suksespegawai), Toast.LENGTH_SHORT).show()
+
+            // Logika baru untuk orientasi
+            if (resources.configuration.orientation == Configuration.ORIENTATION_PORTRAIT) {
+                finish() // Tutup aktivitas jika dalam mode potret
+            } else {
+                // Dalam mode lanskap, bersihkan form dan muat ulang data di RecyclerView (jika ada)
+                clearForm()
+                if (rvDataPegawai != null) {
+                    loadDataPegawai()
+                }
+            }
         }.addOnFailureListener {
-            Toast.makeText(this@tambah_pegawai, "Data Pegawai Gagal Diperbarui", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this@tambah_pegawai, getString(R.string.gagalpegawai), Toast.LENGTH_SHORT).show()
         }
     }
 
@@ -192,42 +216,68 @@ class tambah_pegawai : AppCompatActivity() {
         val noHP = etNoHP.text.toString()
         val cabang = etCabang.text.toString()
 
+        // Validasi Nama
         if (nama.isEmpty()) {
-            etNama.error = this.getString(R.string.validasinama)
-            Toast.makeText(this, this.getString(R.string.validasinama), Toast.LENGTH_SHORT).show()
+            etNama.error = getString(R.string.validasinama)
+            Toast.makeText(this, getString(R.string.validasinama), Toast.LENGTH_SHORT).show()
             etNama.requestFocus()
             return
         }
 
+        // Validasi format nama (hanya huruf dan spasi)
+        if (!nama.matches(Regex("^[a-zA-Z\\s]+$"))) {
+            etNama.error = getString(R.string.validasinama)
+            Toast.makeText(this, getString(R.string.validasinama), Toast.LENGTH_SHORT).show()
+            etNama.requestFocus()
+            return
+        }
+
+        // Validasi Alamat
         if (alamat.isEmpty()) {
-            etAlamat.error = this.getString(R.string.validasialamat)
-            Toast.makeText(this, this.getString(R.string.validasialamat), Toast.LENGTH_SHORT).show()
+            etAlamat.error = getString(R.string.validasialamat)
+            Toast.makeText(this, getString(R.string.validasialamat), Toast.LENGTH_SHORT).show()
             etAlamat.requestFocus()
             return
         }
 
+        // Validasi No HP
         if (noHP.isEmpty()) {
-            etNoHP.error = this.getString(R.string.validasiHp)
-            Toast.makeText(this, this.getString(R.string.validasiHp), Toast.LENGTH_SHORT).show()
+            etNoHP.error = getString(R.string.validasiHp)
+            Toast.makeText(this, getString(R.string.validasiHp), Toast.LENGTH_SHORT).show()
             etNoHP.requestFocus()
             return
         }
 
+        // Validasi format nomor HP
+        if (!noHP.matches(Regex("^(\\+62|62|0)[0-9]{8,13}$"))) {
+            etNoHP.error = getString(R.string.validasiHp)
+            Toast.makeText(this, getString(R.string.validasiHp), Toast.LENGTH_SHORT).show()
+            etNoHP.requestFocus()
+            return
+        }
+
+        // Validasi Cabang
         if (cabang.isEmpty()) {
-            etCabang.error = this.getString(R.string.validasiCabang)
-            Toast.makeText(this, this.getString(R.string.validasiCabang), Toast.LENGTH_SHORT).show()
+            etCabang.error = getString(R.string.validasiCabang)
+            Toast.makeText(this, getString(R.string.validasiCabang), Toast.LENGTH_SHORT).show()
             etCabang.requestFocus()
             return
         }
 
-        when (btSimpan.text.toString()) {
-            "Simpan" -> simpan()
-            "Sunting" -> {
+        // Gunakan enum state untuk menentukan aksi
+        when (currentButtonState) {
+            ButtonState.SIMPAN -> {
+                simpan()
+            }
+            ButtonState.SUNTING -> {
                 hidup()
                 etNama.requestFocus()
-                btSimpan.text = "Perbarui"
+                btSimpan.text = getString(R.string.perbarui) // Gunakan string resource
+                currentButtonState = ButtonState.PERBARUI
             }
-            "Perbarui" -> update()
+            ButtonState.PERBARUI -> {
+                update()
+            }
         }
     }
 
@@ -246,13 +296,21 @@ class tambah_pegawai : AppCompatActivity() {
         )
 
         pegawaiBaru.setValue(data).addOnSuccessListener {
-            Toast.makeText(this, this.getString(R.string.suksespegawai), Toast.LENGTH_SHORT).show()
-            if (rvDataPegawai != null) {
-                loadDataPegawai()
+            Toast.makeText(this, getString(R.string.suksespegawai), Toast.LENGTH_SHORT).show()
+
+            // Logika baru untuk orientasi
+            if (resources.configuration.orientation == Configuration.ORIENTATION_PORTRAIT) {
+                clearForm() // Opsional: bersihkan form sebelum finish
+                finish() // Tutup aktivitas jika dalam mode potret
+            } else {
+                // Dalam mode lanskap, bersihkan form dan muat ulang data di RecyclerView (jika ada)
+                clearForm()
+                if (rvDataPegawai != null) {
+                    loadDataPegawai()
+                }
             }
-            clearForm()
         }.addOnFailureListener {
-            Toast.makeText(this, this.getString(R.string.gagalpegawai), Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, getString(R.string.gagalpegawai), Toast.LENGTH_SHORT).show()
         }
     }
 
@@ -262,5 +320,8 @@ class tambah_pegawai : AppCompatActivity() {
         etNoHP.setText("")
         etCabang.setText("")
         etNama.requestFocus()
+        // Reset button ke state awal
+        btSimpan.text = getString(R.string.simpan)
+        currentButtonState = ButtonState.SIMPAN
     }
 }

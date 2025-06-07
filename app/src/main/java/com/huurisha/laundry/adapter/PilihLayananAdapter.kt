@@ -35,7 +35,7 @@ class PilihLayananAdapter (private val ListLayanan: ArrayList<ModelLayanan>) : R
         holder.tvid.text = "[$nomor]"
         holder.tvNama.text = item.namaLayanan
         val hargaDouble = item.hargaLayanan?.toDoubleOrNull() ?: 0.0
-        holder.harga.text = "Harga= ${formatRupiah(hargaDouble)}"
+        holder.harga.text = "${appContext.getString(R.string.harga)} =  ${formatRupiah(hargaDouble)}"
 
         holder.cvCard.setOnClickListener {
             val intent = Intent()

@@ -24,7 +24,7 @@
                 android:id="@+id/jdlhubungi"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Hubungi"
+                android:text="@string/hubungi"
                 android:textSize="24sp"
                 android:textColor="#000000"
                 android:layout_marginEnd="10dp"/>
@@ -64,7 +64,12 @@
                 android:layout_marginEnd="20dp"
                 android:backgroundTint="#FF5722"
                 android:textColor="#FFFFFF"
-                android:text="Telepon" />
+                android:text="Telepon"
+                android:drawableLeft="@drawable/phone"
+                android:drawablePadding="8dp"
+                android:paddingStart="12dp"
+                android:paddingEnd="12dp"/>
+
 
             <Button
                 android:id="@+id/btnwa"
@@ -72,6 +77,8 @@
                 android:layout_height="wrap_content"
                 android:backgroundTint="#60C52F"
                 android:textColor="#FFFFFF"
+                android:drawableLeft="@drawable/chat"
+                android:drawablePadding="8dp"
                 android:text="WhatsApp" />
         </LinearLayout>
 

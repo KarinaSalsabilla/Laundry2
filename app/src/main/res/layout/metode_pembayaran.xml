@@ -1,113 +1,159 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="@drawable/bg_dialog"
-    android:id="@+id/pembayaran">
+    android:id="@+id/pembayaran"
+    app:cardCornerRadius="12dp"
+    app:cardElevation="8dp"
+    android:layout_margin="16dp">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:padding="20dp"
-        android:gravity="center"
-        android:elevation="4dp">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="24dp"
+            android:gravity="center">
 
-            <TextView
-                android:id="@+id/tvJudul"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Pembayaran"
-                android:textSize="20sp"
-                android:textStyle="bold"
-                android:layout_marginBottom="8dp" />
+                <TextView
+                    android:id="@+id/tvJudul"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/pembayaran"
+                    android:textSize="22sp"
+                    android:textStyle="bold"
+                    android:textColor="@android:color/black"
+                    android:layout_marginBottom="8dp" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Pilih Metode Pembayaran"
-                android:textSize="16sp"
-                android:layout_marginBottom="16dp" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/pilihmetode"
+                    android:textSize="16sp"
+                    android:textColor="@android:color/darker_gray"
+                    android:layout_marginBottom="20dp" />
 
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:background="#000"
-                android:layout_marginBottom="16dp" />
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="#E0E0E0"
+                    android:layout_marginBottom="20dp" />
 
-            <!-- Tombol-tombol -->
-            <Button
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:layout_marginStart="20dp"
-                android:layout_marginEnd="20dp"
-                android:layout_marginTop="15dp"
-                android:id="@+id/btnBayarNanti"
-                android:backgroundTint="#FF0000"
-                android:text="Bayar Nanti" />
+                <!-- Scrollable button container -->
+                <ScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1">
 
-            <Button
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:layout_marginStart="20dp"
-                android:layout_marginEnd="20dp"
-                android:layout_marginTop="15dp"
-                android:id="@+id/btnTunai"
-                android:backgroundTint="#FFC107"
-                android:text="Tunai" />
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
 
-            <Button
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:layout_marginStart="20dp"
-                android:layout_marginEnd="20dp"
-                android:layout_marginTop="15dp"
-                android:id="@+id/btnQRIS"
-                android:backgroundTint="#FF9800"
-                android:text="QRIS" />
+                                <!-- Bayar Nanti Button -->
+                                <Button
+                                    android:id="@+id/btnBayarNanti"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="56dp"
+                                    android:layout_marginBottom="12dp"
+                                    android:backgroundTint="#FF5722"
+                                    android:text="@string/bayarnanti"
+                                    android:textColor="@android:color/white"
+                                    android:textSize="16sp"
+                                    android:textStyle="bold"
+                                    app:cornerRadius="8dp"
+                                    android:elevation="2dp" />
 
-            <Button
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:layout_marginStart="20dp"
-                android:layout_marginEnd="20dp"
-                android:layout_marginTop="15dp"
-                android:id="@+id/btnDana"
-                android:backgroundTint="#2196F3"
-                android:text="DANA" />
+                                <!-- Tunai Button -->
+                                <Button
+                                    android:id="@+id/btnTunai"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="56dp"
+                                    android:layout_marginBottom="12dp"
+                                    android:backgroundTint="#4CAF50"
+                                    android:text="@string/payment_cash"
+                                    android:textColor="@android:color/white"
+                                    android:textSize="16sp"
+                                    android:textStyle="bold"
+                                    app:cornerRadius="8dp"
+                                    android:elevation="2dp" />
 
-            <Button
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:layout_marginStart="20dp"
-                android:layout_marginEnd="20dp"
-                android:layout_marginTop="15dp"
-                android:id="@+id/btnGopay"
-                android:backgroundTint="#34B138"
-                android:text="GoPay" />
+                                <!-- QRIS Button -->
+                                <Button
+                                    android:id="@+id/btnQRIS"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="56dp"
+                                    android:layout_marginBottom="12dp"
+                                    android:backgroundTint="#FF9800"
+                                    android:text="@string/payment_qris"
+                                    android:textColor="@android:color/white"
+                                    android:textSize="16sp"
+                                    android:textStyle="bold"
+                                    app:cornerRadius="8dp"
+                                    android:elevation="2dp" />
 
-            <Button
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:layout_marginStart="20dp"
-                android:layout_marginEnd="20dp"
-                android:layout_marginTop="15dp"
-                android:id="@+id/btnOvo"
-                android:textColor="@color/white"
-               android:backgroundTint="#673AB7"
-                android:text="OVO" />
+                                <!-- Dana Button -->
+                                <Button
+                                    android:id="@+id/btnDana"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="56dp"
+                                    android:layout_marginBottom="12dp"
+                                    android:backgroundTint="#2196F3"
+                                    android:text="@string/payment_dana"
+                                    android:textColor="@android:color/white"
+                                    android:textSize="16sp"
+                                    android:textStyle="bold"
+                                    app:cornerRadius="8dp"
+                                    android:elevation="2dp" />
 
-            <TextView
-                android:id="@+id/tvBatalDialog"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Batal"
-                android:layout_gravity="end"
-                android:textSize="20sp"
-                android:layout_marginTop="20dp"
-                android:layout_marginEnd="30dp"/>
+                                <!-- GoPay Button -->
+                                <Button
+                                    android:id="@+id/btnGopay"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="56dp"
+                                    android:layout_marginBottom="12dp"
+                                    android:backgroundTint="#00AA13"
+                                    android:text="GoPay"
+                                    android:textColor="@android:color/white"
+                                    android:textSize="16sp"
+                                    android:textStyle="bold"
+                                    app:cornerRadius="8dp"
+                                    android:elevation="2dp" />
+
+                                <!-- OVO Button -->
+                                <Button
+                                    android:id="@+id/btnOvo"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="56dp"
+                                    android:layout_marginBottom="20dp"
+                                    android:backgroundTint="#4B0082"
+                                    android:text="OVO"
+                                    android:textColor="@android:color/white"
+                                    android:textSize="16sp"
+                                    android:textStyle="bold"
+                                    app:cornerRadius="8dp"
+                                    android:elevation="2dp" />
+
+                        </LinearLayout>
+                </ScrollView>
+
+                <!-- Cancel Button -->
+                <TextView
+                    android:id="@+id/tvBatalDialog"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/btn_cancel"
+                    android:layout_gravity="center"
+                    android:textSize="18sp"
+                    android:textColor="#FF5722"
+                    android:textStyle="bold"
+                    android:layout_marginTop="16dp"
+                    android:padding="12dp"
+                    android:background="?android:attr/selectableItemBackground"
+                    android:clickable="true"
+                    android:focusable="true" />
+
         </LinearLayout>
-
-
 
 </androidx.cardview.widget.CardView>

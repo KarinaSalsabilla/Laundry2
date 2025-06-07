@@ -1,5 +1,6 @@
 package com.huurisha.laundry.adapter
 
+import android.app.Dialog
 import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.View
@@ -19,6 +20,12 @@ class DataLaporanAdapter(
     private val onActionCallback: ((ModelLaporan, String) -> Unit)? = null
 ) : RecyclerView.Adapter<DataLaporanAdapter.ViewHolder>() {
 
+    companion object {
+        const val STATUS_UNPAID = "Belum dibayar"
+        const val STATUS_PAID = "Sudah dibayar"
+        const val STATUS_COMPLETED = "Sudah diambil"
+    }
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view = LayoutInflater.from(parent.context)
             .inflate(R.layout.carddatalaporan, parent, false)
@@ -27,16 +34,17 @@ class DataLaporanAdapter(
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val item = listLaporan[position]
+        val context = holder.itemView.context
 
         holder.tvnomor.text = "${position + 1}." // Nomor urut
-        holder.tvNama.text = item.namapelangganlaporan ?: "Tidak diketahui"
-        holder.namalayanan.text = "Layanan: ${item.namalayananlaporan ?: "Tidak diketahui"}"
-        holder.tambahlayanan.text = item.tambahlaporan ?: "Tidak ada layanan tambahan"
+        holder.tvNama.text = item.namapelangganlaporan ?: context.getString(R.string.unknown)
+        holder.namalayanan.text = "${context.getString(R.string.service)}: ${item.namalayananlaporan ?: context.getString(R.string.unknown)}"
+        holder.tambahlayanan.text = item.tambahlaporan ?: context.getString(R.string.no_additional_service)
         holder.harga.text = item.totalbayar ?: "Rp 0"
 
         // Tampilkan tanggal dari "terdafter"
-        val tanggal = item.terdafter ?: "Tidak diketahui"
-        holder.terdaftar.text = "Tanggal: ${formatTanggal(tanggal)}"
+        val tanggal = item.terdafter ?: context.getString(R.string.unknown)
+        holder.terdaftar.text = "${context.getString(R.string.date)}: ${formatTanggal(tanggal)}"
 
         // Set status pembayaran dan button berdasarkan kondisi
         setupStatusAndButton(holder, item, position)
@@ -47,41 +55,56 @@ class DataLaporanAdapter(
     }
 
     private fun setupStatusAndButton(holder: ViewHolder, item: ModelLaporan, position: Int) {
-        when (item.statuspembayaran) {
-            "Belum dibayar" -> {
+        val context = holder.itemView.context
+
+        // Dapatkan string resource untuk perbandingan
+        val statusUnpaidResource = context.getString(R.string.status_unpaid)
+        val statusPaidResource = context.getString(R.string.status_paid)
+        val statusCompletedResource = context.getString(R.string.status_completed)
+
+        // Normalisasi status untuk pengecekan yang lebih robust
+        val currentStatus = item.statuspembayaran?.trim() ?: ""
+
+        when {
+            currentStatus.equals(STATUS_UNPAID, ignoreCase = true) ||
+                    currentStatus.equals(statusUnpaidResource, ignoreCase = true) ||
+                    currentStatus.equals("Pay Later", ignoreCase = true) -> {
                 // Status: Belum dibayar - warna merah
-                holder.statuspembayaram.text = "Belum Dibayar"
+                holder.statuspembayaram.text = statusUnpaidResource
                 holder.statuspembayaram.setTextColor(Color.RED)
+                holder.statuspembayaram.setBackgroundColor(Color.TRANSPARENT)
 
                 // Button: Bayar Sekarang - warna merah
-                holder.buttonstatus.text = "Bayar Sekarang"
+                holder.buttonstatus.text = context.getString(R.string.btn_pay_now)
                 holder.buttonstatus.setBackgroundColor(Color.RED)
                 holder.buttonstatus.setTextColor(Color.WHITE)
                 holder.buttonstatus.visibility = View.VISIBLE
                 holder.buttonstatus.isEnabled = true
 
-                // Hanya untuk status selain "Sudah diambil", sembunyikan TextView tanggal
+                // Sembunyikan TextView tanggal pengambilan
                 holder.tvTanggalPengambilan.visibility = View.GONE
             }
-            "Sudah dibayar" -> {
-                // Status: Lunas - warna hijau
-                holder.statuspembayaram.text = "Sudah Dibayar"
+            currentStatus.equals(STATUS_PAID, ignoreCase = true) ||
+                    currentStatus.equals(statusPaidResource, ignoreCase = true) -> {
+                // Status: Sudah dibayar - warna orange
+                holder.statuspembayaram.text = statusPaidResource
                 holder.statuspembayaram.setTextColor(Color.parseColor("#E65100"))
                 holder.statuspembayaram.setBackgroundColor(Color.parseColor("#FFF9C4"))
 
                 // Button: Ambil Sekarang - warna biru
-                holder.buttonstatus.text = "Ambil Sekarang"
+                holder.buttonstatus.text = context.getString(R.string.btn_pick_up_now)
                 holder.buttonstatus.setBackgroundColor(Color.parseColor("#2196F3")) // Blue
                 holder.buttonstatus.setTextColor(Color.WHITE)
                 holder.buttonstatus.visibility = View.VISIBLE
                 holder.buttonstatus.isEnabled = true
 
-                // Sembunyikan TextView tanggal
+                // Sembunyikan TextView tanggal pengambilan
                 holder.tvTanggalPengambilan.visibility = View.GONE
             }
-            "Sudah diambil" -> {
+            currentStatus.equals(STATUS_COMPLETED, ignoreCase = true) ||
+                    currentStatus.equals(statusCompletedResource, ignoreCase = true) -> {
                 // Status: Sudah diambil - warna hijau
-                holder.statuspembayaram.text = "Selesai"
+                holder.statuspembayaram.text = statusCompletedResource
                 holder.statuspembayaram.setTextColor(Color.parseColor("#4CAF50"))
                 holder.statuspembayaram.setBackgroundColor(Color.parseColor("#E8F5E9"))
 
@@ -90,23 +113,23 @@ class DataLaporanAdapter(
 
                 // Tampilkan tanggal pengambilan di TextView terpisah
                 val tanggalPengambilan = item.tanggalPengambilan ?: getCurrentDateTime()
-                holder.tvTanggalPengambilan.text = "Diambil: ${formatTanggal(tanggalPengambilan)}"
+                holder.tvTanggalPengambilan.text = "${context.getString(R.string.picked_up_on)}: ${formatTanggal(tanggalPengambilan)}"
                 holder.tvTanggalPengambilan.setTextColor(Color.parseColor("#666666")) // Abu-abu
                 holder.tvTanggalPengambilan.visibility = View.VISIBLE
             }
             else -> {
-                // Default untuk status lainnya (Sudah dibayar via metode lain)
-                holder.statuspembayaram.text = "Sudah Dibayar"
+                // Default untuk status lainnya (dianggap sudah dibayar)
+                holder.statuspembayaram.text = statusPaidResource
                 holder.statuspembayaram.setTextColor(Color.parseColor("#4CAF50"))
                 holder.statuspembayaram.setBackgroundColor(Color.parseColor("#E8F5E9"))
 
-                holder.buttonstatus.text = "Ambil Sekarang"
+                holder.buttonstatus.text = context.getString(R.string.btn_pick_up_now)
                 holder.buttonstatus.setBackgroundColor(Color.parseColor("#2196F3")) // Blue
                 holder.buttonstatus.setTextColor(Color.WHITE)
                 holder.buttonstatus.visibility = View.VISIBLE
                 holder.buttonstatus.isEnabled = true
 
-                // Sembunyikan TextView tanggal
+                // Sembunyikan TextView tanggal pengambilan
                 holder.tvTanggalPengambilan.visibility = View.GONE
             }
         }
@@ -115,29 +138,119 @@ class DataLaporanAdapter(
     private fun handleButtonClick(holder: ViewHolder, item: ModelLaporan, position: Int) {
         val context = holder.itemView.context
 
-        when (item.statuspembayaran) {
-            "Belum dibayar" -> {
-                // Ubah status menjadi sudah dibayar
-                updateStatusPembayaran(item, "Sudah dibayar", holder, position)
-                Toast.makeText(context, "Pembayaran berhasil dikonfirmasi", Toast.LENGTH_SHORT).show()
+        // Dapatkan string resource untuk perbandingan
+        val statusUnpaidResource = context.getString(R.string.status_unpaid)
+        val statusPaidResource = context.getString(R.string.status_paid)
+        val statusCompletedResource = context.getString(R.string.status_completed)
 
-                // Callback ke Activity
-                onActionCallback?.invoke(item, "PAYMENT_CONFIRMED")
+        // Normalisasi status untuk pengecekan yang lebih robust
+        val currentStatus = item.statuspembayaran?.trim() ?: ""
+
+        when {
+            currentStatus.equals(STATUS_UNPAID, ignoreCase = true) ||
+                    currentStatus.equals(statusUnpaidResource, ignoreCase = true) ||
+                    currentStatus.equals("Pay Later", ignoreCase = true) -> {
+                // Tampilkan dialog pembayaran
+                showPaymentDialog(context, item, holder, position)
             }
-            "Sudah dibayar" -> {
+            currentStatus.equals(STATUS_PAID, ignoreCase = true) ||
+                    currentStatus.equals(statusPaidResource, ignoreCase = true) -> {
                 // Ubah status menjadi sudah diambil
                 val tanggalPengambilan = getCurrentDateTime()
-                updateStatusPembayaran(item, "Sudah diambil", holder, position, tanggalPengambilan)
-                Toast.makeText(context, "Pesanan berhasil diambil", Toast.LENGTH_SHORT).show()
+                updateStatusPembayaran(item, STATUS_COMPLETED, holder, position, tanggalPengambilan)
+                Toast.makeText(context, context.getString(R.string.toast_order_picked_up_success), Toast.LENGTH_SHORT).show()
 
                 // Callback ke Activity
                 onActionCallback?.invoke(item, "ORDER_PICKED_UP")
             }
-            "Sudah diambil" -> {
+            currentStatus.equals(STATUS_COMPLETED, ignoreCase = true) ||
+                    currentStatus.equals(statusCompletedResource, ignoreCase = true) -> {
                 // Tidak perlu action karena button sudah tersembunyi
-                Toast.makeText(context, "Pesanan sudah diambil", Toast.LENGTH_SHORT).show()
+                Toast.makeText(context, context.getString(R.string.toast_order_already_picked_up), Toast.LENGTH_SHORT).show()
+            }
+            else -> {
+                // Default: dianggap sudah dibayar, bisa diambil
+                val tanggalPengambilan = getCurrentDateTime()
+                updateStatusPembayaran(item, STATUS_COMPLETED, holder, position, tanggalPengambilan)
+                Toast.makeText(context, context.getString(R.string.toast_order_picked_up_success), Toast.LENGTH_SHORT).show()
+
+                // Callback ke Activity
+                onActionCallback?.invoke(item, "ORDER_PICKED_UP")
             }
         }
+    }
+
+    private fun showPaymentDialog(context: android.content.Context, item: ModelLaporan, holder: ViewHolder, position: Int) {
+        val dialog = Dialog(context)
+        dialog.setContentView(R.layout.activity_bayar_nanti)
+        dialog.window?.setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT)
+        dialog.setCancelable(true)
+
+        // Ambil referensi ke button-button dalam dialog
+        val btnTunai = dialog.findViewById<Button>(R.id.btnTunaiLaporan)
+        val btnQRIS = dialog.findViewById<Button>(R.id.btnQRISLaporan)
+        val btnDana = dialog.findViewById<Button>(R.id.btnDanaLaporan)
+        val btnGopay = dialog.findViewById<Button>(R.id.btnGopayLaporan)
+        val btnOvo = dialog.findViewById<Button>(R.id.btnOvoLaporan)
+        val tvBatal = dialog.findViewById<TextView>(R.id.tvBatalDialogLaporan)
+
+        // Set text dengan strings resource
+        btnTunai?.text = context.getString(R.string.payment_cash)
+        btnQRIS?.text = context.getString(R.string.payment_qris)
+        btnDana?.text = context.getString(R.string.payment_dana)
+        btnGopay?.text = context.getString(R.string.payment_gopay)
+        btnOvo?.text = context.getString(R.string.payment_ovo)
+        tvBatal?.text = context.getString(R.string.btn_cancel)
+
+        // Set click listener untuk setiap metode pembayaran
+        btnTunai?.setOnClickListener {
+            processPayment(item, "Tunai", holder, position, dialog)
+        }
+
+        btnQRIS?.setOnClickListener {
+            processPayment(item, "QRIS", holder, position, dialog)
+        }
+
+        btnDana?.setOnClickListener {
+            processPayment(item, "DANA", holder, position, dialog)
+        }
+
+        btnGopay?.setOnClickListener {
+            processPayment(item, "GoPay", holder, position, dialog)
+        }
+
+        btnOvo?.setOnClickListener {
+            processPayment(item, "OVO", holder, position, dialog)
+        }
+
+        // Set click listener untuk tombol batal
+        tvBatal?.setOnClickListener {
+            dialog.dismiss()
+        }
+
+        dialog.show()
+    }
+
+    private fun processPayment(item: ModelLaporan, metodePembayaran: String, holder: ViewHolder, position: Int, dialog: Dialog) {
+        val context = holder.itemView.context
+
+        // Update metode pembayaran
+        item.metodepembayaran = metodePembayaran
+
+        // Ubah status menjadi sudah dibayar
+        updateStatusPembayaran(item, STATUS_PAID, holder, position)
+
+        Toast.makeText(
+            context,
+            context.getString(R.string.toast_payment_success, metodePembayaran),
+            Toast.LENGTH_SHORT
+        ).show()
+
+        // Callback ke Activity
+        onActionCallback?.invoke(item, "PAYMENT_CONFIRMED")
+
+        // Tutup dialog
+        dialog.dismiss()
     }
 
     private fun updateStatusPembayaran(
@@ -148,6 +261,7 @@ class DataLaporanAdapter(
         tanggalPengambilan: String? = null
     ) {
         val database = FirebaseDatabase.getInstance().getReference("laporan")
+        val context = holder.itemView.context
 
         // Pastikan transactionId tidak null
         val transactionId = item.transactionId ?: generateTransactionId()
@@ -157,6 +271,7 @@ class DataLaporanAdapter(
         }
 
         // Update item di list lokal DULU
+        val oldStatus = item.statuspembayaran
         item.statuspembayaran = newStatus
         if (tanggalPengambilan != null) {
             item.tanggalPengambilan = tanggalPengambilan
@@ -190,14 +305,11 @@ class DataLaporanAdapter(
             }
             .addOnFailureListener { exception ->
                 // Jika gagal, kembalikan status ke semula
-                when (newStatus) {
-                    "Sudah dibayar" -> item.statuspembayaran = "Belum dibayar"
-                    "Sudah diambil" -> item.statuspembayaran = "Sudah dibayar"
-                }
+                item.statuspembayaran = oldStatus
 
                 Toast.makeText(
-                    holder.itemView.context,
-                    "Gagal mengupdate status: ${exception.message}",
+                    context,
+                    context.getString(R.string.toast_update_status_failed, exception.message),
                     Toast.LENGTH_SHORT
                 ).show()
 
@@ -250,6 +362,6 @@ class DataLaporanAdapter(
         val harga = itemView.findViewById<TextView>(R.id.hargalaporan)
         val statuspembayaram = itemView.findViewById<TextView>(R.id.tvStatusPembayaran)
         val buttonstatus = itemView.findViewById<Button>(R.id.btnStatusPembayaran)
-        val tvTanggalPengambilan = itemView.findViewById<TextView>(R.id.tvTanggalPengambilan) // TextView baru
+        val tvTanggalPengambilan = itemView.findViewById<TextView>(R.id.tvTanggalPengambilan)
     }
 }

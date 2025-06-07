@@ -31,7 +31,7 @@
                 android:id="@+id/tvDataTambahan"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Data Tambahan"
+                android:text="@string/datatambahan"
                 android:textColor="@color/white"
                 android:textSize="22sp"
                 android:textStyle="bold"
@@ -94,7 +94,7 @@
                     android:layout_gravity="center_horizontal"
                     android:layout_marginTop="8dp"
                     android:layout_marginBottom="24dp"
-                    android:text="Tambahan"
+                    android:text="@string/Tambahan"
                     android:textColor="@color/white"
                     android:textSize="24sp"
                     android:textStyle="bold" />

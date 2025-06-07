@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Laundry</string>
+    <string name="app_name">Huurisha Laundry</string>
     <string name="idpelanggan">Customer ID</string>
     <string name="lihat">View</string>
     <string name="hubungi">Contact</string>
@@ -10,23 +10,23 @@
     <string name="tvnohp">Phone</string>
     <string name="cabang">Branch Name</string>
     <string name="simpan">Save</string>
-    <string name="tvpegawai">Add staff</string>
-    <string name="tvnamapegawai">Name Staff</string>
-    <string name="ttl">Registed</string>
+    <string name="tvpegawai">Add Staff</string>
+    <string name="tvnamapegawai">Staff Name</string>
+    <string name="ttl">Registered</string>
     <string name="kelamin">Gender</string>
     <string name="laki">Male</string>
-    <string name="perempuan">Woman</string>
-    <string name="layanan">Add Services</string>
-    <string name="namalayanan">Name Services</string>
+    <string name="perempuan">Female</string>
+    <string name="layanan">Add Service</string>
+    <string name="namalayanan">Service Name</string>
     <string name="hargaLayanan">Service Price</string>
-    <string name="validasinama">Name Cannot Be Blank</string>
-    <string name="validasialamat">Address Cannot Be Blank</string>
-    <string name="validasiHp">Cellphone Number Must Not Be Empty</string>
-    <string name="validasiCabang">Branches Must Not Be Empty</string>
-    <string name="suksespelanggan">Successfully Add Customer Data</string>
+    <string name="validasinama">Name Cannot Be Empty</string>
+    <string name="validasialamat">Address Cannot Be Empty</string>
+    <string name="validasiHp">Phone Number Cannot Be Empty</string>
+    <string name="validasiCabang">Branch Cannot Be Empty</string>
+    <string name="suksespelanggan">Successfully Added Customer Data</string>
     <string name="gagalpelanggan">Failed to Add Customer Data</string>
-    <string name="validasiHarga">"The price should not be empty "</string>
-    <string name="pegawai_tambah">add staff</string>
+    <string name="validasiHarga">Price Cannot Be Empty</string>
+    <string name="pegawai_tambah">Add Staff</string>
     <string name="halo">Hello</string>
     <string name="estimasi">Today\'s Estimate</string>
     <string name="trans">Transaction</string>
@@ -35,24 +35,24 @@
     <string name="kami">We Are Always Ready to Serve You Anytime</string>
     <string name="akun">Account</string>
     <string name="lay">Service</string>
-    <string name="Tambahan">Addition</string>
+    <string name="Tambahan">Additional</string>
     <string name="pegawai">Staff</string>
-    <string name="cbg">branch</string>
+    <string name="cbg">Branch</string>
     <string name="esti">Estimation</string>
     <string name="tambahcabang">Add Branch</string>
     <string name="alamtcabang">Branch Address</string>
     <string name="jamoper">Operating Hours</string>
     <string name="namabarang">Item Name</string>
     <string name="hargabarang">Item Price</string>
-    <string name="suksescabang">Successfully Add Branch Data</string>
+    <string name="suksescabang">Successfully Added Branch Data</string>
     <string name="gagalcabang">Failed to Add Branch Data</string>
-    <string name="sukseslayanan">Successfully Add Service Data</string>
+    <string name="sukseslayanan">Successfully Added Service Data</string>
     <string name="gagalayanan">Failed to Add Service Data</string>
-    <string name="suksespegawai">Successfully Add Employee Data</string>
-    <string name="gagalpegawai">Failed to Add Employee Data</string>
-    <string name="suksestambahan">Successfully Add Additional Data</string>
-    <string name="gagaltambahan">"Failed to Add Additional Data "</string>
-    <string name="pagi">Good morning, Karina</string>
+    <string name="suksespegawai">Successfully Added Staff Data</string>
+    <string name="gagalpegawai">Failed to Add Staff Data</string>
+    <string name="suksestambahan">Successfully Added Additional Data</string>
+    <string name="gagaltambahan">Failed to Add Additional Data</string>
+    <string name="pagi">Good Morning, Karina</string>
     <string name="siang">Good Afternoon, Karina</string>
     <string name="sore">Good Afternoon, Karina</string>
     <string name="malam">Good Evening, Karina</string>
@@ -60,4 +60,223 @@
     <string name="sunting">Edit</string>
     <string name="Editpelanggan">Edit Customer</string>
     <string name="perbarui">Update</string>
+    <string name="textdepan">We are always ready</string>
+    <string name="textdepan2">to serve you anytime</string>
+    <string name="idcustomer">Customer ID</string>
+    <string name="hapus">Delete</string>
+    <string name="detail">Customer Details</string>
+    <string name="telephone">Call</string>
+    <string name="editpelanggan">Edit Customer</string>
+    <string name="datatambahan">Additional Data</string>
+    <string name="datalayanan">Service Data</string>
+    <string name="Datacabang">Branch Data</string>
+    <string name="Totalbayar">Total Payment</string>
+    <string name="selamat">Welcome</string>
+    <string name="login">Please log in to continue</string>
+    <string name="Datapegawai">Staff Data</string>
+    <string name="editpegawai">Edit Staff</string>
+
+    <string name="unknown">Unknown</string>
+    <string name="service">Service</string>
+    <string name="date">Date</string>
+    <string name="no_additional_service">No additional service</string>
+
+    <string name="status_unpaid">Unpaid</string>
+    <string name="status_paid">Paid</string>
+    <string name="status_completed">Completed</string>
+    <string name="picked_up_on">Picked up on</string>
+
+    <string name="btn_pay_now">Pay Now</string>
+    <string name="btn_pick_up_now">Pick Up Now</string>
+    <string name="btn_cancel">Cancel</string>
+
+    <string name="payment_cash">Cash</string>
+    <string name="payment_qris">QRIS</string>
+    <string name="payment_dana">DANA</string>
+    <string name="payment_gopay">GoPay</string>
+    <string name="payment_ovo">OVO</string>
+
+    <string name="toast_order_picked_up_success">Order successfully picked up</string>
+    <string name="toast_order_already_picked_up">Order already picked up</string>
+    <string name="toast_payment_success">Payment with %1$s has been confirmed</string>
+    <string name="toast_update_status_failed">Failed to update status: %1$s</string>
+    <string name="nama">Name</string>
+    <string name="datapelanggan">Customer Data</string>
+    <string name="pilihpelanggan">Select Customer</string>
+    <string name="layananutama">Main Service</string>
+    <string name="layanantambahan">additional Services</string>
+    <string name="PilihLayanan">Select Service</string>
+    <string name="proses">Process</string>
+
+    <string name="pay_later">Pay Later</string>
+    <string name="payment_confirmed_success">Data successfully saved to report</string>
+    <string name="payment_save_failed">Failed to save data</string>
+
+    <string name="cancel_customer_selection">Cancel Customer Selection</string>
+    <string name="data_saved_successfully">Data saved successfully</string>
+    <string name="additional_services_count">Additional Services</string>
+    <string name="pembayaran">Payment</string>
+    <string name="pilihmetode">Choose Payment Method</string>
+    <string name="bayarnanti">Pay Later</string>
+    <string name="konfirmasidata">Data Confirmation</string>
+    <string name="harga">Price</string>
+    <string name="customer_name">Customer Name</string>
+    <string name="phone_number">Phone Number</string>
+    <string name="service_name">Service Name</string>
+    <string name="price">Price</string>
+    <string name="select_customer">Select Customer</string>
+    <string name="select_service">Select Service</string>
+    <string name="additional_service">Additional Service</string>
+    <string name="process">Process</string>
+    <string name="please_select_customer_and_service">Please select customer and main service first</string>
+    <string name="cancel_select_customer">Cancel selecting customer</string>
+    <string name="cancel_select_service">Cancel selecting service</string>
+    <string name="cancel_add_additional_service">Cancel adding additional service</string>
+    <string name="successfully_added">Successfully added</string>
+
+    <string name="item_deleted">%1$s was successfully deleted</string>
+
+    <string name="pelanggandeleted">Customer Successfully Deleted</string>
+    <string name="gagalpelanggan1">Failed to Delete Customer</string>
+    <string name="dialog_title_hapus">Delete Confirmation</string>
+    <string name="dialog_message_hapus">Are you sure you want to delete customer %1$s?</string>
+    <string name="ya">Yes</string>
+    <string name="tidak">No</string>
+    <string name="tidakbukawa">Cannot Open WhatsApp</string>
+    <string name="tidakinstall">WhatsApp is not installed, opening in the browser.</string>
+    <string name="greeting_message">Hello %1$s, how can we help you?</string>
+    <string name="tidaktelepon">Cannot open the phone application</string>
+
+    <string name="nomor_tidak_tersedia">Phone number not available</string>
+    <string name="hubungi1">Contact %1$s</string>
+    <string name="whatsapp">WhatsApp</string>
+    <string name="hapus_konfirmasi_judul">Delete Confirmation</string>
+    <string name="hapus_konfirmasi_pesan">Are you sure you want to delete staff "%1$s"? This action cannot be undone.</string>
+    <string name="hapus_ya">Yes, Delete</string>
+    <string name="hapus_batal">Cancel</string>
+    <string name="hapus_loading">Deleting staff...</string>
+    <string name="hapus_sukses">Staff "%1$s" has been deleted</string>
+    <string name="hapus_gagal">Failed to delete staff: %1$s</string>
+    <string name="hapus_idtidakvalid">Invalid staff ID</string>
+    <string name="wa_pesan">Hello %1$s, is there anything we can help you with?</string>
+    <string name="telepon_tdktersedia">Phone number not available</string>
+    <string name="buka_telepon_gagal">Cannot open phone app</string>
+    <string name="wa_tidak_ada">WhatsApp is not installed, opening in browser</string>
+    <string name="buka_wa_gagal">Cannot open WhatsApp</string>
+
+    <string name="dialog_delete_title">Delete Confirmation</string>
+    <string name="dialog_delete_message">Are you sure you want to delete branch \"%s\"?\n\nDeleted data cannot be recovered.</string>
+    <string name="dialog_warning_delete_title">⚠️ Delete Confirmation</string>
+    <string name="dialog_detailed_delete_message">Are you sure you want to delete this branch:\n\n📍 Name: %1$s\n🏠 Address: %2$s\n📞 Phone: %3$s\n\n⚠️ WARNING:\nDeleted data cannot be recovered and will be permanently removed from the database.</string>
+    <string name="dialog_deleting_branch">Deleting branch...</string>
+
+    <string name="btn_yes_delete">Yes, Delete</string>
+    <string name="btn_delete_confirm">🗑️ Yes, Delete</string>
+    <string name="btn_cancel_action">❌ Cancel</string>
+
+    <string name="toast_invalid_branch_id">Invalid branch ID</string>
+    <string name="toast_branch_deleted_success">Branch \"%s\" successfully deleted</string>
+    <string name="toast_branch_delete_failed">Failed to delete branch: %s</string>
+    <string name="toast_no_internet_connection">No internet connection</string>
+    <string name="toast_data_not_found_in_database">Data no longer exists in database</string>
+    <string name="toast_database_access_failed">Failed to access database: %s</string>
+    <string name="toast_phone_not_available">Phone number not available</string>
+    <string name="toast_cannot_open_phone_app">Cannot open phone application</string>
+    <string name="toast_whatsapp_not_installed">WhatsApp not installed, opening in browser</string>
+    <string name="toast_cannot_open_whatsapp">Cannot open WhatsApp</string>
+
+    <string name="default_branch_name">Branch</string>
+    <string name="dialog_contact_title">Contact %s</string>
+    <string name="option_phone_call">Phone Call</string>
+    <string name="option_whatsapp">WhatsApp</string>
+
+    <string name="whatsapp_default_message">Hello, I am %s. Permission to contact regarding matters at this branch. Thank you.</string>
+    <string name="tanggal">Date</string>
+    <string name="pesan">Order</string>
+    <string name="rincian">Additional Details</string>
+    <string name="tambahtotal">Additional Subtotal</string>
+    <string name="kirim">Send WhatsApp</string>
+
+    <string name="error_displaying_payment_dialog">Error displaying payment dialog: %s</string>
+    <string name="error_processing_payment">Error processing payment: %s</string>
+    <string name="failed_to_save_data">Failed to save data: %s</string>
+    <string name="error_opening_invoice">Error opening invoice: %s</string>
+    <string name="idpegawai">Staff ID</string>
+    <string name="stafdetail">Staff Details</string>
+    <string name="namapega">Staff Name</string>
+        <!-- Toast Messages -->
+        <string name="bluetooth_permission_required">Bluetooth permission required for printing</string>
+        <string name="bluetooth_not_available">Bluetooth not available</string>
+        <string name="bluetooth_enable_first">Please enable Bluetooth first</string>
+        <string name="customer_phone_not_available">Customer phone number not available</string>
+        <string name="whatsapp_open_browser">WhatsApp not installed, opening in browser</string>
+        <string name="cannot_open_whatsapp">Cannot open WhatsApp</string>
+        <string name="no_paired_printers">No paired printers available</string>
+        <string name="printer_not_connected">Printer not connected</string>
+        <string name="invoice_printed_success">Invoice printed successfully!</string>
+        <string name="print_failed">Print failed: %1$s</string>
+        <string name="connecting_to_printer">Connecting to %1$s...</string>
+
+        <!-- Dialog Messages -->
+        <string name="permission_required_title">Permission Required</string>
+        <string name="bluetooth_permission_explanation">The app requires Bluetooth access to print invoices to Bluetooth printer.</string>
+        <string name="select_printer_title">Select Printer</string>
+
+        <!-- Button Labels -->
+        <string name="ok">OK</string>
+        <string name="cancel">Cancel</string>
+
+        <!-- Default Values -->
+        <string name="default_transaction_id">-O-DEFAULT</string>
+        <string name="default_customer_name">Customer Name</string>
+        <string name="default_employee_name">Default Employee</string>
+        <string name="default_service_name">Default Service</string>
+
+        <!-- Invoice Labels -->
+        <string name="transaction_id_label">Transaction ID:</string>
+        <string name="date_label">Date:</string>
+        <string name="customer_label">Customer:</string>
+        <string name="employee_label">Employee:</string>
+        <string name="service_label">Service:</string>
+        <string name="service_price">Price Service</string>
+
+    <string name="service_price_label">Price Service:</string>
+    <string name="additional_services_label">Additional Services:</string>
+    <string name="additional_subtotal_label">Additional Subtotal:</string>
+    <string name="total_label">*TOTAL:</string>
+    <string name="total_uppercase_label">TOTAL:</string>
+    <string name="price_label">Price:</string>
+
+    <!-- WhatsApp Message -->
+    <string name="whatsapp_header">*KAARYNS LAUNDRY*\n\n</string>
+    <string name="details_separator">--- Details ---\n</string>
+    <string name="whatsapp_footer">Thank you for using our services! 🙏</string>
+
+    <!-- Printer Receipt -->
+    <string name="payment_invoice">IPayment Invoice</string>
+    <string name="service_details_header">SERVICE DETAILS:</string>
+    <string name="thank_you_message">Thank you for your trust</string>
+    <string name="satisfaction_message">Hope you are satisfied with our service</string>
+
+    <!-- Firebase Database Messages (Optional - if you uncomment the save functionality) -->
+    <string name="invoice_saved_success">Invoice successfully saved with ID: %1$s</string>
+    <string name="invoice_save_failed">Failed to save the invoice: %1$s</string>
+    <!-- In strings.xml -->
+
+    <string name="payment_confirmed_simple">Payment for %1$s has been confirmed</string>
+    <string name="payment_confirmed_with_method">Payment for %1$s via %2$s has been confirmed</string>
+    <string name="order_picked_up">Order for %1$s has been picked up at %2$s</string>
+    <string name="no_report_data">No report data available</string>
+    <string name="failed_load_data">Failed to load data: %1$s</string>
+
+    <!-- Log Messages -->
+    <string name="payment_confirmed_log">Payment confirmed for: %1$s</string>
+    <string name="order_picked_up_log">Order picked up: %1$s</string>
+    <string name="loaded_item_log">Loaded item: %1$s, Status: %2$s, ID: %3$s</string>
+    <string name="data_loaded_log">Data loaded: %1$d items</string>
+    <string name="error_sorting_log">Error sorting data: %1$s</string>
+    <string name="database_error_log">Database error: %1$s</string>
+
+    <!-- Activity Title -->
+    <string name="data_laporan_title">Report Data</string>
 </resources>

@@ -1,5 +1,6 @@
 package com.huurisha.laundry.adapter
 
+import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -12,7 +13,11 @@ import com.huurisha.laundry.modeldata.ModelTambahan
 import java.text.NumberFormat
 import java.util.Locale
 
-class DataTambahanAdapter (private val ListTambahan: ArrayList<ModelTambahan>) : RecyclerView.Adapter<DataTambahanAdapter.Viewholder>() {
+class DataTambahanAdapter(
+    private val context: Context, // Tambah ini
+    private val ListTambahan: ArrayList<ModelTambahan>
+) : RecyclerView.Adapter<DataTambahanAdapter.Viewholder>() {
+
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int
@@ -25,10 +30,10 @@ class DataTambahanAdapter (private val ListTambahan: ArrayList<ModelTambahan>) :
     override fun onBindViewHolder(holder: Viewholder, position: Int) {
         val item = ListTambahan[position]
         holder.tvid.text = item.idcabang
-        holder.tvNama.text = "Nama Barang= ${item.namabarang}"
+        holder.tvNama.text = "${context.getString(R.string.namabarang)} = ${item.namabarang}"
         val hargaDouble = item.harga?.toDoubleOrNull() ?: 0.0
-        holder.harga.text = "Harga= ${formatRupiah(hargaDouble)}"
-        holder.cabang.text = "Cabang= ${item.namacabang}"
+        holder.harga.text = "${context.getString(R.string.hargabarang)} = ${formatRupiah(hargaDouble)}"
+        holder.cabang.text = "${context.getString(R.string.cabang)} = ${item.namacabang}"
         holder.cvCard.setOnClickListener{
 
         }
