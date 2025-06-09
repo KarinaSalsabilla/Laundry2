@@ -3,6 +3,7 @@
              android:layout_width="match_parent"
              android:layout_height="wrap_content"
              android:id="@+id/carddatalayanan"
+             app:cardBackgroundColor="@android:color/transparent"
              xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <androidx.cardview.widget.CardView
@@ -12,10 +13,11 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:cardCornerRadius="10dp"
-        app:cardBackgroundColor="#DD87EB"
-        android:layout_marginStart="14dp"
+        app:cardBackgroundColor="#83CAFF"
+        android:layout_marginStart="13dp"
         android:layout_marginEnd="10dp"
-        android:layout_marginTop="15dp">
+        android:layout_marginTop="15dp"
+        android:layout_marginBottom="5dp">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"

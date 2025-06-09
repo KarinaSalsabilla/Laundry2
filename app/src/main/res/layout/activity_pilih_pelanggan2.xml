@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg11"
     tools:context=".pilihPelangganActivity">
 
     <LinearLayout
@@ -13,24 +14,33 @@
         android:orientation="vertical"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
+        android:background="@drawable/bg11"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toBottomOf="parent">
 
         <androidx.appcompat.widget.SearchView
             android:id="@+id/searchView"
+            android:background="#30FFFFFF"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:queryHint="Cari Data Pelanggan"
+            android:textColorHint="#800B0B0B"
+            app:queryHint="@string/caridatapelanggan"
             android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:theme="@style/SearchViewWhiteText"
             android:layout_marginStart="10dp"
             android:layout_marginEnd="10dp"
+            app:searchHintIcon="@null"
+            app:iconifiedByDefault="false"
+            app:queryBackground="@android:color/transparent"
             />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/tvPilih_Pelanggan_Kosong"
-            android:text="Data Pelanggan Kosong"
+            android:text="@string/datapelanggankosong"
+            android:textColor="@color/black"
             android:layout_marginStart="20dp"
             android:visibility="gone" />
 

@@ -5,6 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/white"
     tools:context=".login">
 
     <ImageView
@@ -83,6 +84,7 @@
         android:inputType="phone"
         android:textColor="@color/black"
         android:maxLength="14"
+        android:textColorHint="#92000000"
         android:drawableLeft="@drawable/baseline_phone_24"
         android:drawablePadding="8dp"
         android:background="@drawable/edit_text_background"
@@ -114,6 +116,7 @@
         android:inputType="textPassword"
         android:textColor="@color/black"
         android:maxLength="14"
+        android:textColorHint="#92000000"
         android:drawableLeft="@drawable/baseline_password_24"
         android:drawablePadding="8dp"
         android:background="@drawable/edit_text_background"
@@ -137,6 +140,18 @@
         android:textSize="20sp"
         android:backgroundTint="#000000"/>
 
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:id="@+id/geser"
+        app:layout_constraintTop_toBottomOf="@+id/simpanlogin"
+        android:layout_marginStart="40dp"
+        android:layout_marginEnd="40dp"
+        android:layout_marginTop="5dp"
+        android:text="@string/ttl"
+        android:textSize="20sp"
+        android:backgroundTint="#0B7CFD"
+        android:textColor="@color/white"/>
 
 
 

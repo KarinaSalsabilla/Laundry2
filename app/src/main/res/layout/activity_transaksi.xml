@@ -5,6 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/gradientbg"
     tools:context=".transaksi.Transaksi">
 
     <androidx.cardview.widget.CardView
@@ -18,95 +19,105 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:background="@drawable/gradientbg"
             android:orientation="vertical">
 
             <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
                 android:id="@+id/txt1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
                 android:text="@string/datapelanggan"
-                android:layout_marginTop="20dp"
-                android:layout_marginStart="10dp"
-                android:textStyle="bold"
+                android:textColor="@color/black"
                 android:textSize="25sp"
-                />
+                android:textStyle="bold" />
 
             <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
                 android:id="@+id/txt2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
                 android:text="@string/customer_name"
-                android:layout_marginTop="10dp"
-                android:layout_marginStart="10dp"
-                android:textSize="20sp"/>
+                android:textColor="@color/white"
+                android:textSize="20sp" />
 
             <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
                 android:id="@+id/txt3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
                 android:text="@string/phone_number"
-                android:layout_marginTop="10dp"
-                android:layout_marginStart="10dp"
-                android:textSize="20sp"/>
+                android:textColor="@color/white"
+                android:textSize="20sp" />
 
             <Button
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
                 android:id="@+id/btn1"
-                android:text="@string/pilihpelanggan"
-                android:textStyle="bold"
-                android:layout_marginTop="10dp"
-                android:layout_marginStart="20dp"
-                android:layout_marginEnd="20dp"/>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/layananutama"
-                android:textStyle="bold"
-                android:textSize="25sp"
-                android:layout_marginTop="10dp"
-                android:layout_marginStart="10dp"
-                />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/txt4"
-                android:text="@string/service_name"
-                android:textSize="20dp"
-                android:layout_marginStart="10dp"
-                android:layout_marginTop="10dp"/>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/txt5"
-                android:text="@string/price"
-                android:textSize="20dp"
-                android:layout_marginStart="10dp"
-                android:layout_marginTop="10dp"/>
-
-            <Button
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/PilihLayanan"
-                android:layout_marginTop="10dp"
                 android:layout_marginStart="20dp"
+                android:layout_marginTop="10dp"
                 android:layout_marginEnd="20dp"
-                android:textStyle="bold"
-                android:id="@+id/btn2"
-                />
+                android:backgroundTint="@color/black"
+                android:text="@string/pilihpelanggan"
+                android:textColor="@color/white"
+                android:textStyle="bold" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/layanantambahan"
-                android:textSize="25sp"
-                android:id="@+id/LayananTambahan"
-                android:textStyle="bold"
+                android:layout_marginStart="10dp"
                 android:layout_marginTop="10dp"
-                android:layout_marginStart="10dp"/>
+                android:text="@string/layananutama"
+                android:textColor="@color/black"
+                android:textSize="25sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/txt4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:text="@string/service_name"
+                android:textColor="@color/white"
+                android:textSize="20dp" />
+
+            <TextView
+                android:id="@+id/txt5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:text="@string/price"
+                android:textColor="@color/white"
+                android:textSize="20dp" />
+
+            <Button
+                android:id="@+id/btn2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="20dp"
+                android:backgroundTint="@color/black"
+                android:text="@string/PilihLayanan"
+                android:textColor="@color/white"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/LayananTambahan"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="5dp"
+                android:text="@string/layanantambahan"
+                android:textColor="@color/black"
+                android:textSize="25sp"
+                android:textStyle="bold" />
 
         </LinearLayout>
 
@@ -117,6 +128,7 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_marginTop="5dp"
+        android:background="@drawable/gradientbg"
         android:layout_marginBottom="5dp"
         android:fillViewport="true"
         app:layout_behavior="com.google.android.material.appbar.AppBar"
@@ -149,9 +161,10 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:orientation="horizontal"
             android:padding="16dp"
+            android:background="@drawable/gradientbg"
             android:gravity="center">
 
             <Button
@@ -159,6 +172,8 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:backgroundTint="@color/black"
+                android:textColor="@color/white"
                 android:layout_marginStart="5dp"
                 android:text="@string/Tambahan" />
 
@@ -170,6 +185,8 @@
                 android:id="@+id/btnProses"
                 android:layout_width="0dp"
                 android:layout_marginEnd="5dp"
+                android:textColor="@color/white"
+                android:backgroundTint="@color/black"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="@string/proses" />

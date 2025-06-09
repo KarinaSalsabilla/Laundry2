@@ -1,6 +1,7 @@
 package com.huurisha.laundry
 
 import android.content.SharedPreferences
+import android.graphics.Color
 import android.os.Bundle
 import android.view.View
 import android.widget.TextView
@@ -26,7 +27,7 @@ class pilih_layanan_tambahan : AppCompatActivity() {
     lateinit var rvPilihLayananTambahan: RecyclerView
     lateinit var tambahanList: ArrayList<ModelTambahan>
     lateinit var tvKosong: TextView
-    private lateinit var searchView: androidx.appcompat.widget.SearchView
+    private lateinit var searchView: androidx.appcompat.widget.SearchView // Hanya satu deklarasi
     private lateinit var sharedPref: SharedPreferences
     var idCabang: String = ""
 
@@ -49,6 +50,14 @@ class pilih_layanan_tambahan : AppCompatActivity() {
         tambahanList = arrayListOf()
         getData()
 
+        // Mengatur warna text SearchView
+        val searchTextId = resources.getIdentifier("android:id/search_src_text", null, null)
+        val searchText = searchView.findViewById<TextView>(searchTextId)
+        searchText?.apply {
+            setTextColor(Color.WHITE)
+            setHintTextColor(Color.parseColor("#80FFFFFF"))
+        }
+
         // SearchView listener
         searchView.setOnQueryTextListener(object : androidx.appcompat.widget.SearchView.OnQueryTextListener {
             override fun onQueryTextSubmit(query: String?): Boolean {
@@ -60,6 +69,7 @@ class pilih_layanan_tambahan : AppCompatActivity() {
                 return true
             }
         })
+
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)

@@ -3,6 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:id="@+id/cardpelanggan"
+    app:cardBackgroundColor="@android:color/transparent"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <androidx.cardview.widget.CardView
@@ -13,7 +14,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:cardCornerRadius="10dp"
-        app:cardBackgroundColor="#DD87EB"
+        app:cardBackgroundColor="#83CAFF"
         android:layout_marginStart="13dp"
         android:layout_marginEnd="10dp"
         android:layout_marginTop="15dp">
@@ -114,13 +115,13 @@
             app:layout_constraintTop_toBottomOf="@+id/terdaftar"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/lihatpel"
-            android:layout_marginStart="30dp"
+            android:layout_marginStart="25dp"
             android:textColor="@color/white"
             android:layout_marginEnd="10dp"
             android:layout_marginTop="10dp"
             app:layout_constraintBottom_toBottomOf="parent"
             android:layout_marginBottom="10dp"
-            android:backgroundTint="#B82B2B"/>
+            android:backgroundTint="#3264E2"/>
 
         <Button
             android:layout_width="150dp"
@@ -132,7 +133,7 @@
             app:layout_constraintStart_toEndOf="@+id/hubungipel"
             app:layout_constraintEnd_toEndOf="parent"
             android:layout_marginEnd="30dp"
-            android:backgroundTint="#214BB6"
+            android:backgroundTint="#FFB100"
             android:layout_marginTop="10dp"/>
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>

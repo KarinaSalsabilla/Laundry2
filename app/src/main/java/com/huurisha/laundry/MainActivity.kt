@@ -339,7 +339,19 @@ class MainActivity : AppCompatActivity() {
                 hour in 15..17 -> this.getString(R.string.sore)
                 else -> this.getString(R.string.malam)
             }
-            helloTextView.text = greeting
+
+            // Ambil nama dari SharedPreferences
+            val prefs = getSharedPreferences("UserData", MODE_PRIVATE)
+            val userName = prefs.getString("nama", "") ?: ""
+
+            // Gabungkan greeting dengan nama
+            val fullGreeting = if (userName.isNotEmpty()) {
+                "$greeting, $userName"
+            } else {
+                greeting
+            }
+
+            helloTextView.text = fullGreeting
         } catch (e: Exception) {
             e.printStackTrace()
         }

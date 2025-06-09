@@ -4,13 +4,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg11"
     tools:context=".pilih_layanan_tambahan">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical"
+            android:background="@drawable/bg11"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -20,17 +22,25 @@
                 android:id="@+id/searchView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:queryHint="Cari Data Pelanggan"
+                app:queryHint="@string/caridatalayanantambahan"
                 android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
                 android:layout_marginStart="10dp"
+                android:background="#30FFFFFF"
                 android:layout_marginEnd="10dp"
-                />
+                android:textColor="@color/black"
+                android:textColorHint="#800B0B0B"
+                app:searchHintIcon="@null"
+                app:iconifiedByDefault="false"
+                android:theme="@style/SearchViewWhiteText"
+                app:queryBackground="@android:color/transparent" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textColor="@color/black"
                 android:id="@+id/tvPilih_Pelanggan_Kosong"
-                android:text="Data Pelanggan Kosong"
+                android:text="@string/datalayanantambahankosong"
                 android:layout_marginStart="20dp"
                 android:visibility="gone" />
 

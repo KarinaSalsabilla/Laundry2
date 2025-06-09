@@ -52,10 +52,10 @@
     <string name="gagalpegawai">Gagal Menambahkan Data Pegawai</string>
     <string name="suksestambahan">Sukses Menambahkan Data Tambahan</string>
     <string name="gagaltambahan">Gagal Menambahkan Data Tambahan</string>
-    <string name="pagi">Selamat Pagi, Karina</string>
-    <string name="siang">Selamat Siang, Karina</string>
-    <string name="sore">Selamat Sore, Karina</string>
-    <string name="malam">Selamat Malam, Karina</string>
+    <string name="pagi">Selamat Pagi</string>
+    <string name="siang">Selamat Siang</string>
+    <string name="sore">Selamat Sore</string>
+    <string name="malam">Selamat Malam</string>
     <string name="editPegawai">Edit Pegawai</string>
     <string name="sunting">Sunting</string>
     <string name="Editpelanggan">Edit Pelanggan</string>
@@ -103,7 +103,7 @@
     <string name="datapelanggan">Data pelanggan</string>
     <string name="pilihpelanggan">Pilih Pelanggan</string>
     <string name="layananutama">Layanan Utama</string>
-    <string name="layanantambahan">layanan tambahan</string>
+    <string name="layanantambahan">Layanan tambahan</string>
     <string name="PilihLayanan">Pilih Layanan</string>
     <string name="proses">Proses</string>
 
@@ -184,7 +184,7 @@
     <string name="option_phone_call">Telepon</string>
     <string name="option_whatsapp">WhatsApp</string>
 
-    <string name="whatsapp_default_message">Halo, saya %s. Izin menghubungi terkait keperluan di cabang ini. Terima kasih.</string>
+    <string name="whatsapp_default_message">Halo, saya dari %s. Izin menghubungi terkait keperluan di cabang ini. Terima kasih.</string>
     <string name="tanggal">Tanggal</string>
     <string name="pesan">Pesanan</string>
     <string name="rincian">Rincian Tambahan</string>
@@ -271,8 +271,104 @@
     <string name="error_sorting_log">Kesalahan saat menyortir data: %1$s</string>
     <string name="database_error_log">Kesalahan database: %1$s</string>
 
+    <string name="additional_services_count_single">+%1$d layanan tambahan</string>
+    <string name="additional_services_count_plural">+%1$d layanan tambahan</string>
+    <string name="additional_services_detail">%1$s</string>
     <!-- Activity Title -->
     <string name="data_laporan_title">Data Laporan</string>
+    <string name="Daftarakun">Daftar Akun</string>
+    <string name="isidata">Silakan isi data untuk membuat akun baru.</string>
+    <string name="masuknama">Masukkan Nama Lengkap</string>
+    <string name="masukpas">Masukkan Password</string>
+    <string name="masukhp">Masukkan No Hp</string>
+    <string name="masukcabang">Masukkan Nama Cabang</string>
+    <string name="gabung">Bergabunglah dengan kami dan nikmati pengalaman terbaik</string>
+
+    <string name="login_success">Login berhasil!</string>
+    <string name="login_loading">Logging in...</string>
+    <string name="login_button">Login</string>
+    <string name="phone_empty_error">Nomor HP tidak boleh kosong</string>
+    <string name="password_empty_error">Password tidak boleh kosong</string>
+    <string name="wrong_password">Password salah!</string>
+    <string name="phone_not_registered">Nomor HP tidak terdaftar!</string>
+    <string name="error_message">Error: %s</string>
+
+    <string name="name_empty_error">Nama tidak boleh kosong</string>
+    <string name="password_min_length_error">Password minimal 6 karakter</string>
+    <string name="branch_empty_error">Cabang tidak boleh kosong</string>
+    <string name="phone_already_registered">Nomor HP sudah terdaftar</string>
+    <string name="registration_success">Registrasi berhasil!</string>
+    <string name="registration_failed">Registrasi gagal: %s</string>
+    <string name="error_generating_user_id">Error generating user ID</string>
+
+<!--    <string name="akun">Akun</string>-->
+<!--    <string name="nama">Nama</string>-->
+    <string name="password">Password</string>
+    <string name="nohp">No HP</string>
+<!--    <string name="cabang">Cabang</string>-->
+    <string name="update_account">Perbarui Akun</string>
+    <string name="logout">Keluar</string>
+
+    <!-- Validation Messages -->
+<!--    <string name="name_empty_error">Nama tidak boleh kosong</string>-->
+<!--    <string name="password_empty_error">Password tidak boleh kosong</string>-->
+<!--    <string name="password_min_length_error">Password minimal 6 karakter</string>-->
+    <string name="phone_validation_error">Nomor HP tidak boleh kosong</string>
+<!--    <string name="branch_empty_error">Cabang tidak boleh kosong</string>-->
+
+    <!-- Success Messages -->
+    <string name="update_success">Data berhasil diupdate!</string>
+    <string name="logout_success">Logout berhasil!</string>
+
+    <!-- Error Messages -->
+    <string name="update_failed">Gagal update data: %s</string>
+    <string name="phone_already_used">Nomor HP sudah digunakan oleh akun lain</string>
+    <string name="error_loading_data">Error loading data: %s</string>
+<!--    <string name="error_message">Error: %s</string>-->
+
+    <!-- Login Messages -->
+<!--    <string name="login_success">Login berhasil!</string>-->
+<!--    <string name="login_loading">Sedang login...</string>-->
+<!--    <string name="login_button">Masuk</string>-->
+<!--    <string name="wrong_password">Password salah!</string>-->
+<!--    <string name="phone_not_registered">Nomor HP tidak terdaftar!</string>-->
+
+    <!-- Registration Messages -->
+<!--    <string name="registration_success">Registrasi berhasil!</string>-->
+<!--    <string name="registration_failed">Registrasi gagal: %s</string>-->
+<!--    <string name="phone_already_registered">Nomor HP sudah terdaftar</string>-->
+<!--    <string name="error_generating_user_id">Error generating user ID</string>-->
+
+    <!-- Placeholders -->
+    <string name="enter_name">Masukkan Nama Lengkap</string>
+    <string name="enter_password">Masukkan Password</string>
+    <string name="enter_phone">Masukkan No HP</string>
+    <string name="enter_branch">Masukkan Nama Cabang</string>
+
+    <!-- General -->
+<!--    <string name="cancel">Batal</string>-->
+<!--    <string name="ok">OK</string>-->
+    <string name="loading">Memuat...</string>
+    <string name="save">Simpan</string>
+
+    <!-- Account Screen Specific -->
+    <string name="account_info">Informasi Akun</string>
+    <string name="edit_account">Edit Akun</string>
+    <string name="account_settings">Pengaturan Akun</string>
+    <string name="language_settings">Pengaturan Bahasa</string>
+    <string name="change_language">Ubah Bahasa</string>
+
+    <!-- Confirmation Messages -->
+    <string name="confirm_logout">Apakah Anda yakin ingin keluar?</string>
+    <string name="confirm_update">Apakah Anda yakin ingin memperbarui data?</string>
+    <string name="yes">Ya</string>
+    <string name="no">Tidak</string>
+    <string name="caridatapelanggan">Cari Data Pelanggan</string>
+    <string name="datapelanggankosong">Data Pelanggan Kosong</string>
+    <string name="caridatalayanan">Cari Data Layanan</string>
+    <string name="datalayanankosong">Data Layanan Kosong</string>
+    <string name="caridatalayanantambahan">Cari Data Layanan Tambahan</string>
+    <string name="datalayanantambahankosong">Data Layanan Tambahan Kosong</string>
 
 
 </resources>

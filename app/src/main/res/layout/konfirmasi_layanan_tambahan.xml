@@ -3,11 +3,13 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="5dp"
+    android:layout_marginStart="13dp"
+    android:layout_marginEnd="10dp"
+    android:layout_marginTop="5dp"
     app:cardCornerRadius="12dp"
     app:cardElevation="4dp"
     android:id="@+id/konfirmasidatalayanan"
-    app:cardBackgroundColor="#DD87EB">
+    app:cardBackgroundColor="#83CAFF">
 
     <LinearLayout
         android:layout_width="match_parent"

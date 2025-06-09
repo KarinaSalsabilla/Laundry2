@@ -5,12 +5,14 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/bg11"
     tools:context=".layanan.dataLayanan">
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvDataLayanan"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="@drawable/bg11"
         tools:listitem="@layout/carddatalayanan">
 
     </androidx.recyclerview.widget.RecyclerView>

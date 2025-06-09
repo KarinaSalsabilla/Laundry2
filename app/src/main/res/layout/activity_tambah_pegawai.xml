@@ -16,7 +16,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="30dp"
         android:textStyle="bold"
         android:textColor="@color/white"
         android:textSize="30sp"/>
@@ -28,7 +28,7 @@
         android:text="@string/tvnamapegawai"
         app:layout_constraintTop_toBottomOf="@+id/tvpegawai"
         app:layout_constraintStart_toStartOf="parent"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="35dp"
         android:layout_marginStart="20dp"
         android:textColor="@color/white"
         android:textSize="16sp"/>
@@ -39,6 +39,7 @@
         android:id="@+id/inputnamapegawai"
         android:hint="@string/tvnamapegawai"
         android:maxLength="50"
+        android:textColorHint="#61000000"
         android:digits="ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz "
         android:drawableLeft="@drawable/baseline_person_24"
         android:drawablePadding="8dp"
@@ -48,7 +49,7 @@
         app:layout_constraintStart_toStartOf="parent"
         android:layout_marginStart="20dp"
         android:layout_marginEnd="20dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="15dp"
         android:background="@drawable/edit_text_background"
         />
 
@@ -59,7 +60,7 @@
         android:text="@string/tvalamat"
         app:layout_constraintTop_toBottomOf="@+id/inputnamapegawai"
         app:layout_constraintStart_toStartOf="parent"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="30dp"
         android:layout_marginStart="20dp"
         android:textColor="@color/white"
         android:textSize="16sp"/>
@@ -71,6 +72,7 @@
         android:drawableLeft="@drawable/baseline_place_24"
         android:padding="8dp"
         android:textColor="@color/black"
+        android:textColorHint="#61000000"
         android:hint="@string/tvalamat"
         android:inputType="textPostalAddress"
         android:background="@drawable/edit_text_background"
@@ -78,7 +80,7 @@
         app:layout_constraintStart_toStartOf="parent"
         android:layout_marginStart="20dp"
         android:layout_marginEnd="20dp"
-        android:layout_marginTop="10dp"  />
+        android:layout_marginTop="15dp"  />
 
     <TextView
         android:layout_width="wrap_content"
@@ -87,7 +89,7 @@
         android:text="@string/tvnohp"
         app:layout_constraintTop_toBottomOf="@+id/inputalamatpegawai"
         app:layout_constraintStart_toStartOf="parent"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="30dp"
         android:layout_marginStart="20dp"
         android:textColor="@color/white"
         android:textSize="16sp"/>
@@ -100,6 +102,7 @@
         android:inputType="phone"
         android:textColor="@color/black"
         android:maxLength="14"
+        android:textColorHint="#61000000"
         android:drawableLeft="@drawable/baseline_phone_24"
         android:drawablePadding="8dp"
         android:background="@drawable/edit_text_background"
@@ -107,7 +110,7 @@
         app:layout_constraintStart_toStartOf="parent"
         android:layout_marginStart="20dp"
         android:layout_marginEnd="20dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="15dp"
         />
 
     <TextView
@@ -120,7 +123,7 @@
         app:layout_constraintTop_toBottomOf="@+id/inputnohppegawai"
         android:layout_marginStart="20dp"
         android:textColor="@color/white"
-        android:layout_marginTop="15dp"/>
+        android:layout_marginTop="30dp"/>
 
 
     <EditText
@@ -128,10 +131,11 @@
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_marginStart="20dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="15dp"
         android:textColor="@color/black"
         android:background="@drawable/edit_text_background"
         android:hint="@string/cabang"
+        android:textColorHint="#61000000"
         android:drawableLeft="@drawable/baseline_account_tree_24"
         android:drawablePadding="8dp"
         android:layout_marginEnd="20dp"

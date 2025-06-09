@@ -10,6 +10,7 @@
         <!--    invoice.xml-->
 
         <LinearLayout
+            android:background="@color/white"
             app:layout_constraintTop_toTopOf="parent"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -22,6 +23,7 @@
                 android:text="Kaaryns Laundry"
                 android:textStyle="bold"
                 android:textSize="25sp"
+                android:textColor="@color/black"
                 android:layout_gravity="center"
                 android:layout_marginTop="4dp"
                 android:layout_marginBottom="8dp" />
@@ -30,6 +32,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Colomadu"
+                android:textColor="@color/black"
                 android:layout_gravity="center"
                 android:textSize="18sp"
                 android:layout_marginBottom="20dp"/>
@@ -45,6 +48,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:textColor="@color/black"
                     android:text="ID Transaksi"
                     android:textSize="16sp" />
 
@@ -53,6 +57,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="transaksi"
+                    android:textColor="@color/black"
                     android:textSize="16sp"
                     android:textStyle="bold" />
             </LinearLayout>
@@ -68,6 +73,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="@string/tanggal"
+                    android:textColor="@color/black"
                     android:textSize="16sp" />
 
                 <TextView
@@ -75,6 +81,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="tanggal jam"
+                    android:textColor="@color/black"
                     android:textSize="16sp"
                     android:textStyle="bold" />
             </LinearLayout>
@@ -89,6 +96,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:textColor="@color/black"
                     android:text="@string/pesan"
                     android:textSize="16sp" />
 
@@ -97,6 +105,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Customer Name"
+                    android:textColor="@color/black"
                     android:textSize="16sp"
                     android:textStyle="bold" />
             </LinearLayout>
@@ -112,6 +121,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="@string/pegawai"
+                    android:textColor="@color/black"
                     android:textSize="16sp" />
 
                 <TextView
@@ -119,6 +129,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="nama Karyawan"
+                    android:textColor="@color/black"
                     android:textSize="16sp"
                     android:textStyle="bold" />
             </LinearLayout>
@@ -127,6 +138,7 @@
             <View
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
+                android:textColor="@color/black"
                 android:background="@color/black"
                 android:layout_marginBottom="16dp"/>
 
@@ -135,6 +147,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
+                android:textColor="@color/black"
                 android:layout_marginBottom="16dp">
 
                 <TextView
@@ -142,6 +155,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:textColor="@color/black"
                     android:text="namalayanan"
                     android:textSize="18sp"
                     android:textStyle="bold" />
@@ -151,6 +165,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Rpharga"
+                    android:textColor="@color/black"
                     android:textSize="18sp"
                     android:textStyle="bold" />
             </LinearLayout>
@@ -168,6 +183,7 @@
                 android:layout_height="wrap_content"
                 android:text="@string/rincian"
                 android:textSize="18sp"
+                android:textColor="@color/black"
                 android:textStyle="bold"
                 android:layout_marginBottom="12dp" />
 
@@ -202,6 +218,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:textColor="@color/black"
                     android:text="@string/tambahtotal"
                     android:textSize="16sp" />
 
@@ -211,6 +228,7 @@
                     android:layout_height="wrap_content"
                     android:text="Rp 5.000"
                     android:textSize="16sp"
+                    android:textColor="@color/black"
                     android:textStyle="bold" />
             </LinearLayout>
 
@@ -225,6 +243,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="Total"
+                    android:textColor="@color/black"
                     android:textSize="20sp"
                     android:textStyle="bold" />
 
@@ -243,6 +262,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
                 android:background="@color/black"
+                android:textColor="@color/black"
                 android:layout_marginBottom="20dp"/>
 
             <!-- Tombol Action -->
@@ -257,6 +277,7 @@
                     android:layout_width="0dp"
                     android:layout_height="50dp"
                     android:layout_weight="1"
+                    android:textColor="@color/white"
                     android:text="@string/kirim"
                     android:layout_marginEnd="8dp"
                     android:backgroundTint="@android:color/holo_green_dark" />
@@ -267,6 +288,7 @@
                     android:layout_height="50dp"
                     android:layout_weight="1"
                     android:text="Print"
+                    android:textColor="@color/white"
                     android:layout_marginStart="8dp"
                     android:backgroundTint="@android:color/holo_blue_dark" />
             </LinearLayout>

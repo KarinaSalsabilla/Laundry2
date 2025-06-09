@@ -39,7 +39,10 @@ class DataLaporanAdapter(
         holder.tvnomor.text = "${position + 1}." // Nomor urut
         holder.tvNama.text = item.namapelangganlaporan ?: context.getString(R.string.unknown)
         holder.namalayanan.text = "${context.getString(R.string.service)}: ${item.namalayananlaporan ?: context.getString(R.string.unknown)}"
-        holder.tambahlayanan.text = item.tambahlaporan ?: context.getString(R.string.no_additional_service)
+
+        // Handle additional services dengan format count
+        setupAdditionalServices(holder, item, context)
+
         holder.harga.text = item.totalbayar ?: "Rp 0"
 
         // Tampilkan tanggal dari "terdafter"
@@ -52,6 +55,89 @@ class DataLaporanAdapter(
         holder.buttonstatus.setOnClickListener {
             handleButtonClick(holder, item, position)
         }
+    }
+
+    private fun setupAdditionalServices(holder: ViewHolder, item: ModelLaporan, context: android.content.Context) {
+        val additionalServices = item.tambahlaporan
+
+        if (additionalServices.isNullOrEmpty() || additionalServices.trim().isEmpty()) {
+            // Tidak ada layanan tambahan
+            holder.tambahlayanan.text = context.getString(R.string.no_additional_service)
+            holder.tambahlayanan.setTextColor(Color.GRAY)
+            return
+        }
+
+        // Parse layanan tambahan - asumsi dipisahkan dengan delimiter (comma, semicolon, dll)
+        val servicesList = parseAdditionalServices(additionalServices)
+        val serviceCount = servicesList.size
+
+        when {
+            serviceCount == 0 -> {
+                holder.tambahlayanan.text = context.getString(R.string.no_additional_service)
+                holder.tambahlayanan.setTextColor(Color.GRAY)
+            }
+            serviceCount == 1 -> {
+                // Tampilkan langsung jika hanya 1 layanan
+                holder.tambahlayanan.text = servicesList[0]
+                holder.tambahlayanan.setTextColor(Color.parseColor("#2196F3"))
+            }
+            else -> {
+                // Tampilkan format "+X layanan tambahan"
+                val countText = if (serviceCount == 1) {
+                    context.getString(R.string.additional_services_count_single, serviceCount)
+                } else {
+                    context.getString(R.string.additional_services_count_plural, serviceCount)
+                }
+
+                holder.tambahlayanan.text = countText
+                holder.tambahlayanan.setTextColor(Color.parseColor("#FF9800")) // Orange color
+
+                // Set click listener untuk toggle detail
+                setupAdditionalServicesClickListener(holder, servicesList, countText, context)
+            }
+        }
+    }
+
+    private fun setupAdditionalServicesClickListener(
+        holder: ViewHolder,
+        servicesList: List<String>,
+        countText: String,
+        context: android.content.Context
+    ) {
+        var isExpanded = false
+
+        holder.tambahlayanan.setOnClickListener {
+            if (isExpanded) {
+                // Sembunyikan detail, tampilkan count
+                holder.tambahlayanan.text = countText
+                holder.tambahlayanan.setTextColor(Color.parseColor("#FF9800"))
+                isExpanded = false
+            } else {
+                // Tampilkan detail
+                val detailText = servicesList.joinToString("\n• ", "• ")
+                holder.tambahlayanan.text = detailText
+                holder.tambahlayanan.setTextColor(Color.parseColor("#4CAF50"))
+                isExpanded = true
+            }
+        }
+    }
+
+    private fun parseAdditionalServices(additionalServices: String): List<String> {
+        if (additionalServices.isBlank()) return emptyList()
+
+        // Coba berbagai delimiter yang mungkin digunakan
+        val delimiters = arrayOf(",", ";", "|", "\n", "•", "-")
+
+        for (delimiter in delimiters) {
+            if (additionalServices.contains(delimiter)) {
+                return additionalServices.split(delimiter)
+                    .map { it.trim() }
+                    .filter { it.isNotEmpty() }
+            }
+        }
+
+        // Jika tidak ada delimiter yang cocok, anggap sebagai satu layanan
+        return listOf(additionalServices.trim())
     }
 
     private fun setupStatusAndButton(holder: ViewHolder, item: ModelLaporan, position: Int) {

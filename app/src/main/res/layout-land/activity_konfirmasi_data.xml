@@ -5,6 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/gradientbg"
     tools:context=".konfirmasiData">
 
     <!-- CardView Header -->
@@ -17,6 +18,7 @@
         app:layout_constraintEnd_toEndOf="parent">
 
         <LinearLayout
+            android:background="@drawable/gradientbg"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
@@ -28,6 +30,7 @@
                 android:layout_height="wrap_content"
                 android:text="@string/konfirmasidata"
                 android:textSize="22sp"
+                android:textColor="@color/white"
                 android:textStyle="bold"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="8dp"
@@ -49,6 +52,7 @@
                     android:paddingEnd="8dp">
 
                     <TextView
+                        android:textColor="@color/white"
                         android:id="@+id/nama"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -59,6 +63,7 @@
                         android:layout_marginBottom="8dp" />
 
                     <TextView
+                        android:textColor="@color/white"
                         android:id="@+id/telepon"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -68,6 +73,7 @@
                         android:layout_marginBottom="8dp" />
 
                     <TextView
+                        android:textColor="@color/white"
                         android:id="@+id/namalayanan"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -82,6 +88,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Harga"
+                        android:textColor="@color/white"
                         android:textSize="16sp"
                         android:layout_marginStart="30dp" />
                 </LinearLayout>
@@ -101,6 +108,7 @@
                         android:text="@string/layanantambahan"
                         android:textSize="14sp"
                         android:textStyle="bold"
+                        android:textColor="@color/white"
                         android:layout_marginStart="4dp"
                         android:layout_marginBottom="6dp" />
 
@@ -134,6 +142,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
+            android:background="@drawable/gradientbg"
             android:padding="12dp">
 
             <LinearLayout
@@ -147,6 +156,8 @@
                     android:layout_height="wrap_content"
                     android:text="@string/Totalbayar"
                     android:textSize="18sp"
+                    android:textColor="@color/white"
+                    android:layout_weight="0.50"
                     android:textStyle="bold" />
 
                 <TextView
@@ -154,6 +165,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Rp."
+                    android:textColor="@color/white"
+                    android:layout_marginEnd="60dp"
                     android:textSize="24sp"
                     android:textStyle="bold" />
             </LinearLayout>
@@ -168,6 +181,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/btn_cancel"
+                    android:textColor="@color/white"
+                    android:backgroundTint="@color/black"
                     android:layout_marginEnd="8dp" />
 
                 <Button
@@ -175,6 +190,8 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:text="@string/pembayaran"
+                    android:textColor="@color/white"
+                    android:backgroundTint="@color/black"
                     android:layout_weight="1" />
             </LinearLayout>
         </LinearLayout>
