@@ -45,3 +45,20 @@
 <img src="https://github.com/KarinaSalsabilla/Laundry2/blob/master/tambahan.jpeg?raw=true" alt="Potrait" widht="400"> 
 <img src="https://github.com/KarinaSalsabilla/Laundry2/blob/master/datatambahan.jpeg?raw=true" alt="Potrait" widht="400"> 
 
+<h3>Tampilan Pegawai</h3>
+<img src="https://github.com/KarinaSalsabilla/Laundry2/blob/master/datapelanggan.jpeg?raw=true" alt="Potrait" widht="400">
+<img src="https://github.com/KarinaSalsabilla/Laundry2/blob/master/editpelanggan.jpeg?raw=true" alt="Potrait" widht="400"> 
+<img src="https://github.com/KarinaSalsabilla/Laundry2/blob/master/detailpelanggan.jpeg?raw=true" alt="Potrait" widht="400">
+<img src="https://github.com/KarinaSalsabilla/Laundry2/blob/master/konfirmasihapus.jpeg?raw=true" alt="Potrait" widht="400"> 
+<img src="https://github.com/KarinaSalsabilla/Laundry2/blob/master/hubungi.jpeg?raw=true" alt="Potrait" widht="400"> 
+<img src="https://github.com/KarinaSalsabilla/Laundry2/blob/master/wapelanggan.jpeg?raw=true" alt="Potrait" widht="400"> 
+<img src="https://github.com/KarinaSalsabilla/Laundry2/blob/master/tambahpelanggan.jpeg?raw=true" alt="Potrait" widht="400"> 
+
+<h3>Tampilan Cabang</h3>
+<img src="https://github.com/KarinaSalsabilla/Laundry2/blob/master/datapelanggan.jpeg?raw=true" alt="Potrait" widht="400">
+<img src="https://github.com/KarinaSalsabilla/Laundry2/blob/master/editpelanggan.jpeg?raw=true" alt="Potrait" widht="400"> 
+<img src="https://github.com/KarinaSalsabilla/Laundry2/blob/master/detailpelanggan.jpeg?raw=true" alt="Potrait" widht="400">
+<img src="https://github.com/KarinaSalsabilla/Laundry2/blob/master/konfirmasihapus.jpeg?raw=true" alt="Potrait" widht="400"> 
+
+
+
