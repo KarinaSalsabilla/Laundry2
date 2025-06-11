@@ -31,6 +31,17 @@
 <img src="https://github.com/KarinaSalsabilla/Laundry2/blob/master/tambahpelanggan.jpeg?raw=true" alt="Potrait" widht="400"> 
 
 <h3>Tampilan Laporan</h3>
-<img src="https://github.com/KarinaSalsabilla/Laundry2/blob/master/tambahpelanggan.jpeg?raw=true" alt="Potrait" widht="400"> 
-<img src="https://github.com/KarinaSalsabilla/Laundry2/blob/master/tambahpelanggan.jpeg?raw=true" alt="Potrait" widht="400"> 
+<img src="https://github.com/KarinaSalsabilla/Laundry2/blob/master/laporan.jpeg?raw=true" alt="Potrait" widht="400"> 
+<img src="https://github.com/KarinaSalsabilla/Laundry2/blob/master/laporanpembayaran.jpeg?raw=true" alt="Potrait" widht="400"> 
+
+<h3>Tampilan Akun</h3>
+<img src="https://github.com/KarinaSalsabilla/Laundry2/blob/master/laporanpembayaran.jpeg?raw=true" alt="Potrait" widht="400"> 
+
+<h3>Tampilan Layanan</h3>
+<img src="https://github.com/KarinaSalsabilla/Laundry2/blob/master/laporanpembayaran.jpeg?raw=true" alt="Potrait" widht="400"> 
+<img src="https://github.com/KarinaSalsabilla/Laundry2/blob/master/laporanpembayaran.jpeg?raw=true" alt="Potrait" widht="400"> 
+
+<h3>Tampilan Tambahan</h3>
+<img src="https://github.com/KarinaSalsabilla/Laundry2/blob/master/laporanpembayaran.jpeg?raw=true" alt="Potrait" widht="400"> 
+<img src="https://github.com/KarinaSalsabilla/Laundry2/blob/master/laporanpembayaran.jpeg?raw=true" alt="Potrait" widht="400"> 
 
