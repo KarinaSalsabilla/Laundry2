@@ -15,12 +15,12 @@ Berikut ini adalah dokumentasi visual dari berbagai tampilan antarmuka aplikasi 
 ---
 
 ## 🏠 Layout Utama
-<img src="https://github.com/KarinaSalsabilla/Laundry2/blob/master/layoututama.jpeg?raw=true" alt="Layout Utama" width="600"/>
+<img src="https://github.com/KarinaSalsabilla/Laundry2/blob/master/layoututama.jpeg?raw=true" alt="Layout Utama" width="300"/>
 
 ---
 
 ## 💰 Transaksi
-<img src="https://github.com/KarinaSalsabilla/Laundry2/blob/master/transaksi.jpeg?raw=true" alt="Transaksi" width="600"/>
+<img src="https://github.com/KarinaSalsabilla/Laundry2/blob/master/transaksi.jpeg?raw=true" alt="Transaksi" width="300"/>
 
 ### 📋 Pilih Data
 <table>
