@@ -19,5 +19,5 @@
 <h3>Tampilan Printer</h3>
 <img src="https://github.com/KarinaSalsabilla/Laundry2/blob/master/printerkaaryns.jpeg?raw=true" alt="Potrait" widht="400">
 <img src="https://github.com/KarinaSalsabilla/Laundry2/blob/master/kirimwaprinter.jpeg?raw=true" alt="Potrait" widht="400">
-<img src="https://github.com/KarinaSalsabilla/Laundry2/blob/master/daftar.jpeg?raw=true" alt="Potrait" widht="400">
+<img src="https://github.com/KarinaSalsabilla/Laundry2/blob/master/printer.jpeg?raw=true" alt="Potrait" widht="400">
 
