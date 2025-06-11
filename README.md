@@ -29,3 +29,8 @@
 <img src="https://github.com/KarinaSalsabilla/Laundry2/blob/master/hubungi.jpeg?raw=true" alt="Potrait" widht="400"> 
 <img src="https://github.com/KarinaSalsabilla/Laundry2/blob/master/wapelanggan.jpeg?raw=true" alt="Potrait" widht="400"> 
 <img src="https://github.com/KarinaSalsabilla/Laundry2/blob/master/tambahpelanggan.jpeg?raw=true" alt="Potrait" widht="400"> 
+
+<h3>Tampilan Laporan</h3>
+<img src="https://github.com/KarinaSalsabilla/Laundry2/blob/master/tambahpelanggan.jpeg?raw=true" alt="Potrait" widht="400"> 
+<img src="https://github.com/KarinaSalsabilla/Laundry2/blob/master/tambahpelanggan.jpeg?raw=true" alt="Potrait" widht="400"> 
+
