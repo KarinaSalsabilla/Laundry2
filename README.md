@@ -21,3 +21,11 @@
 <img src="https://github.com/KarinaSalsabilla/Laundry2/blob/master/kirimwaprinter.jpeg?raw=true" alt="Potrait" widht="400">
 <img src="https://github.com/KarinaSalsabilla/Laundry2/blob/master/printer.jpeg?raw=true" alt="Potrait" widht="400">
 
+<h3>Tampilan Pelanggan</h3>
+<img src="https://github.com/KarinaSalsabilla/Laundry2/blob/master/printerkaaryns.jpeg?raw=true" alt="Potrait" widht="400"> //data
+<img src="https://github.com/KarinaSalsabilla/Laundry2/blob/master/kirimwaprinter.jpeg?raw=true" alt="Potrait" widht="400"> //edit
+<img src="https://github.com/KarinaSalsabilla/Laundry2/blob/master/printer.jpeg?raw=true" alt="Potrait" widht="400"> //lihat
+<img src="https://github.com/KarinaSalsabilla/Laundry2/blob/master/printer.jpeg?raw=true" alt="Potrait" widht="400"> //hapus
+<img src="https://github.com/KarinaSalsabilla/Laundry2/blob/master/printer.jpeg?raw=true" alt="Potrait" widht="400"> //hubungi
+<img src="https://github.com/KarinaSalsabilla/Laundry2/blob/master/printer.jpeg?raw=true" alt="Potrait" widht="400"> //wa
+<img src="https://github.com/KarinaSalsabilla/Laundry2/blob/master/printer.jpeg?raw=true" alt="Potrait" widht="400"> //tambah
